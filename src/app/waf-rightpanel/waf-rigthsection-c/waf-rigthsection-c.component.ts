@@ -19,6 +19,16 @@ const StyleProperty_data: PStyle[] = [
     propertyCss: "text-align",
     value: "left"
   },
+    {
+    name: "Font family",
+    propertyCss: "font-family",
+    value: "Arial"
+  },
+  {
+    name: "Size",
+    propertyCss: "font-size",
+    value: "medium"
+  },
   {
     name: "Decoration",
     propertyCss: "text-decoration",
@@ -28,16 +38,6 @@ const StyleProperty_data: PStyle[] = [
     name: "Transform",
     propertyCss: "text-transform",
     value: "none"
-  },
-  {
-    name: "Font family",
-    propertyCss: "font-family",
-    value: "Arial"
-  },
-  {
-    name: "Size",
-    propertyCss: "font-size",
-    value: "medium"
   },
   {
     name: "Style",

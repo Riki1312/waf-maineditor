@@ -60,4 +60,8 @@ export class WafRigthsectionCComponent implements OnInit {
   ngOnInit() {
   }
 
+  IsColorProperty(item: PStyle) {
+    return (item.propertyCss === "color");
+  }
+
 }

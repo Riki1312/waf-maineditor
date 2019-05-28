@@ -11,6 +11,10 @@
 
       <mat-form-field *ngFor="let item of properties" class="InputText">
         <input matInput [placeholder]="item.name" [(ngModel)]="item.value" spellcheck="false">
+
+        <div *ngIf="IsColorProperty(item)" matSuffix>
+          <div [ngStyle]="{'background-color': item.value}" class="ColorIndicator"></div>
+        </div>
       </mat-form-field>
 
     </div>

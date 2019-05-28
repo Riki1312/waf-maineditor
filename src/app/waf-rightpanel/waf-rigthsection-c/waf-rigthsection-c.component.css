@@ -1,6 +1,7 @@
 .mat-expansion-panel {
   box-shadow: none !important;
   background: transparent !important;
+  width: 100% !important;
 }
 
 .mat-expansion-panel-header-title {

@@ -9,15 +9,9 @@
 
     <div class="Main">
 
-      <div class="Property">
-        <div class="Color"></div>
-        <mat-form-field class="InputText">
-          <input matInput placeholder="Color" value="#000000" spellcheck="false">
-        </mat-form-field>
-        <mat-form-field class="InputText">
-          <input matInput placeholder="Opacity" value="100%" spellcheck="false">
-        </mat-form-field>
-      </div>
+      <mat-form-field *ngFor="let item of properties" class="InputText">
+        <input matInput [placeholder]="item.name" [(ngModel)]="item.value" spellcheck="false">
+      </mat-form-field>
 
     </div>
 

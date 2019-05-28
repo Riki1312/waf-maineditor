@@ -1,6 +1,7 @@
 .mat-expansion-panel {
   box-shadow: none !important;
   background: transparent !important;
+  width: 100% !important;
 }
 
 .mat-expansion-panel-header-title {
@@ -11,25 +12,11 @@
 
 .Main {
   display: flex;
-  flex-direction: column;
-}
-
-.Property {
-  display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .InputText {
-  width: 110px;
-}
-
-.Color {
-  width: 30px;
-  height: 30px;
-  border-radius: 15px;
-  margin-top: 5px;
-
-  cursor: pointer;
-  background-color: black;
+  width: 120px;
 }

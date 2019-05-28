@@ -8,7 +8,44 @@
 
   </div>
 
-  <button mat-icon-button>
+  <button mat-icon-button [matMenuTriggerFor]="mainMenu">
     <img src="assets/Icons/Light/waflogo-white.svg" matTooltip="Main menu"/>
   </button>
 </div>
+
+<!-- Main menu -->
+
+<mat-menu #mainMenu="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="fileMenu">File</button>
+  <button mat-menu-item [matMenuTriggerFor]="editMenu">Edit</button>
+  <button mat-menu-item [matMenuTriggerFor]="viewMenu">View</button>
+  <button mat-menu-item [matMenuTriggerFor]="settingsMenu">Settings</button>
+</mat-menu>
+
+<mat-menu #fileMenu="matMenu">
+  <button mat-menu-item>Save</button>
+  <button mat-menu-item>New</button>
+  <button mat-menu-item [matMenuTriggerFor]="importMenu">Import</button>
+  <button mat-menu-item>Download</button>
+  <button mat-menu-item>Deploy</button>
+</mat-menu>
+
+<mat-menu #editMenu="matMenu">
+  <button mat-menu-item>Undo</button>
+  <button mat-menu-item>Redo</button>
+</mat-menu>
+
+<mat-menu #viewMenu="matMenu">
+  <button mat-menu-item>00</button>
+  <button mat-menu-item>01</button>
+  <button mat-menu-item>02</button>
+</mat-menu>
+
+<mat-menu #settingsMenu="matMenu">
+  <button mat-menu-item>Editor</button>
+</mat-menu>
+
+<mat-menu #importMenu="matMenu">
+  <button mat-menu-item>Waf file</button>
+  <button mat-menu-item>Custom code</button>
+</mat-menu>

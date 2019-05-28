@@ -35,7 +35,7 @@ export class WafMainService {
     {
       code: 2,
       name: "Div",
-      panels: [ StylePanelSection.alignment, StylePanelSection.background, StylePanelSection.border ]
+      panels: [ /*StylePanelSection.alignment,*/ StylePanelSection.background, StylePanelSection.border ]
     },
     {
       code: 3,

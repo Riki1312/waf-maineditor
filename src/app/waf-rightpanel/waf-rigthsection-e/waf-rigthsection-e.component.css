@@ -14,10 +14,10 @@ p {
 .Main {
   display: flex;
   flex-direction: column;
-  
-  /*padding: 15px;*/
 }
 
+
+/*
 .MainBar {
   display: flex;
   flex-direction: row;
@@ -43,3 +43,4 @@ p {
 
   background-color: var(--color-black0);
 }
+*/

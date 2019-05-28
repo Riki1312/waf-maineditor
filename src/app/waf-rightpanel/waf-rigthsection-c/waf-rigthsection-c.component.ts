@@ -23,6 +23,26 @@ const StyleProperty_data: PStyle[] = [
     name: "Decoration",
     propertyCss: "text-decoration",
     value: "none"
+  },
+  {
+    name: "Transform",
+    propertyCss: "text-transform",
+    value: "none"
+  },
+  {
+    name: "Font family",
+    propertyCss: "font-family",
+    value: "Arial"
+  },
+  {
+    name: "Size",
+    propertyCss: "font-size",
+    value: "medium"
+  },
+  {
+    name: "Style",
+    propertyCss: "font-style",
+    value: "normal"
   }
 ];
 

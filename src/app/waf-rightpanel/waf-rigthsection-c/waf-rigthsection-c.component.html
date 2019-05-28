@@ -9,24 +9,12 @@
 
     <div class="Main">
 
-      <div class="Property">
-        <mat-form-field class="InputText">
-          <input matInput placeholder="Color" value="#000" spellcheck="false">
-        </mat-form-field>
-        <mat-form-field class="InputText">
-          <input matInput placeholder="Align" value="left" spellcheck="false">
-        </mat-form-field>
-      </div>
-      <div class="Property">
-        <mat-form-field class="InputText">
-          <input matInput placeholder="Color" value="#000" spellcheck="false">
-        </mat-form-field>
-        <mat-form-field class="InputText">
-          <input matInput placeholder="Align" value="left" spellcheck="false">
-        </mat-form-field>
-      </div>
+      <mat-form-field *ngFor="let item of properties" class="InputText">
+        <input matInput [placeholder]="item.name" [(ngModel)]="item.value" spellcheck="false">
+      </mat-form-field>
 
     </div>
+    <!--{{ properties[0].value }}-->
 
   </mat-expansion-panel>
 

@@ -11,15 +11,11 @@
 
 .Main {
   display: flex;
-  flex-direction: column;
-}
-
-.Property {
-  display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .InputText {
-  width: 130px;
+  width: 120px;
 }

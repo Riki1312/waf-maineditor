@@ -1,0 +1,14 @@
+<div class="Main">
+  <div class="Menu">
+
+    <button (click)="SetPanelindex(0)" mat-button [class.Menu_selected]="IsSelected(0)" class="Menu_link">Tools</button>
+    <button (click)="SetPanelindex(1)" mat-button [class.Menu_selected]="IsSelected(1)" class="Menu_link">Elements</button>
+    <button (click)="SetPanelindex(2)" mat-button [class.Menu_selected]="IsSelected(2)" class="Menu_link">Conponents</button>
+    <button (click)="SetPanelindex(3)" mat-button [class.Menu_selected]="IsSelected(3)" class="Menu_link">Extensions</button>
+
+  </div>
+
+  <button mat-icon-button>
+    <img src="assets/Icons/Light/waflogo-white.svg" matTooltip="Main menu"/>
+  </button>
+</div>

@@ -1,0 +1,29 @@
+.Main {
+  height: 100%;
+  background-color: var(--color-gray0);
+}
+
+.Menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 100%;
+  margin-left: var(--margin-barpanel0);
+  margin-right: var(--margin-barpanel0);
+}
+
+.Menu_link {
+  font-size: 13px;
+  font-weight: 500;
+
+  /*min-width: 100px;*/
+
+  color: var(--color-white1);
+}
+
+.Menu_selected {
+  font-weight: bold !important;
+  color: var(--color-white0) !important;
+}

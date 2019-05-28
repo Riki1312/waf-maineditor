@@ -1,0 +1,38 @@
+.Main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 100%;
+  background-color: var(--color-gray0);
+}
+
+.Main>button {
+  align-self: center;
+  margin-bottom: var(--margin-barpanel2);
+}
+
+.Menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  transform: rotate(90deg);
+}
+
+.Menu_link {
+  font-size: 13px;
+  font-weight: 500;
+
+  color: var(--color-white1);
+
+  min-width: 100px;
+  margin-left: var(--margin-barpanel1);
+
+  transform: rotate(180deg);
+}
+
+.Menu_selected {
+  font-weight: bold !important;
+  color: var(--color-white0) !important;
+}

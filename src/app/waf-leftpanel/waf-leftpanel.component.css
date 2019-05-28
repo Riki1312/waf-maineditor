@@ -1,0 +1,30 @@
+/*TNode*/
+.example-tree-invisible {
+  display: none;
+}
+
+.example-tree ul,
+.example-tree li {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+/**/
+
+mat-tree {
+  background-color: transparent !important;
+}
+mat-tree-node>li {
+  color: var(--color-white1) !important;
+}
+mat-icon {
+  opacity: 0.5 !important;
+  transform: scale(0.8);
+}
+
+.Main {
+  height: 100%;
+
+  background-color: var(--color-gray0);
+  border-left: var(--border-barpanel);
+}

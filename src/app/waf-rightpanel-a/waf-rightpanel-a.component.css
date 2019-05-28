@@ -1,0 +1,6 @@
+.Main {
+  height: 100%;
+
+  background-color: var(--color-gray0);
+  border-bottom: var(--border-barpanel);
+}

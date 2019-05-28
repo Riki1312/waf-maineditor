@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700');
+
+:root {
+  /*COLORS*/
+  --color-gray0: #232323;
+  --color-gray1: #303030;
+  --color-gray2: #808080;
+  --color-white0: white;
+  --color-white1: #B0B0B0;
+  --color-black0: #151515;
+  --color-blu0: #2070A9;
+
+  /*FONTS*/
+  --font-roboto: 'Roboto', sans-serif;
+
+  /*SPACE*/
+  --margin-barpanel0: 30px;
+  --margin-barpanel1: 15px;
+  --margin-barpanel2: 5px;
+
+  /*OTHER*/
+  --border-barpanel: solid 3px var(--color-gray1);
+}

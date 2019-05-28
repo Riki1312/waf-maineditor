@@ -1,0 +1,25 @@
+.mat-expansion-panel {
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.mat-expansion-panel-header-title {
+  color: var(--color-white1) !important;
+}
+
+/**/
+
+.Main {
+  display: flex;
+  flex-direction: column;
+}
+
+.Property {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.InputText {
+  width: 130px;
+}

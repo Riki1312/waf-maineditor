@@ -7,40 +7,29 @@
   color: var(--color-white1) !important;
 }
 
-p {
-  margin: 0px;
-}
+/**/
 
 .Main {
   display: flex;
   flex-direction: column;
 }
 
-
-/*
-.MainBar {
+.Property {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
 }
 
-.MainBar>.Title {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 13px;
-  text-transform: uppercase;
-
-  color: var(--color-white1);
+.InputText {
+  width: 110px;
 }
 
-.MainBar>.Bar {
-  width: 90%;
-  height: 2px;
-  margin-left: 10px;
+.Color {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin-top: 5px;
 
-  background-color: var(--color-black0);
+  cursor: pointer;
+  background-color: black;
 }
-*/

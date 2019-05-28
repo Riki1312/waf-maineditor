@@ -1,20 +1,5 @@
 <div class="Main">
 
-  <!--
-  <div class="MainBar">
-    <button mat-icon-button>
-      <img src="assets/Icons/Light/stylepanel_triangle.svg" matTooltip="Main menu"/>
-    </button>
-    <p class="Title">Backgrounds</p>
-    <div class="Bar"></div>
-    <button mat-icon-button>
-      <img src="assets/Icons/Light/stylepanel_class.svg" matTooltip="Main menu"/>
-    </button>
-  </div>
-  <div class="MainContainer">
-  </div>
-  -->
-
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -22,7 +7,19 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
 
-    <p>This is the primary content of the panel.</p>
+    <div class="Main">
+
+      <div class="Property">
+        <div class="Color"></div>
+        <mat-form-field class="InputText">
+          <input matInput placeholder="Color" value="#000000" spellcheck="false">
+        </mat-form-field>
+        <mat-form-field class="InputText">
+          <input matInput placeholder="Opacity" value="100%" spellcheck="false">
+        </mat-form-field>
+      </div>
+
+    </div>
 
   </mat-expansion-panel>
 

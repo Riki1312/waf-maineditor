@@ -18,7 +18,7 @@ export class WafSettingsEditorComponent implements OnInit {
   ngOnInit() {
   }
 
-  OptionsToggle() {
+  OptionsToggle(option: WafSetting) {
 
   }
 

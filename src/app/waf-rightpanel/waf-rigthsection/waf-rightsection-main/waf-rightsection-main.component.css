@@ -1,0 +1,8 @@
+.Main {
+  padding: var(--margin-barpanel1);
+  margin-top: var(--margin-barpanel1);
+}
+
+.example-chip-list {
+  width: 100%;
+}

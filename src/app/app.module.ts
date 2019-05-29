@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -18,7 +18,8 @@ import {
   MatExpansionModule,
   MatMenuModule,
   MatAutocompleteModule,
-  MatListModule
+  MatListModule,
+  MatChipsModule
 } from '@angular/material';
 
 import { MatDialogModule } from '@angular/material/dialog';
@@ -64,7 +65,9 @@ import { WafRightsectionMainAComponent } from './waf-rightpanel/waf-rigthsection
     MatMenuModule,
     MatAutocompleteModule,
     MatDialogModule,
-    MatListModule
+    MatListModule,
+    MatChipsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,

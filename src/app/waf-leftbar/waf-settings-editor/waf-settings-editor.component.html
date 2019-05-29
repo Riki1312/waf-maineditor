@@ -1,13 +1,15 @@
 <h2 mat-dialog-title>Editor settings</h2>
 
 <mat-dialog-content>
-  <h3>Develop across all platforms</h3>
-  
-    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-    <mat-button-toggle value="bold">Bold</mat-button-toggle>
-    <mat-button-toggle value="italic">Italic</mat-button-toggle>
-    <mat-button-toggle value="underline">Underline</mat-button-toggle>
-  </mat-button-toggle-group>
+  <mat-selection-list #optionsList class="Options">
+    <mat-list-option *ngFor="let item of options">
+      {{ item }}
+    </mat-list-option>
+  </mat-selection-list>
+
+  <p>
+    Options selected: {{ optionsList.selectedOptions.selected.length }}
+  </p>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">

@@ -18,7 +18,7 @@ import {
   MatExpansionModule,
   MatMenuModule,
   MatAutocompleteModule,
-  MatButtonToggleModule
+  MatListModule
 } from '@angular/material';
 
 import { MatDialogModule } from '@angular/material/dialog';
@@ -60,7 +60,7 @@ import { WafSettingsEditorComponent } from './waf-leftbar/waf-settings-editor/wa
     MatMenuModule,
     MatAutocompleteModule,
     MatDialogModule,
-    MatButtonToggleModule
+    MatListModule
   ],
   declarations: [
     AppComponent,

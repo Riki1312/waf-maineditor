@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WafSettingsEditorComponent implements OnInit {
 
+  options: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+
   constructor() { }
 
   ngOnInit() {

@@ -26,4 +26,10 @@ export class WafSettingsService {
 
   constructor() { }
 
+  SetSettingByCode(scode: number, svalue: any) {
+    this.EditorSettings.forEach(x => { if (x.code === scode) x.value = svalue; });
+
+    console.log(this.EditorSettings);
+  }
+
 }

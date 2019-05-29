@@ -1,18 +1,18 @@
 <h2 mat-dialog-title>Editor settings</h2>
 
 <mat-dialog-content>
-  <mat-selection-list #optionsList class="Options">
-    <mat-list-option *ngFor="let item of options" [selected]="item.value" (toggle)="OptionsToggle(item)">
+  <mat-selection-list [(ngModel)]="selected" class="Options">
+    <mat-list-option *ngFor="let item of options" [value]="item.code" [selected]="item.value">
       {{ item.name }}
     </mat-list-option>
   </mat-selection-list>
 
   <p>
-    Options selected: {{ options[0].value }}
+    Options selected: {{ this.SettingsService.EditorSettings[0].value }}
   </p>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Confirm</button>
+  <button (click)="ConfirmSettings()" mat-button [mat-dialog-close]="true" cdkFocusInitial>Confirm</button>
 </mat-dialog-actions>

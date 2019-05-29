@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WafSettingsService } from '../../waf-services/waf-settings.service';
+import { WafSettingsService, WafSetting } from '../../waf-services/waf-settings.service';
 
 //
 
@@ -12,14 +12,18 @@ import { WafSettingsService } from '../../waf-services/waf-settings.service';
 export class WafSettingsEditorComponent implements OnInit {
 
   options: WafSetting[] = this.SettingsService.EditorSettings;
+  selected: number[];
 
   constructor(private SettingsService: WafSettingsService) { }
 
   ngOnInit() {
   }
 
-  OptionsToggle(option: WafSetting) {
-
+  ConfirmSettings() {
+    for (let option of this.options){
+      let value: boolean = this.selected.some(x => x === option.code);
+      this.SettingsService.SetSettingByCode(option.code, value);
+    }
   }
 
 }

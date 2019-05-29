@@ -10,11 +10,17 @@
     <div class="Main">
 
       <mat-form-field *ngFor="let item of properties" class="InputText">
-        <input matInput [placeholder]="item.name" [(ngModel)]="item.value" spellcheck="false">
+        <input matInput [matAutocomplete]="domain" [placeholder]="item.name" [(ngModel)]="item.value" spellcheck="false">
 
         <div *ngIf="IsColorProperty(item)" matSuffix>
           <div [ngStyle]="{'background-color': item.value}" class="ColorIndicator"></div>
         </div>
+
+        <mat-autocomplete #domain="matAutocomplete">
+          <mat-option *ngFor="let option of item.domain" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
       </mat-form-field>
 
     </div>

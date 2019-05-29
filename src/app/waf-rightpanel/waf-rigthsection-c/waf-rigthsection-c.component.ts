@@ -6,6 +6,7 @@ interface PStyle {
   name: string;
   propertyCss: string;
   value?: string;
+  domain?: string[];
 }
 
 const StyleProperty_data: PStyle[] = [
@@ -17,7 +18,8 @@ const StyleProperty_data: PStyle[] = [
   {
     name: "Align",
     propertyCss: "text-align",
-    value: "left"
+    value: "left",
+    domain: [ "left", "right", "center", "justify" ]
   },
     {
     name: "Font family",
@@ -32,19 +34,30 @@ const StyleProperty_data: PStyle[] = [
   {
     name: "Decoration",
     propertyCss: "text-decoration",
-    value: "none"
+    value: "none",
+    domain: [ "underline", "overline", "line-through" ]
   },
   {
     name: "Transform",
     propertyCss: "text-transform",
-    value: "none"
+    value: "none",
+    domain: [ "capitalize", "uppercase", "lowercase" ]
+  },
+  {
+    name: "Font weight",
+    propertyCss: "font-weight",
+    value: "normal",
+    domain: [ "bold", "bolder", "lighter" ]
   },
   {
     name: "Style",
     propertyCss: "font-style",
-    value: "normal"
+    value: "normal",
+    domain: [ "italic", "oblique" ]
   }
 ];
+
+/
 
 @Component({
   selector: 'app-waf-rigthsection-c',

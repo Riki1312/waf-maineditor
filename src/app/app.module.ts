@@ -17,9 +17,15 @@ import {
   MatSnackBarModule,
   MatExpansionModule,
   MatMenuModule,
-  MatAutocompleteModule,
-  MatDialogModule
+  MatAutocompleteModule
 } from '@angular/material';
+
+import { MatDialogModule } from '@angular/material/dialog';
+
+//
+
+//Services
+import { WafMainService } from './waf-services/waf-main.service';
 
 import { WafLeftbarComponent } from './waf-leftbar/waf-leftbar.component';
 import { WafLeftpanelComponent } from './waf-leftpanel/waf-leftpanel.component';
@@ -35,7 +41,7 @@ import { WafRigthsectionBComponent } from './waf-rightpanel/waf-rigthsection-b/w
 import { WafRigthsectionCComponent } from './waf-rightpanel/waf-rigthsection-c/waf-rigthsection-c.component';
 import { WafRigthsectionDComponent } from './waf-rightpanel/waf-rigthsection-d/waf-rigthsection-d.component';
 import { WafRigthsectionEComponent } from './waf-rightpanel/waf-rigthsection-e/waf-rigthsection-e.component';
-import { WafMainService } from './waf-services/waf-main.service';
+import { WafSettingsEditorComponent } from './waf-leftbar/waf-settings-editor/waf-settings-editor.component';
 
 @NgModule({
   imports: [
@@ -69,9 +75,11 @@ import { WafMainService } from './waf-services/waf-main.service';
     WafRigthsectionBComponent,
     WafRigthsectionCComponent,
     WafRigthsectionDComponent, 
-    WafRigthsectionEComponent
+    WafRigthsectionEComponent,
+    WafSettingsEditorComponent
   ],
   bootstrap: [ AppComponent ],
-  providers: [ WafMainService ]
+  providers: [ WafMainService ],
+  entryComponents: [ WafSettingsEditorComponent ]
 })
 export class AppModule { }

@@ -1,5 +1,10 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
+import { MatDialog } from '@angular/material/dialog';
+import { WafSettingsEditorComponent } from './waf-settings-editor/waf-settings-editor.component'
+
+//
+
 @Component({
   selector: 'app-waf-leftbar',
   templateUrl: './waf-leftbar.component.html',
@@ -11,7 +16,7 @@ export class WafLeftbarComponent implements OnInit {
 
   panelindex: number = -1;
 
-  constructor() { }
+  constructor(public dialogEditor: MatDialog) { }
   ngOnInit() {
   }
 
@@ -28,6 +33,10 @@ export class WafLeftbarComponent implements OnInit {
     if (this.panelindex === -1)
       return false;
     else return this.panelindex === index;
+  }
+
+  ShowSettingsEditor() {
+    this.dialogEditor.open(WafSettingsEditorComponent);
   }
 
 }

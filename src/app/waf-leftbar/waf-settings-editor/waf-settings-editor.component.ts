@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { WafSettingsService } from '../../waf-services/waf-settings.service';
+
+//
+
 @Component({
   selector: 'app-waf-settings-editor',
   templateUrl: './waf-settings-editor.component.html',
@@ -7,11 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WafSettingsEditorComponent implements OnInit {
 
-  options: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+  options: WafSetting[] = this.SettingsService.EditorSettings;
 
-  constructor() { }
+  constructor(private SettingsService: WafSettingsService) { }
 
   ngOnInit() {
+  }
+
+  OptionsToggle() {
+
   }
 
 }

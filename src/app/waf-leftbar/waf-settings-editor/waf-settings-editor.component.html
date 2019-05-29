@@ -2,13 +2,13 @@
 
 <mat-dialog-content>
   <mat-selection-list #optionsList class="Options">
-    <mat-list-option *ngFor="let item of options">
-      {{ item }}
+    <mat-list-option *ngFor="let item of options" [selected]="item.value" (toggle)="OptionsToggle()">
+      {{ item.name }}
     </mat-list-option>
   </mat-selection-list>
 
   <p>
-    Options selected: {{ optionsList.selectedOptions.selected.length }}
+    Options selected: {{ options[0].value }}
   </p>
 </mat-dialog-content>
 

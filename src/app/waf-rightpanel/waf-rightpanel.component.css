@@ -3,4 +3,30 @@
 
   background-color: var(--color-gray0);
   border-bottom: var(--border-barpanel);
+
+  overflow: scroll;
 }
+
+.Container {
+  width: 100%;
+  height: 200%;
+}
+
+/*Scrollbar [*/
+.Main::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+.Main::-webkit-scrollbar
+{
+	width: 0px;
+  height: 0px;
+}
+.Main::-webkit-scrollbar-thumb
+{
+	background-color: transparent;
+}
+.Main::-webkit-scrollbar-corner {
+  background: transparent;
+}
+/*Scrollbar ]*/

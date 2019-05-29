@@ -57,7 +57,7 @@ const StyleProperty_data: PStyle[] = [
   }
 ];
 
-/
+//
 
 @Component({
   selector: 'app-waf-rigthsection-c',

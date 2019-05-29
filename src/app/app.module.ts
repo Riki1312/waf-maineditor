@@ -17,7 +17,8 @@ import {
   MatSnackBarModule,
   MatExpansionModule,
   MatMenuModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatDialogModule
 } from '@angular/material';
 
 import { WafLeftbarComponent } from './waf-leftbar/waf-leftbar.component';
@@ -50,7 +51,8 @@ import { WafMainService } from './waf-services/waf-main.service';
     MatSnackBarModule,
     MatExpansionModule,
     MatMenuModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDialogModule
   ],
   declarations: [
     AppComponent,

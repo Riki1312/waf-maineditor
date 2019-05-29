@@ -44,6 +44,8 @@ import { WafRigthsectionCComponent } from './waf-rightpanel/waf-rigthsection-c/w
 import { WafRigthsectionDComponent } from './waf-rightpanel/waf-rigthsection-d/waf-rigthsection-d.component';
 import { WafRigthsectionEComponent } from './waf-rightpanel/waf-rigthsection-e/waf-rigthsection-e.component';
 import { WafSettingsEditorComponent } from './waf-leftbar/waf-settings-editor/waf-settings-editor.component';
+import { WafRightsectionMainComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main/waf-rightsection-main.component';
+import { WafRightsectionMainAComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main-a/waf-rightsection-main-a.component';
 
 
 @NgModule({
@@ -80,7 +82,9 @@ import { WafSettingsEditorComponent } from './waf-leftbar/waf-settings-editor/wa
     WafRigthsectionCComponent,
     WafRigthsectionDComponent, 
     WafRigthsectionEComponent,
-    WafSettingsEditorComponent
+    WafSettingsEditorComponent,
+    WafRightsectionMainComponent,
+    WafRightsectionMainAComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [ WafMainService, WafSettingsService ],

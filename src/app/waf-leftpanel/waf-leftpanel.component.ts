@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
-import { WafMainService } from '../waf-services/waf-main.service';
+import { WafMainService, ElementsCode } from '../waf-services/waf-main.service';
 
 //
 
@@ -81,7 +81,7 @@ export class WafLeftpanelComponent {
     }
     else {
       this.selectedNode = null;
-      this.MainService.SelectElementByCode(-1);
+      this.MainService.SelectElementByCode(ElementsCode.defaultNone);
     }
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WafMainService } from '../waf-services/waf-main.service';
+import { WafMainService, StylePanelSection } from '../waf-services/waf-main.service';
 
 @Component({
   selector: 'app-waf-rightpanel',
@@ -8,16 +8,18 @@ import { WafMainService } from '../waf-services/waf-main.service';
   styleUrls: ['./waf-rightpanel.component.css']
 })
 export class WafRightpanelComponent implements OnInit {
-  
+
+  panelSection = StylePanelSection;
+
   constructor(private MainService: WafMainService) {
   }
 
   ngOnInit() {
   }
 
-  ShowPanel(index: number) {
+  ShowPanel(code: number) {
     if (this.MainService.SelectedElement.panels)
-      return !(this.MainService.SelectedElement.panels.indexOf(index) === -1);
+      return this.MainService.IsPanelSelected(code);
     else
       return false;
   }

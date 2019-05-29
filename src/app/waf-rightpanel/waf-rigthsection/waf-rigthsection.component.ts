@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { WafSettingsService, SettingsCode } from '../../waf-services/waf-settings.service';
+
+//
+
 @Component({
   selector: 'app-waf-rigthsection',
   templateUrl: './waf-rigthsection.component.html',
@@ -7,7 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WafRigthsectionComponent implements OnInit {
 
-  constructor() { }
+  get simplifiedMode(): boolean {
+    return this.SettingsService.GetSettingByCode(SettingsCode.simplifiedMode);
+  }
+
+  constructor(private SettingsService: WafSettingsService) {
+
+  }
 
   ngOnInit() {
   }

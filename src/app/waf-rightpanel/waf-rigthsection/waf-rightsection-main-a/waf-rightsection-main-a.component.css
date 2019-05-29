@@ -1,0 +1,75 @@
+.S0_InputText {
+  width: 85px;
+}
+
+.S0_InputSmall-0 {
+  width: 50px;
+}
+
+.S0_InputSmall-1 {
+  width: 32px;
+  color: var(--color-gray2);
+}
+
+.S0_Grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+
+  padding: 15px;
+}
+
+/*
+.S0_Grid>div {
+  background: rgba(0, 0, 0, 0.3);
+  border: solid red 1px;
+}
+*/
+
+.S0_Align {
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.S0_Property-x {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+.S0_Property-y {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.S0_Property-pinned {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+.S0_Property-w {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+.S0_Property-h {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+}
+
+.S0_Property-constraint {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+}
+
+.S0_Property-rotate {
+  grid-column: 1 / 2;
+  grid-row: 4 / 5;
+}
+
+.S0_Property-radius {
+  grid-column: 2 / 4;
+  grid-row: 4 / 5;
+}

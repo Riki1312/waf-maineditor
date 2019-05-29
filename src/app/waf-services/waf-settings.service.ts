@@ -6,6 +6,11 @@ export interface WafSetting {
   value?: any;
 }
 
+export enum SettingsCode {
+  simplifiedMode = 1,
+  automaticSaving = 2
+}
+
 //
 
 @Injectable()
@@ -13,12 +18,12 @@ export class WafSettingsService {
 
   EditorSettings: WafSetting[] = [
     {
-      code: 1,
+      code: SettingsCode.simplifiedMode,
       name: "Simplified mode",
       value: false
     },
     {
-      code: 2,
+      code: SettingsCode.automaticSaving,
       name: "Automatic saving",
       value: true
     }
@@ -28,8 +33,9 @@ export class WafSettingsService {
 
   SetSettingByCode(scode: number, svalue: any) {
     this.EditorSettings.forEach(x => { if (x.code === scode) x.value = svalue; });
-
-    console.log(this.EditorSettings);
+  }
+  GetSettingByCode(scode: number) {
+    return this.EditorSettings.find(x => x.code === scode).value;
   }
 
 }

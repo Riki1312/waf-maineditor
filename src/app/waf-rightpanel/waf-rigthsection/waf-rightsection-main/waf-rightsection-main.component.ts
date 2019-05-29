@@ -24,7 +24,7 @@ export class WafRightsectionMainComponent implements OnInit {
   filteredClasslist: Observable<string[]>;
 
   //
-  
+
   classArray: string[] = ["Class01"];
   allClass: string[] = ["Class02", "aClass02", "aClass03", "cClass04", "Class05"];
 

@@ -3,11 +3,11 @@
   <mat-form-field class="ListClass">
     <mat-chip-list #chipList aria-label="Class selection">
       <mat-chip
-        *ngFor="let fruit of classArray"
+        *ngFor="let item of classArray"
         [selectable]="selectable"
         [removable]="removable"
-        (removed)="RemoveClass(fruit)">
-        {{fruit}}
+        (removed)="RemoveClass(item)">
+        {{ item }}
         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
       </mat-chip>
       <input
@@ -21,8 +21,8 @@
         (matChipInputTokenEnd)="AddClass($event)">
     </mat-chip-list>
     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="Selected($event)">
-      <mat-option *ngFor="let fruit of filteredClasslist | async" [value]="fruit">
-        {{fruit}}
+      <mat-option *ngFor="let item of filteredClasslist | async" [value]="item">
+        {{ item }}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>

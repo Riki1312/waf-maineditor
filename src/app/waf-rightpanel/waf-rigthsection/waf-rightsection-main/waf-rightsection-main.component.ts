@@ -16,23 +16,26 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class WafRightsectionMainComponent implements OnInit {
 
-  visible = true;
   selectable = true;
   removable = true;
   addOnBlur = true;
-  separatorKeysCodes: number[] = [ENTER, COMMA];
-  fruitCtrl = new FormControl();
-  filteredFruits: Observable<string[]>;
-  fruits: string[] = ['Lemon'];
-  allFruits: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
+  separatorKeysCodes: number[] = [ ENTER, COMMA ];
+  //
+  classlistCtrl = new FormControl();
+  filteredClasslist: Observable<string[]>;
+  //
+  classArray: string[] = ['Lemon'];
+  allClass: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
 
-  @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+  @ViewChild('classInput', { static: false }) classInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
+
+  //
 
   constructor() {
-    this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
+    this.filteredClasslist = this.classlistCtrl.valueChanges.pipe(
       startWith(null),
-      map((fruit: string | null) => fruit ? this._filter(fruit) : this.allFruits.slice())
+      map((item: string | null) => item ? this._filter(item) : this.allClass.slice())
     );
   }
 
@@ -42,38 +45,33 @@ export class WafRightsectionMainComponent implements OnInit {
   //
 
   add(event: MatChipInputEvent): void {
-    // Add fruit only when MatAutocomplete is not open
-    // To make sure this does not conflict with OptionSelected Event
     if (!this.matAutocomplete.isOpen) {
       const input = event.input;
       const value = event.value;
 
-      // Add our fruit
+      //Add class
       if ((value || '').trim()) {
-        this.fruits.push(value.trim());
+        this.classArray.push(value.trim());
       }
-
-      // Reset the input value
+      //Reset input value
       if (input) {
         input.value = '';
       }
 
-      this.fruitCtrl.setValue(null);
+      this.classlistCtrl.setValue(null);
     }
   }
-
-  remove(fruit: string): void {
-    const index = this.fruits.indexOf(fruit);
+  remove(item: string): void {
+    const index = this.classArray.indexOf(item);
 
     if (index >= 0) {
-      this.fruits.splice(index, 1);
+      this.classArray.splice(index, 1);
     }
   }
-
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.fruits.push(event.option.viewValue);
-    this.fruitInput.nativeElement.value = '';
-    this.fruitCtrl.setValue(null);
+    this.classArray.push(event.option.viewValue);
+    this.classInput.nativeElement.value = '';
+    this.classlistCtrl.setValue(null);
   }
 
   //
@@ -81,7 +79,7 @@ export class WafRightsectionMainComponent implements OnInit {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.allFruits.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
+    return this.allClass.filter(item => item.toLowerCase().indexOf(filterValue) === 0);
   }
 
 }

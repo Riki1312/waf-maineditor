@@ -20,12 +20,13 @@ export class WafRightsectionMainComponent implements OnInit {
   removable = true;
   addOnBlur = true;
   separatorKeysCodes: number[] = [ ENTER, COMMA ];
-  //
   classlistCtrl = new FormControl();
   filteredClasslist: Observable<string[]>;
+
   //
-  classArray: string[] = ['Lemon'];
-  allClass: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
+  
+  classArray: string[] = ["Class01"];
+  allClass: string[] = ["Class02", "aClass02", "aClass03", "cClass04", "Class05"];
 
   @ViewChild('classInput', { static: false }) classInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
@@ -44,7 +45,7 @@ export class WafRightsectionMainComponent implements OnInit {
 
   //
 
-  add(event: MatChipInputEvent): void {
+  AddClass(event: MatChipInputEvent): void {
     if (!this.matAutocomplete.isOpen) {
       const input = event.input;
       const value = event.value;
@@ -61,14 +62,14 @@ export class WafRightsectionMainComponent implements OnInit {
       this.classlistCtrl.setValue(null);
     }
   }
-  remove(item: string): void {
+  RemoveClass(item: string): void {
     const index = this.classArray.indexOf(item);
 
     if (index >= 0) {
       this.classArray.splice(index, 1);
     }
   }
-  selected(event: MatAutocompleteSelectedEvent): void {
+  Selected(event: MatAutocompleteSelectedEvent): void {
     this.classArray.push(event.option.viewValue);
     this.classInput.nativeElement.value = '';
     this.classlistCtrl.setValue(null);

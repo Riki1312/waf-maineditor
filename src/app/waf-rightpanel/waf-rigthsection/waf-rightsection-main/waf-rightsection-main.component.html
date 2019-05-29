@@ -6,7 +6,7 @@
         *ngFor="let fruit of classArray"
         [selectable]="selectable"
         [removable]="removable"
-        (removed)="remove(fruit)">
+        (removed)="RemoveClass(fruit)">
         {{fruit}}
         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
       </mat-chip>
@@ -18,9 +18,9 @@
         [matChipInputFor]="chipList"
         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
         [matChipInputAddOnBlur]="addOnBlur"
-        (matChipInputTokenEnd)="add($event)">
+        (matChipInputTokenEnd)="AddClass($event)">
     </mat-chip-list>
-    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="Selected($event)">
       <mat-option *ngFor="let fruit of filteredClasslist | async" [value]="fruit">
         {{fruit}}
       </mat-option>

@@ -16,6 +16,8 @@ import {
 export class WafNodesService {
 
   public SelectedTool: WafElement;
+  public SelectedNode: WafNode;
+  public Nodes: WafNode[];
 
   //
 
@@ -27,34 +29,14 @@ export class WafNodesService {
     this.SelectedTool = this.MainService.Elements_data.find(x => x.codeElement === codeElement);
   }
 
-}
-
-//
-
-/*
-
-  Nodes: WafNode[];
-
-  constructor() { }
-
-  AddNode(parent: WafNode, node: WafNode): void {
-    
-  }
-  AddRootNode(node: WafNode): void {
+  public AddRootNode(node: WafNode): void {
     this.Nodes.push(node);
   }
-
-  CreateNodeByElement(ecode: number): WafNode {
-    return {
-      id: 0,
-      elementCode: 0,
-      name: "",
-      data: null,
-      allowChildren: true
-    };
+  public AddNode(parent: WafNode, node: WafNode): void {
+    
   }
 
-  FindNodeById(id: number): WafNode {
+  private FindNodeById(id: number): WafNode {
     let findNodes = (nodes: WafNode[], id: number): WafNode => {
       let nodeFound: WafNode;
       let findNode = (node: WafNode, id: number): void => {
@@ -74,8 +56,10 @@ export class WafNodesService {
       return undefined;
   }
 
+}
+
+/*
   IsPanelSelected(index: number) {
     return (this.SelectedElement.panels.indexOf(index) !== -1)
   }
-
 */

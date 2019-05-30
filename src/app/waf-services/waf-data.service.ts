@@ -21,7 +21,9 @@ export class WafDataService {
 
   //
 
-  constructor(private MainService: WafMainService) { }
+  constructor(private MainService: WafMainService) {
+    this.Nodes = [];
+  }
 
   //
 
@@ -33,8 +35,9 @@ export class WafDataService {
     return this.MainService.Elements_data.find(x => x.codeElement === codeElement);
   } 
 
-  public AddRootNode(node: WafNode): void {
+  public AddRootNode(node: WafNode, autoSelect?: boolean): void {
     this.Nodes.push(node);
+    if (autoSelect) this.SelectedNode = node;
   }
   public AddNode(parent: WafNode, node: WafNode): void {
     

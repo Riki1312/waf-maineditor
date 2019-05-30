@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WafMainService } from '../waf-services/waf-main.service';
+import { WafMainService, ElementsCode } from '../waf-services/waf-main.service';
 import { WafDataService } from '../waf-services/waf-data.service';
 
 //
@@ -18,14 +18,16 @@ export class WafCentralspaceComponent implements OnInit {
   }
 
   CreateElement() {
-    /*
-    if (this.MainService.SelectedElement.code !== ElementsCode.defaultNone) {
+    if (this.DataService.SelectedTool.codeElement !== ElementsCode.none) {
 
-      console.log(this.NodeService.FindNodeById(8));
+      console.log(this.DataService.SelectedTool);
+      this.DataService.AddRootNode(this.DataService.SelectedTool.generator(), true);
+      console.log(this.DataService.Nodes);
+
     }
 
     //
-    this.MainService.SelectElementByCode(ElementsCode.defaultNone);*/
+    this.DataService.SelectToolByCode(ElementsCode.none);
   }
 
 }

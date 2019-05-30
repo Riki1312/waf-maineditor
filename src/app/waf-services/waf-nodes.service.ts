@@ -4,9 +4,7 @@ export interface WafNode {
   id: number;
   elementCode: number;
   name: string;
-
   data: NodeData;
-
   allowChildren: boolean;
   children?: WafNode;
 }
@@ -14,15 +12,15 @@ export interface WafNode {
 export interface NodeData {
   htmlTag: string;
   allowFinaltag: boolean;
-  cssClass: string[]
+  cssClassname: string[]
 }
-
+//
 export interface WafStyle {
   className: string;
-  cssRules: CssRule[];
+  cssRules: StyleData[];
 }
 
-export interface CssRule {
+export interface StyleData {
   propertyCss: string,
   value: any;
 }

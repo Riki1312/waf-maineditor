@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WafMainService, StylePanelSection } from '../waf-services/waf-main.service';
+import { WafMainService, StylePanelSection, ElementsCode } from '../waf-services/waf-main.service';
 import { WafDataService } from '../waf-services/waf-data.service';
 
 @Component({
@@ -12,6 +12,13 @@ export class WafRightpanelComponent implements OnInit {
 
   panelSection = StylePanelSection;
 
+  get selectedElement() {
+    if (this.DataService.SelectedNode)
+      return this.DataService.GetElementByCode(this.DataService.SelectedNode.codeElement);
+    else
+      return this.DataService.GetElementByCode(ElementsCode.none);
+  }
+
   constructor(private MainService: WafMainService, private DataService: WafDataService) {
   }
 
@@ -19,16 +26,14 @@ export class WafRightpanelComponent implements OnInit {
   }
 
   ShowPanel(code: number) {
-    let selectedElement = this.DataService.GetElementByCode(this.DataService.SelectedNode.codeElement);
-
-    if (selectedElement.panels)
+    if (this.selectedElement.panels)
       return this.IsPanelSelected(code);
     else
       return false;
   }
 
   IsPanelSelected(index: number) {
-    let selectedElement = this.DataService.GetElementByCode(this.DataService.SelectedNode.codeElement);
+    let selectedElement = this.selectedElement;
     return (selectedElement.panels.indexOf(index) !== -1)
   }
 

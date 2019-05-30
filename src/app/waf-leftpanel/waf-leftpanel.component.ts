@@ -63,7 +63,7 @@ export class WafLeftpanelComponent {
   }
 
   IsSelectedNode(node: TNode) {
-    if (this.selectedNode && this.selectedNode.name === node.name)
+    if (this.selectedNode && node.name === this.MainService.SelectedElement.name)
       return "primary";
     else return "";
   }

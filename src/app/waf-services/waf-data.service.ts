@@ -61,7 +61,3 @@ export class WafDataService {
   }
 
 }
-
-/*
-  
-*/

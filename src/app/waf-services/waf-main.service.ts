@@ -1,13 +1,63 @@
 import { Injectable } from '@angular/core';
 
+//
+
+//Tools
 export interface WafElement {
-  code: number;
+  //Unique identifier element (enum)
+  codeElement: number;
+  //Data
   name: string;
+  //Function
+  generator?: () => WafNode;
+  //Style panel sections
   panels?: number[];
 }
 
+//Nodes
+export interface WafNode {
+  //Unique identifier node
+  idNode: number;
+  //Node type (enum)
+  codeElement: number;
+  //Data
+  name: string;
+  //Data
+  data: NodeData;
+  //Allow
+  allowChildren: boolean;
+  //Childrens (node array)
+  children?: WafNode[];
+}
+export interface NodeData {
+  //Html tag
+  htmlTag: string;
+  //Allow
+  allowFinaltag: boolean;
+  //Attribute class
+  className?: string[];
+  //Attribute id (univocal)
+  idName?: string;
+}
+
+//Style
+export interface WafStyle {
+  //Class name (html, css)
+  className: string;
+  //Css rules
+  cssRules: StyleData[];
+}
+export interface StyleData {
+  //Css property
+  cssProperty: string,
+  //Css value
+  cssValue: any;
+}
+
+//
+
 export enum ElementsCode {
-  defaultNone = -1,
+  none = -1,
   frame = 1,
   div = 2,
   title = 3,
@@ -33,58 +83,93 @@ export enum StylePanelSection {
 @Injectable()
 export class WafMainService {
 
-  Elements: WafElement[] = [
+  private NodesId_data: number[] = [0];
+
+  private ElementsGeneretor_data: any = {
+    [ElementsCode.div]: this.CreateDefaultGenerator(
+      { codeElement: ElementsCode.div, name: "Div" },
+      true,
+      "div",
+      true
+    )
+  };
+
+  public Elements_data: WafElement[] = [
     {
-      code: ElementsCode.defaultNone,
-      name: "Default none"
+      codeElement: ElementsCode.none,
+      name: "None"
     },
     {
-      code: ElementsCode.frame,
+      codeElement: ElementsCode.frame,
       name: "Frame",
       panels: [ StylePanelSection.frame ]
     },
     {
-      code: ElementsCode.div,
+      codeElement: ElementsCode.div,
       name: "Div",
+      generator: this.ElementsGeneretor_data[ElementsCode.div],
       panels: [ StylePanelSection.alignment, StylePanelSection.background, StylePanelSection.border ]
     },
     {
-      code: ElementsCode.title,
+      codeElement: ElementsCode.title,
       name: "Title",
       panels: [ StylePanelSection.typography, StylePanelSection.heading ]
     },
     {
-      code: ElementsCode.paragraph,
+      codeElement: ElementsCode.paragraph,
       name: "Paragraph",
       panels: [ StylePanelSection.typography ]
     },
     {
-      code: ElementsCode.image,
+      codeElement: ElementsCode.image,
       name: "Image"
     },
     {
-      code: ElementsCode.graphic,
+      codeElement: ElementsCode.graphic,
       name: "Graphic"
     },
     {
-      code: ElementsCode.customCode,
-      name: "Custom code"
+      codeElement: ElementsCode.customCode,
+      name: "CustomCode"
     }
   ];
-  SelectedElement: WafElement;
 
-  constructor() {
-    this.SelectElementByCode(ElementsCode.defaultNone);
+  //
+
+  constructor() { }
+
+  //
+
+  private CreateDefaultGenerator(
+    element: WafElement,
+    allowChildren: boolean,
+    htmlTag: string,
+    allowFinaltag: boolean
+  ): () => WafNode {
+    let fun = (): WafNode => {
+      let node: WafNode = {
+        idNode: this.GenerateNodeId(),
+        codeElement: element.codeElement,
+        name: element.name,
+        data: {
+          htmlTag: htmlTag,
+          allowFinaltag: allowFinaltag
+        },
+        allowChildren: allowChildren
+      }
+
+      if (allowChildren)
+        node["children"] = [];
+
+      return node;
+    }
+    return fun;
   }
 
-  SelectElementByCode(tcode: number) {
-    this.SelectedElement = this.Elements.find(x => x.code === tcode);
-  }
-  SelectElementByName(tname: string) {
-    this.SelectedElement = this.Elements.find(x => x.name === tname);
-  }
-  IsPanelSelected(index: number) {
-    return (this.SelectedElement.panels.indexOf(index) !== -1)
+  public GenerateNodeId(): number {
+    let id: number = this.NodesId_data.pop() + 1;
+    this.NodesId_data.push(id);
+    return id;
   }
 
 }

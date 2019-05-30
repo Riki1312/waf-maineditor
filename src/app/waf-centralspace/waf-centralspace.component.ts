@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WafMainService, ElementsCode } from '../waf-services/waf-main.service';
-import { WafNodesService } from '../waf-services/waf-nodes.service';
+import { WafMainService } from '../waf-services/waf-main.service';
+import { WafDataService } from '../waf-services/waf-data.service';
 
 //
 
@@ -12,19 +12,20 @@ import { WafNodesService } from '../waf-services/waf-nodes.service';
 })
 export class WafCentralspaceComponent implements OnInit {
 
-  constructor(private MainService: WafMainService, private NodeService: WafNodesService) { }
+  constructor(private MainService: WafMainService, private DataService: WafDataService) { }
 
   ngOnInit() {
   }
 
   CreateElement() {
+    /*
     if (this.MainService.SelectedElement.code !== ElementsCode.defaultNone) {
 
       console.log(this.NodeService.FindNodeById(8));
     }
 
     //
-    this.MainService.SelectElementByCode(ElementsCode.defaultNone);
+    this.MainService.SelectElementByCode(ElementsCode.defaultNone);*/
   }
 
 }

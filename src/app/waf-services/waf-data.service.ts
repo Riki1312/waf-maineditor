@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import {
-  WafMainService
+  WafMainService,
   WafElement,
   WafNode,
   NodeData,
@@ -13,7 +13,7 @@ import {
 //
 
 @Injectable()
-export class WafNodesService {
+export class WafDataService {
 
   public SelectedTool: WafElement;
   public SelectedNode: WafNode;
@@ -29,6 +29,10 @@ export class WafNodesService {
     this.SelectedTool = this.MainService.Elements_data.find(x => x.codeElement === codeElement);
   }
 
+  public GetElementByCode(codeElement: number): WafElement {
+    return this.MainService.Elements_data.find(x => x.codeElement === codeElement);
+  } 
+
   public AddRootNode(node: WafNode): void {
     this.Nodes.push(node);
   }
@@ -40,7 +44,7 @@ export class WafNodesService {
     let findNodes = (nodes: WafNode[], id: number): WafNode => {
       let nodeFound: WafNode;
       let findNode = (node: WafNode, id: number): void => {
-        if (node.id === id)
+        if (node.idNode === id)
           nodeFound = node;
         else if (node.allowChildren)
           node.children.forEach(x => findNode(x, id));
@@ -59,7 +63,5 @@ export class WafNodesService {
 }
 
 /*
-  IsPanelSelected(index: number) {
-    return (this.SelectedElement.panels.indexOf(index) !== -1)
-  }
+  
 */

@@ -28,6 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 //Services
 import { WafMainService } from './waf-services/waf-main.service';
+import { WafDataService } from './waf-services/waf-data.service';
 import { WafSettingsService } from './waf-services/waf-settings.service';
 
 import { WafLeftbarComponent } from './waf-leftbar/waf-leftbar.component';
@@ -47,8 +48,8 @@ import { WafRigthsectionEComponent } from './waf-rightpanel/waf-rigthsection-e/w
 import { WafSettingsEditorComponent } from './waf-leftbar/waf-settings-editor/waf-settings-editor.component';
 import { WafRightsectionMainComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main/waf-rightsection-main.component';
 import { WafRightsectionMainAComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main-a/waf-rightsection-main-a.component';
-import { WafNodesService } from './waf-services/waf-nodes.service';
 
+//
 
 @NgModule({
   imports: [
@@ -91,7 +92,11 @@ import { WafNodesService } from './waf-services/waf-nodes.service';
     WafRightsectionMainAComponent
   ],
   bootstrap: [ AppComponent ],
-  providers: [ WafMainService, WafSettingsService, WafNodesService ],
+  providers: [
+    WafMainService,
+    WafDataService,
+    WafSettingsService
+  ],
   entryComponents: [ WafSettingsEditorComponent ]
 })
 export class AppModule { }

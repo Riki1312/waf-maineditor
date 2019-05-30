@@ -6,7 +6,8 @@
         *ngFor="let item of classArray"
         [selectable]="selectable"
         [removable]="removable"
-        (removed)="RemoveClass(item)">
+        (removed)="RemoveClass(item)"
+        (click)="ClickClasschip(item)">
         {{ item }}
         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
       </mat-chip>
@@ -26,5 +27,10 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
+
+  <div *ngIf="selectedClass" class="Selected">
+    <mat-icon>arrow_right</mat-icon>
+    <span>{{ selectedClass }}</span>
+  </div>
 
 </div>

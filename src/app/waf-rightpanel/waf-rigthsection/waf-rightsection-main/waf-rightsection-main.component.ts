@@ -27,6 +27,7 @@ export class WafRightsectionMainComponent implements OnInit {
 
   classArray: string[] = ["Class01"];
   allClass: string[] = ["Class02", "aClass02", "aClass03", "cClass04", "Class05"];
+  selectedClass: string;
 
   @ViewChild('classInput', { static: false }) classInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
@@ -73,6 +74,9 @@ export class WafRightsectionMainComponent implements OnInit {
     this.classArray.push(event.option.viewValue);
     this.classInput.nativeElement.value = '';
     this.classlistCtrl.setValue(null);
+  }
+  ClickClasschip(item: any) {
+    this.selectedClass = item;
   }
 
   //

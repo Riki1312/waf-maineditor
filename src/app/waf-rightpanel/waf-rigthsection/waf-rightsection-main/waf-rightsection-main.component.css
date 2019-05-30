@@ -1,3 +1,12 @@
+span {
+  font-family: var(--font-roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+
+  color: var(--color-white0);
+}
+
 .Main {
   padding: var(--margin-barpanel1);
   margin-top: var(--margin-barpanel1);
@@ -5,4 +14,14 @@
 
 .ListClass {
   width: 100%;
+}
+
+.Selected {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Selected>mat-icon {
+  opacity: 0.5;
 }

@@ -91,6 +91,18 @@ export class WafMainService {
       true,
       "div",
       true
+    ),
+    [ElementsCode.title]: this.CreateDefaultGenerator(
+      { codeElement: ElementsCode.title, name: "Title" },
+      false,
+      "h1",
+      true
+    ),
+    [ElementsCode.paragraph]: this.CreateDefaultGenerator(
+      { codeElement: ElementsCode.paragraph, name: "Paragraph" },
+      false,
+      "p",
+      true
     )
   };
 
@@ -113,11 +125,13 @@ export class WafMainService {
     {
       codeElement: ElementsCode.title,
       name: "Title",
+      generator: this.ElementsGeneretor_data[ElementsCode.title],
       panels: [ StylePanelSection.typography, StylePanelSection.heading ]
     },
     {
       codeElement: ElementsCode.paragraph,
       name: "Paragraph",
+      generator: this.ElementsGeneretor_data[ElementsCode.pa],
       panels: [ StylePanelSection.typography ]
     },
     {

@@ -58,7 +58,7 @@ export class WafDataService {
     else return false;
   }
 
-  public CycleOnNodes(nodes: WafNode[], fun: (WafNode) => void): void {
+  public DeepCycleOnNodes(nodes: WafNode[], fun: (WafNode) => void): void {
     let cycle = (nodes: WafNode[], fun: (WafNode) => void) => {
       for (let node of nodes) {
         if (node.allowChildren && node.children.length > 0) {

@@ -40,7 +40,7 @@ export class WafCentralspaceComponent implements OnInit {
       console.log("C");
 
       //let names = [];
-      this.DataService.CycleOnNodes(this.DataService.Nodes, x => x.name = "ccc");
+      //this.DataService.DeepCycleOnNodes(this.DataService.Nodes, x => x.name = "ccc");
       //this.DataService.CycleOnNodes(this.DataService.Nodes, x => names.push(x.name));
 
       //console.log(names);

@@ -8,7 +8,7 @@
         <button mat-icon-button disabled>
           <img [src]="node.img"/>
         </button>
-        <button mat-button>{{node.name}}</button>
+        <button mat-button>{{ node.displayName }}</button>
       </li>
     </mat-tree-node>
     <!-- This is the tree node template for expandable nodes -->
@@ -16,7 +16,7 @@
       <li>
         <div class="mat-tree-node">
           <button mat-icon-button matTreeNodeToggle
-                  [attr.aria-label]="'toggle ' + node.name">
+                  [attr.aria-label]="'toggle ' + node.displayName">
             <mat-icon class="mat-icon-rtl-mirror">
               {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
             </mat-icon>
@@ -24,7 +24,7 @@
           <button mat-icon-button disabled>
             <img [src]="node.img"/>
           </button>
-          <button mat-button>{{node.name}}</button>
+          <button mat-button>{{ node.displayName }}</button>
         </div>
         <ul [class.example-tree-invisible]="!treeControl.isExpanded(node)">
           <ng-container matTreeNodeOutlet></ng-container>

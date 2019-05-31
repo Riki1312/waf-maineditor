@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { MatTreeNestedDataSource } from '@angular/material/tree';
+import { MatTreeNestedDataSource, MatMenuTrigger } from '@angular/material';
 
 import { WafMainService, WafNode, ElementsCode } from '../waf-services/waf-main.service';
 import { WafDataService } from '../waf-services/waf-data.service';
@@ -76,6 +76,8 @@ export class WafLeftpanelAComponent implements OnInit {
       return [];
   }
 
+  //
+
   constructor(private MainService: WafMainService, private DataService: WafDataService) {
     this.dataSource.data = this.treeData;
   }
@@ -83,8 +85,11 @@ export class WafLeftpanelAComponent implements OnInit {
   ngOnInit() {
   }
 
-  drop(event: CdkDragDrop<string[]>) {
-    
+  //
+
+  NodeRightClick(tnode: TNode) {
+    console.log("Nodo selezionato:");
+    console.log(tnode);
   }
 
   RebuildTree() {

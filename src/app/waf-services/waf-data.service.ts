@@ -40,12 +40,15 @@ export class WafDataService {
     if (autoSelect) this.SelectedNode = node;
   }
   public AddNode(parent: WafNode, node: WafNode): void {
-    
+    let n = this.FindNodeById(parent.idNode);
+    if (n.allowChildren)
+      node[property] = value;
   }
 
-  public EditNodeById(id: number, name: string): void {
+  public EditNodeById(id: number, property: string, value: any): void {
     let node = this.FindNodeById(id);
-    node.name = name;
+    if (node)
+      node[property] = value;
   }
 
   public FindNodeById(id: number): WafNode {

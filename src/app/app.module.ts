@@ -8,6 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule } from "@angular/common/http";
 
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
+//
+
 import {
   MatButtonModule,
   MatIconModule,
@@ -69,7 +73,8 @@ import { WafRightsectionMainAComponent } from './waf-rightpanel/waf-rigthsection
     MatDialogModule,
     MatListModule,
     MatChipsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule
   ],
   declarations: [
     AppComponent,

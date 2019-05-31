@@ -6,6 +6,8 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { WafMainService, WafNode, ElementsCode } from '../waf-services/waf-main.service';
 import { WafDataService } from '../waf-services/waf-data.service';
 
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+
 //
 
 interface TNode {
@@ -80,6 +82,10 @@ export class WafLeftpanelAComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
   }
 
   public CeneratesTreeFromNodes(nodes: WafNode[]): TNode[] {

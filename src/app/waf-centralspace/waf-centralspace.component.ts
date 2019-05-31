@@ -24,14 +24,26 @@ export class WafCentralspaceComponent implements OnInit {
       this.DataService.AddRootNode(this.DataService.SelectedTool.generator(), true);
       console.log(this.DataService.Nodes);
 
-      this.DataService.EditNodeById(2, "name", "jam");
+      //this.DataService.EditNodeById(2, "name", "jam");
 
       /*let res = this.DataService.FindNodeById(2);
       res.name = "jam";
       console.log(res);*/
 
       //
+      //let res = this.DataService.AddNode(1, this.DataService.SelectedTool.generator());
 
+      //console.log(res);
+      //console.log(this.DataService.Nodes);
+
+      //
+      console.log("C");
+
+      //let names = [];
+      this.DataService.CycleOnNodes(this.DataService.Nodes, x => x.name = "ccc");
+      //this.DataService.CycleOnNodes(this.DataService.Nodes, x => names.push(x.name));
+
+      //console.log(names);
       console.log(this.DataService.Nodes);
 
     }

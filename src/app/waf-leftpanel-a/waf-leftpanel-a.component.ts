@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
+import { WafMainService, WafNode } from '../waf-services/waf-main.service';
+import { WafDataService } from '../waf-services/waf-data.service';
+
 //
 
 interface TNode {
@@ -58,11 +61,17 @@ export class WafLeftpanelAComponent implements OnInit {
   dataSource = new MatTreeNestedDataSource<TNode>();
   hasChild = (_: number, node: TNode) => !!node.children && node.children.length > 0;
 
-  constructor() {
+  constructor(private MainService: WafMainService, private DataService: WafDataService) {
     this.dataSource.data = ToolsTree_data;
   }
 
   ngOnInit() {
+  }
+
+  public CeneratesTreeFromNodes(): any {
+
+    //
+
   }
 
 }

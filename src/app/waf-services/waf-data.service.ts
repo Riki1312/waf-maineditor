@@ -39,16 +39,38 @@ export class WafDataService {
     this.Nodes.push(node);
     if (autoSelect) this.SelectedNode = node;
   }
-  public AddNode(parent: WafNode, node: WafNode): void {
-    let n = this.FindNodeById(parent.idNode);
-    if (n.allowChildren)
-      node[property] = value;
+
+  public AddNode(parentId: number, node: WafNode): boolean {
+    let parent = this.FindNodeById(parentId);
+    if (parent.allowChildren) {
+      parent.children.push(node);
+      return true;
+    }
+    else return false;
   }
 
-  public EditNodeById(id: number, property: string, value: any): void {
+  public EditNodeById(id: number, property: string, value: any): boolean {
     let node = this.FindNodeById(id);
-    if (node)
+    if (node) {
       node[property] = value;
+      return true;
+    }
+    else return false;
+  }
+
+  public CycleOnNodes(nodes: WafNode[], fun: (WafNode) => void): void {
+    let cycle = (nodes: WafNode[], fun: (WafNode) => void) => {
+      for (let node of nodes) {
+        if (node.allowChildren && node.children.length > 0) {
+          cycle(node.children, fun);
+        }
+        else {
+          fun(node);
+        }
+      }
+    }
+
+    cycle(nodes, fun);
   }
 
   public FindNodeById(id: number): WafNode {

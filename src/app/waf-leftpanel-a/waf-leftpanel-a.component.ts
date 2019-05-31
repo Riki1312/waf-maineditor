@@ -78,51 +78,20 @@ export class WafLeftpanelAComponent implements OnInit {
 
   constructor(private MainService: WafMainService, private DataService: WafDataService) {
     this.dataSource.data = this.treeData;
-    //console.log(this.treeData);
   }
 
   ngOnInit() {
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    /*let nodeArray: WafNode[];
-    let parentNode: WafNode | "root" = this.DataService.FindParentNodeById(event.item.data.idNode);
-
-    if (parentNode === "root") {
-      nodeArray = this.DataService.Nodes
-    }
-    else {
-      nodeArray = parentNode.children;
-    }
     
-    moveItemInArray(nodeArray, event.previousIndex, event.currentIndex);
-    this.RebuildTree();*/
-
-    this.RememberExpandedTreeNodes();
-    console.log(this.expandedNodes);
-  }
-
-  expandedNodes: TNode[] = [];
-  RememberExpandedTreeNodes() {
-    if (this.treeControl.dataNodes) {
-      this.treeControl.dataNodes.forEach((node) => {
-        if (this.treeControl.isExpandable(node) && this.treeControl.isExpanded(node)) {
-          this.expandedNodes.push(node);
-        }
-      });
-    }
   }
 
   RebuildTree() {
-    //this.rememberExpandedTreeNodes(this.treeControl, this.expandedNodeSet);
-
     this.dataSource.data = this.treeData;
-
-    //this.forgetMissingExpandedNodes(this.treeControl, this.expandedNodeSet);
-    //this.expandNodesById(this.treeControl.dataNodes, Array.from(this.expandedNodeSet));
   }
 
-  public CeneratesTreeFromNodes(nodes: WafNode[]): TNode[] {
+  CeneratesTreeFromNodes(nodes: WafNode[]): TNode[] {
     let tree: TNode[] = [];
 
     let NodesToTnodes = (nodes: WafNode[], tnodeArray: TNode[]) => {

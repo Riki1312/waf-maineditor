@@ -49,6 +49,7 @@ export class WafCentralspaceComponent implements OnInit {
     }
 
     //
+    //
     this.DataService.SelectToolByCode(ElementsCode.none);
   }
 

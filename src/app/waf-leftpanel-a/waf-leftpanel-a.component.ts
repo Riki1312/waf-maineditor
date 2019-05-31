@@ -85,7 +85,7 @@ export class WafLeftpanelAComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    let nodeArray: WafNode[];
+    /*let nodeArray: WafNode[];
     let parentNode: WafNode | "root" = this.DataService.FindParentNodeById(event.item.data.idNode);
 
     if (parentNode === "root") {
@@ -96,7 +96,21 @@ export class WafLeftpanelAComponent implements OnInit {
     }
     
     moveItemInArray(nodeArray, event.previousIndex, event.currentIndex);
-    this.RebuildTree();
+    this.RebuildTree();*/
+
+    this.RememberExpandedTreeNodes();
+    console.log(this.expandedNodes);
+  }
+
+  expandedNodes: TNode[] = [];
+  RememberExpandedTreeNodes() {
+    if (this.treeControl.dataNodes) {
+      this.treeControl.dataNodes.forEach((node) => {
+        if (this.treeControl.isExpandable(node) && this.treeControl.isExpanded(node)) {
+          this.expandedNodes.push(node);
+        }
+      });
+    }
   }
 
   RebuildTree() {

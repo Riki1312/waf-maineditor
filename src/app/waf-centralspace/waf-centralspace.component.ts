@@ -30,6 +30,8 @@ export class WafCentralspaceComponent implements OnInit {
       res.name = "jam";
       console.log(res);*/
 
+      //
+
       console.log(this.DataService.Nodes);
 
     }

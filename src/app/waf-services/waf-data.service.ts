@@ -58,6 +58,23 @@ export class WafDataService {
     else return false;
   }
 
+  public FindParentNodeById(id: number): WafNode | "root" {
+    let parentNode: WafNode | "root";
+    let cycle = (nodes: WafNode[], parent: WafNode | "root") => {
+      for (let node of nodes) {
+        if (node.idNode === id) {
+          parentNode = parent;
+        }
+        else if (node.allowChildren && node.children.length > 0) {
+          cycle(node.children, node);
+        }
+      }
+    }
+
+    cycle(this.Nodes, "root");
+    return parentNode;
+  }
+
   public DeepCycleOnNodes(nodes: WafNode[], fun: (WafNode) => void): void {
     let cycle = (nodes: WafNode[], fun: (WafNode) => void) => {
       for (let node of nodes) {

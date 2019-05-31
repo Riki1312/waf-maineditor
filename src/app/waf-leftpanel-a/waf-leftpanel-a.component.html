@@ -1,8 +1,8 @@
 <div class="Main">
 
-  <mat-tree cdkDropList [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+  <mat-tree cdkDropList (cdkDropListDropped)="drop($event)" [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
     <!-- This is the tree node template for leaf nodes -->
-    <mat-tree-node cdkDrag *matTreeNodeDef="let node" matTreeNodeToggle>
+    <mat-tree-node cdkDrag [cdkDragData]="node" *matTreeNodeDef="let node" matTreeNodeToggle>
       <li class="mat-tree-node">
         <!-- use a disabled button to provide padding for tree leaf -->
         <button mat-icon-button disabled>

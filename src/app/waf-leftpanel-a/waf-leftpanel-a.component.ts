@@ -69,23 +69,43 @@ export class WafLeftpanelAComponent implements OnInit {
   dataSource = new MatTreeNestedDataSource<TNode>();
   hasChild = (_: number, node: TNode) => !!node.children && node.children.length > 0;
 
-  constructor(private MainService: WafMainService, private DataService: WafDataService) {
-    let treeData: TNode[] = [];
-
+  get treeData(): TNode[] {
     if (this.DataService.Nodes.length > 0)
-      treeData = this.CeneratesTreeFromNodes(this.DataService.Nodes);
+      return this.CeneratesTreeFromNodes(this.DataService.Nodes);
+    else
+      return [];
+  }
 
-    this.dataSource.data = treeData;
-
-    //
-    console.log(treeData);
+  constructor(private MainService: WafMainService, private DataService: WafDataService) {
+    this.dataSource.data = this.treeData;
+    //console.log(this.treeData);
   }
 
   ngOnInit() {
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
+    let nodeArray: WafNode[];
+    let parentNode: WafNode | "root" = this.DataService.FindParentNodeById(event.item.data.idNode);
+
+    if (parentNode === "root") {
+      nodeArray = this.DataService.Nodes
+    }
+    else {
+      nodeArray = parentNode.children;
+    }
+    
+    moveItemInArray(nodeArray, event.previousIndex, event.currentIndex);
+    this.RebuildTree();
+  }
+
+  RebuildTree() {
+    //this.rememberExpandedTreeNodes(this.treeControl, this.expandedNodeSet);
+
+    this.dataSource.data = this.treeData;
+
+    //this.forgetMissingExpandedNodes(this.treeControl, this.expandedNodeSet);
+    //this.expandNodesById(this.treeControl.dataNodes, Array.from(this.expandedNodeSet));
   }
 
   public CeneratesTreeFromNodes(nodes: WafNode[]): TNode[] {

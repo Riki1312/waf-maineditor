@@ -18,10 +18,18 @@ export class WafCentralspaceComponent implements OnInit {
   }
 
   CreateElement() {
-    if (this.DataService.SelectedTool.codeElement !== ElementsCode.none) {
+    if (this.DataService.SelectedTool && this.DataService.SelectedTool.codeElement !== ElementsCode.none) {
 
       console.log(this.DataService.SelectedTool);
       this.DataService.AddRootNode(this.DataService.SelectedTool.generator(), true);
+      console.log(this.DataService.Nodes);
+
+      this.DataService.EditNodeById(2, "jam");
+
+      /*let res = this.DataService.FindNodeById(2);
+      res.name = "jam";
+      console.log(res);*/
+
       console.log(this.DataService.Nodes);
 
     }

@@ -43,7 +43,12 @@ export class WafDataService {
     
   }
 
-  private FindNodeById(id: number): WafNode {
+  public EditNodeById(id: number, name: string): void {
+    let node = this.FindNodeById(id);
+    node.name = name;
+  }
+
+  public FindNodeById(id: number): WafNode {
     let findNodes = (nodes: WafNode[], id: number): WafNode => {
       let nodeFound: WafNode;
       let findNode = (node: WafNode, id: number): void => {

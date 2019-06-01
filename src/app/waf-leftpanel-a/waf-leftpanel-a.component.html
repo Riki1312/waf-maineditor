@@ -54,7 +54,7 @@
 </mat-menu>
 
 <mat-menu #movemenu="matMenu">
-  <button mat-menu-item>In</button>
-  <button mat-menu-item>Up</button>
-  <button mat-menu-item>Down</button>
+  <button mat-menu-item (click)="MoveNode('in')">In</button>
+  <button mat-menu-item (click)="MoveNode('up')">Up</button>
+  <button mat-menu-item (click)="MoveNode('down')">Down</button>
 </mat-menu>

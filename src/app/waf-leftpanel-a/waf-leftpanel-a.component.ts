@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { MatSnackBar } from '@angular/material';
 
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { MatTreeNestedDataSource, MatMenuTrigger } from '@angular/material';
+import { MatTreeNestedDataSource } from '@angular/material';
 
 import { WafMainService, WafNode, ElementsCode } from '../waf-services/waf-main.service';
 import { WafDataService } from '../waf-services/waf-data.service';
@@ -72,14 +74,16 @@ export class WafLeftpanelAComponent implements OnInit {
   actionData: any = null;
   actionSelected: undefined | "move" = undefined;
   actionFunctions: any = {
-    ["move"]: (node: WafNode, data: "in" | "up" | "down") => {
+    ["move"]: (node: WafNode, data: "in" | "up" | "down"): void => {
       let subject = this.DataService.SelectedNode;
       let receiver = node;
 
-      switch (data) {
-        case "in":
-          this.DataService.MoveinNodeById(subject.idNode, receiver.idNode);
-          break;
+      if (subject.idNode !== receiver.idNode) {
+        switch (data) {
+          case "in":
+            this.DataService.MoveinNodeById(subject.idNode, receiver.idNode);
+            break;
+        }
       }
     }
   }
@@ -103,7 +107,7 @@ export class WafLeftpanelAComponent implements OnInit {
 
   //
 
-  constructor(private MainService: WafMainService, private DataService: WafDataService) {
+  constructor(private snackBar: MatSnackBar, private MainService: WafMainService, private DataService: WafDataService) {
     this.dataSource.data = this.treeData;
   }
 
@@ -129,6 +133,11 @@ export class WafLeftpanelAComponent implements OnInit {
     this.actionMode = true;
     this.actionSelected = "move";
     this.actionData = info;
+
+    this.snackBar.open(`Select a second node to move ${ info }`, "Ok", {
+      duration: 000,
+      panelClass: ["snackBarStyle"]
+    });
   }
 
   IsSelectedNode(node: TNode) {
@@ -143,6 +152,7 @@ export class WafLeftpanelAComponent implements OnInit {
     }
     else {
       this.actionFunctions[this.actionSelected](node, this.actionData);
+      this.EndAction();
     }
   }
 

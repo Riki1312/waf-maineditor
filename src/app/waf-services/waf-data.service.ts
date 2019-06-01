@@ -67,7 +67,7 @@ export class WafDataService {
   }
 
   public MoveinNodeById(subjectId: number, receiverId: number) {
-
+    console.log("ok");
   }
 
   public EditNodeById(id: number, property: string, value: any): boolean {

@@ -53,6 +53,19 @@ export class WafDataService {
     else return false;
   }
 
+  public DeleteNodeById(id: number): void {
+    let parent: WafNode | "root" = this.FindParentNodeById(id);
+    let element: WafNode = this.FindNodeById(id);
+    let index: number;
+
+    if (parent !== "root")
+      index = parent.children.indexOf(element);
+    else
+      index = this.Nodes.indexOf(element);
+
+    this.Nodes.splice(index, 1);
+  }
+
   public EditNodeById(id: number, property: string, value: any): boolean {
     let node = this.FindNodeById(id);
     if (node) {

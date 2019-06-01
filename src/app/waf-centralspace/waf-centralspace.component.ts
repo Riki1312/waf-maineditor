@@ -15,7 +15,7 @@ export class WafCentralspaceComponent implements OnInit {
   constructor(private MainService: WafMainService, private DataService: WafDataService) { }
 
   ngOnInit() {
-    this.DataService.Nodes = [
+    /*this.DataService.Nodes = [
       {
         idNode: 1,
         codeElement: 2,
@@ -74,7 +74,7 @@ export class WafCentralspaceComponent implements OnInit {
           }
         ]
       }
-    ];
+    ];*/
   }
 
   CreateElement() {

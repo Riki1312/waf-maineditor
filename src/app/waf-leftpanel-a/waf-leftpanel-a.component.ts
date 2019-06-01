@@ -95,8 +95,22 @@ export class WafLeftpanelAComponent implements OnInit {
 
   //
 
+  NodeLeftClick(tnode: TNode) {
+    this.SelectNode(tnode);
+  }
+
   NodeRightClick(tnode: TNode) {
     this.SelectNode(tnode);
+  }
+
+  DeleteNode() {
+    this.DataService.DeleteNodeById(this.selectedNode.idNode);
+    this.RebuildTree();
+  }
+
+  MoveNode(action: "in" | "up" | "down") {
+    let subject: WafNode;
+    let recipient: WafNode;
   }
 
   IsSelectedNode(node: TNode) {
@@ -112,6 +126,8 @@ export class WafLeftpanelAComponent implements OnInit {
   RebuildTree() {
     this.dataSource.data = this.treeData;
   }
+
+  //
 
   private CeneratesTreeFromNodes(nodes: WafNode[]): TNode[] {
     let tree: TNode[] = [];

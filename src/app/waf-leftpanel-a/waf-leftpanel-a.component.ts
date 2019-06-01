@@ -88,6 +88,8 @@ export class WafLeftpanelAComponent implements OnInit {
     }
   }
 
+  //
+
   get treeData(): TNode[] {
     if (this.DataService.Nodes.length > 0)
       return this.CeneratesTreeFromNodes(this.DataService.Nodes);
@@ -135,7 +137,7 @@ export class WafLeftpanelAComponent implements OnInit {
     this.actionData = info;
 
     this.snackBar.open(`Select a second node to move ${ info }`, "Ok", {
-      duration: 000,
+      duration: 2000,
       panelClass: ["snackBarStyle"]
     });
   }

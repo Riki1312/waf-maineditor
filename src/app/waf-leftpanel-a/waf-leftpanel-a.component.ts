@@ -162,6 +162,7 @@ export class WafLeftpanelAComponent implements OnInit {
     }
     else {
       this.actionFunctions[this.actionSelected](node, this.actionData);
+      this.RebuildTree();
       this.EndAction();
     }
   }

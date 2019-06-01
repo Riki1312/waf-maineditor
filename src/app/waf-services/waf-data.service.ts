@@ -58,20 +58,33 @@ export class WafDataService {
     let element: WafNode = this.FindNodeById(id);
     let index: number;
 
-    if (parent !== "root")
+    if (parent !== "root") {
       index = parent.children.indexOf(element);
-    else
+      parent.children.splice(index, 1);
+    }
+    else {
       index = this.Nodes.indexOf(element);
-
-    this.Nodes.splice(index, 1);
+      this.Nodes.splice(index, 1);
+    }
   }
 
   public MoveinNodeById(subjectId: number, receiverId: number): boolean {
     let subjectNode: WafNode = this.FindNodeById(subjectId);
     let receiverNode: WafNode = this.FindNodeById(receiverId);
 
-    if (receiverNode.allowChildren) {
-      console.log("ok");
+    if (receiverNode.allowChildren && subjectId !== receiverId) {
+      let subjectParent: WafNode | "root" = this.FindParentNodeById(subjectId);
+
+      if (subjectParent === "root" || subjectParent.idNode !== receiverId) {
+        this.DeleteNodeById(subjectId);
+        receiverNode.children.push(subjectNode);
+      }
+      else if (subjectParent.idNode === receiverId) {
+        this.DeleteNodeById(subjectId);
+        this.Nodes.push(subjectNode);
+      }
+
+      // !!! Non posso muovere un parent dentro un suo figlio !!!!
 
       return true;
     }

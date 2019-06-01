@@ -75,8 +75,8 @@ export class WafLeftpanelAComponent implements OnInit {
   }
 
   get selectedNode(): TNode {
-    if (this.treeData.length > 0 && this.DataService.SelectedNode)
-      return this.treeData.find(x => x.idNode === this.DataService.SelectedNode.idNode);
+    if (this.DataService.SelectedNode)
+      return this.FindTnodeById(this.treeData, this.DataService.SelectedNode.idNode);
     else
       return undefined;
   }
@@ -100,8 +100,6 @@ export class WafLeftpanelAComponent implements OnInit {
   }
 
   IsSelectedNode(node: TNode) {
-    console.log(node.idNode);
-
     if (this.selectedNode && node.idNode === this.selectedNode.idNode)
       return "primary";
     else return "";
@@ -115,7 +113,7 @@ export class WafLeftpanelAComponent implements OnInit {
     this.dataSource.data = this.treeData;
   }
 
-  CeneratesTreeFromNodes(nodes: WafNode[]): TNode[] {
+  private CeneratesTreeFromNodes(nodes: WafNode[]): TNode[] {
     let tree: TNode[] = [];
 
     let NodesToTnodes = (nodes: WafNode[], tnodeArray: TNode[]) => {
@@ -140,6 +138,23 @@ export class WafLeftpanelAComponent implements OnInit {
 
     NodesToTnodes(this.DataService.Nodes, tree);
     return tree;
+  }
+
+  private FindTnodeById(tnodes: TNode[], id: number): TNode {
+    let findNodes = (tnodes: TNode[], id: number): TNode => {
+      let nodeFound: TNode;
+      let findNode = (tnode: TNode, id: number): void => {
+        if (tnode.idNode === id)
+          nodeFound = tnode;
+        else if (tnode.children && tnode.children.length > 0)
+          tnode.children.forEach(x => findNode(x, id));
+      }
+
+      tnodes.forEach(x => findNode(x, id));
+      return nodeFound;
+    }
+
+    return findNodes(tnodes, id);
   }
 
 }

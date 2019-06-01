@@ -75,15 +75,23 @@ export class WafLeftpanelAComponent implements OnInit {
   actionSelected: undefined | "move" = undefined;
   actionFunctions: any = {
     ["move"]: (node: WafNode, data: "in" | "up" | "down"): void => {
-      let subject = this.DataService.SelectedNode;
-      let receiver = node;
+      let subject: WafNode = this.DataService.SelectedNode;
+      let receiver: WafNode = node;
+      let result: boolean = false;
 
       if (subject.idNode !== receiver.idNode) {
         switch (data) {
           case "in":
-            this.DataService.MoveinNodeById(subject.idNode, receiver.idNode);
+            result = this.DataService.MoveinNodeById(subject.idNode, receiver.idNode);
             break;
         }
+      }
+
+      if (!result) {
+        this.snackBar.open(`Invalid action`, "O", {
+          duration: 3000,
+          panelClass: ["snackBarStyle"]
+        });
       }
     }
   }

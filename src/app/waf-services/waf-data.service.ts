@@ -66,6 +66,10 @@ export class WafDataService {
     this.Nodes.splice(index, 1);
   }
 
+  public MoveinNodeById(subjectId: number, receiverId: number) {
+
+  }
+
   public EditNodeById(id: number, property: string, value: any): boolean {
     let node = this.FindNodeById(id);
     if (node) {

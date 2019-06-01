@@ -67,6 +67,23 @@ export class WafLeftpanelAComponent implements OnInit {
   dataSource = new MatTreeNestedDataSource<TNode>();
   hasChild = (_: number, node: TNode) => !!node.children && node.children.length > 0;
 
+  //Action
+  actionMode: boolean = false;
+  actionData: any = null;
+  actionSelected: undefined | "move" = undefined;
+  actionFunctions: any = {
+    ["move"]: (node: WafNode, data: "in" | "up" | "down") => {
+      let subject = this.DataService.SelectedNode;
+      let receiver = node;
+
+      switch (data) {
+        case "in":
+          this.DataService.MoveinNodeById(subject.idNode, receiver.idNode);
+          break;
+      }
+    }
+  }
+
   get treeData(): TNode[] {
     if (this.DataService.Nodes.length > 0)
       return this.CeneratesTreeFromNodes(this.DataService.Nodes);
@@ -108,9 +125,10 @@ export class WafLeftpanelAComponent implements OnInit {
     this.RebuildTree();
   }
 
-  MoveNode(action: "in" | "up" | "down") {
-    let subject: WafNode;
-    let recipient: WafNode;
+  MoveNode(info: "in" | "up" | "down") {
+    this.actionMode = true;
+    this.actionSelected = "move";
+    this.actionData = info;
   }
 
   IsSelectedNode(node: TNode) {
@@ -120,7 +138,12 @@ export class WafLeftpanelAComponent implements OnInit {
   }
 
   SelectNode(node: TNode) {
-    this.selectedNode = node;
+    if (!this.actionMode) {
+      this.selectedNode = node;
+    }
+    else {
+      this.actionFunctions[this.actionSelected](node, this.actionData);
+    }
   }
 
   RebuildTree() {
@@ -128,6 +151,12 @@ export class WafLeftpanelAComponent implements OnInit {
   }
 
   //
+
+  private EndAction() {
+    this.actionMode = false;
+    this.actionSelected = undefined;
+    this.actionData = null;
+  }
 
   private CeneratesTreeFromNodes(nodes: WafNode[]): TNode[] {
     let tree: TNode[] = [];

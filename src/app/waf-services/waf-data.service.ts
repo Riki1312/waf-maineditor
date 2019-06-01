@@ -31,9 +31,13 @@ export class WafDataService {
     this.SelectedTool = this.MainService.Elements_data.find(x => x.codeElement === codeElement);
   }
 
+  public SelectNodeById(idNode: number): void {
+    this.SelectedNode = this.FindNodeById(idNode);
+  }
+
   public GetElementByCode(codeElement: number): WafElement {
     return this.MainService.Elements_data.find(x => x.codeElement === codeElement);
-  } 
+  }
 
   public AddRootNode(node: WafNode, autoSelect?: boolean): void {
     this.Nodes.push(node);

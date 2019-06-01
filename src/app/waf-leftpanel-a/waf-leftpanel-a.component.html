@@ -8,7 +8,7 @@
         <button mat-icon-button disabled>
           <img [src]="node.img"/>
         </button>
-        <button mat-button [matMenuTriggerFor]="contextmenu" (contextmenu)="NodeRightClick(node); false">{{ node.displayName }}</button>
+        <button mat-button [matMenuTriggerFor]="contextmenu" (contextmenu)="NodeRightClick(node); false" [color]="IsSelectedNode(node)">{{ node.displayName }}</button>
       </li>
     </mat-tree-node>
     <!-- This is the tree node template for expandable nodes -->
@@ -24,7 +24,7 @@
           <button mat-icon-button disabled>
             <img [src]="node.img"/>
           </button>
-          <button mat-button>{{ node.displayName }}</button>
+          <button mat-button [matMenuTriggerFor]="contextmenu" (contextmenu)="NodeRightClick(node); false" [color]="IsSelectedNode(node)">{{ node.displayName }}</button>
         </div>
         <ul [class.node-tree-invisible]="!treeControl.isExpanded(node)">
           <ng-container matTreeNodeOutlet></ng-container>
@@ -37,6 +37,12 @@
 
 <!-- Contextmenu -->
 <mat-menu #contextmenu="matMenu">
-  <button mat-menu-item>Move</button>
+  <button mat-menu-item [matMenuTriggerFor]="movemenu">Move</button>
   <button mat-menu-item>Delete</button>
+</mat-menu>
+
+<mat-menu #movemenu="matMenu">
+  <button mat-menu-item>Insert</button>
+  <button mat-menu-item>Up</button>
+  <button mat-menu-item>Down</button>
 </mat-menu>

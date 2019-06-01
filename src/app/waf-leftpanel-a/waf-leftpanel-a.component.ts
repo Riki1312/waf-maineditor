@@ -6,8 +6,6 @@ import { MatTreeNestedDataSource, MatMenuTrigger } from '@angular/material';
 import { WafMainService, WafNode, ElementsCode } from '../waf-services/waf-main.service';
 import { WafDataService } from '../waf-services/waf-data.service';
 
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-
 //
 
 interface TNode {
@@ -76,6 +74,16 @@ export class WafLeftpanelAComponent implements OnInit {
       return [];
   }
 
+  get selectedNode(): TNode {
+    if (this.treeData.length > 0 && this.DataService.SelectedNode)
+      return this.treeData.find(x => x.idNode === this.DataService.SelectedNode.idNode);
+    else
+      return undefined;
+  }
+  set selectedNode(value: TNode) {
+    this.DataService.SelectNodeById(value.idNode);
+  }
+
   //
 
   constructor(private MainService: WafMainService, private DataService: WafDataService) {
@@ -88,8 +96,19 @@ export class WafLeftpanelAComponent implements OnInit {
   //
 
   NodeRightClick(tnode: TNode) {
-    console.log("Nodo selezionato:");
-    console.log(tnode);
+    this.SelectNode(tnode);
+  }
+
+  IsSelectedNode(node: TNode) {
+    console.log(node.idNode);
+
+    if (this.selectedNode && node.idNode === this.selectedNode.idNode)
+      return "primary";
+    else return "";
+  }
+
+  SelectNode(node: TNode) {
+    this.selectedNode = node;
   }
 
   RebuildTree() {

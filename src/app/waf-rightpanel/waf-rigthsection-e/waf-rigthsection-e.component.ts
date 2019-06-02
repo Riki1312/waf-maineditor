@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { WafMainService } from '../../waf-services/waf-main.service';
+import { WafDataService } from '../../waf-services/waf-data.service';
+
 //
 
 interface PStyle {
@@ -30,13 +33,21 @@ export class WafRigthsectionEComponent implements OnInit {
 
   properties: PStyle[] = StyleProperty_data;
 
-  constructor() { }
+  constructor(private MainService: WafMainService, private DataService: WafDataService) { }
 
   ngOnInit() {
   }
 
   IsColorProperty(item: PStyle) {
     return (item.propertyCss === "color");
+  }
+
+  PropertyChange(item: PStyle) {
+    console.log(item);
+
+    this.DataService.EditStyleRule(this.DataService.SelectedStyle.className, item.propertyCss, item.value);
+
+    console.log(this.DataService.Styles);
   }
 
 }

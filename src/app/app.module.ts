@@ -54,6 +54,7 @@ import { WafSettingsEditorComponent } from './waf-leftbar/waf-settings-editor/wa
 import { WafNodeOptionsComponent } from './waf-leftpanel-a/waf-node-options/waf-node-options.component';
 import { WafRightsectionMainComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main/waf-rightsection-main.component';
 import { WafRightsectionMainAComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main-a/waf-rightsection-main-a.component';
+import { WafRigthsectionFComponent } from './waf-rightpanel/waf-rigthsection-f/waf-rigthsection-f.component';
 
 //
 
@@ -97,7 +98,8 @@ import { WafRightsectionMainAComponent } from './waf-rightpanel/waf-rigthsection
     WafSettingsEditorComponent,
     WafRightsectionMainComponent,
     WafRightsectionMainAComponent,
-    WafNodeOptionsComponent
+    WafNodeOptionsComponent,
+    WafRigthsectionFComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [

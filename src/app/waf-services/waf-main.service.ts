@@ -77,7 +77,8 @@ export enum StylePanelSection {
   heading = 4,
   background = 5,
   border = 6,
-  effects = 7
+  effects = 7,
+  spacinSize = 8
 }
 
 export enum DataEventsId {
@@ -86,7 +87,8 @@ export enum DataEventsId {
   rigthsection_b = 3,
   rigthsection_c = 4,
   rigthsection_d = 5,
-  rigthsection_e = 6
+  rigthsection_e = 6,
+  rigthsection_f = 7
 }
 
 //

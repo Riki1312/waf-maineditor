@@ -17,15 +17,18 @@ export class WafDataService {
 
   public SelectedTool: WafElement;
   public SelectedNode: WafNode;
+
   public Nodes: WafNode[];
+  public Styles: WafStyle[];
 
   //
 
   constructor(private MainService: WafMainService) {
     this.Nodes = [];
+    this.Styles = [];
   }
 
-  //
+  //Nodes
 
   public SelectToolByCode(codeElement: number): void {
     this.SelectedTool = this.MainService.Elements_data.find(x => x.codeElement === codeElement);
@@ -197,6 +200,89 @@ export class WafDataService {
       return findNodes(this.Nodes, id);
     else
       return undefined;
+  }
+
+  //Styles
+
+  /*
+  export interface WafStyle {
+    className: string;
+    cssRules: StyleData[];
+  }
+  export interface StyleData {
+    cssProperty: string,
+    cssValue: any;
+  }
+  */
+
+  public AddStyle(className: string, cssRules?: StyleData[]): boolean {
+    if (this.GetStyleIndexByName(className) === -1) {
+      let style: WafStyle = {
+        className: className,
+        cssRules: []
+      };
+
+      if (cssRules) style.cssRules = cssRules;
+      
+      this.Styles.push(style);
+      return true;
+    }
+    else return false;
+  }
+
+  public GetStyleIndexByName(className: string): number {
+    let index: number = -1;
+
+    this.Styles.forEach((x, i) => {
+      if (x.className === className) index = i;
+    });
+
+    return index;
+  }
+
+  public AddStyleRules(className: string, cssRules: StyleData[]): boolean {
+    let index: number = this.GetStyleIndexByName(className);
+
+    if (index !== -1) {
+      for (let rule of cssRules)
+        this.AddStyleRule(className, rule);
+      return true;
+    }
+    else return false;
+  }
+
+  public AddStyleRule(className: string, cssRule: StyleData): boolean {
+    let index: number = this.GetStyleIndexByName(className);
+    let nonExists: boolean = this.Styles[index].cssRules.every(x => x.cssProperty !== cssRule.cssProperty);
+
+    if (index !== -1 && nonExists) {
+      this.Styles[index].cssRules.push(cssRule);
+      return true;
+    }
+    else return false;
+  }
+
+  public FindStyleByClass(className: string): WafStyle {
+    return this.Styles.find(x => x.className === className);
+  }
+
+  public EditStyleRule(className: string, cssProperty: string, newValue: string, make?: boolean): boolean {
+    let style: WafStyle = this.FindStyleByClass(className);
+    let ruleIndex: number = -1;
+
+    style.cssRules.forEach((x, i) => {
+      if (x.cssProperty === cssProperty) ruleIndex = i;
+    });
+
+    if (ruleIndex !== -1) {
+      style.cssRules[ruleIndex].cssValue = newValue;
+      return true;
+    }
+    else if (make) {
+      this.AddStyleRule(className, { cssProperty: cssProperty, cssValue: newValue });
+      return true;
+    }
+    else return false;
   }
 
 }

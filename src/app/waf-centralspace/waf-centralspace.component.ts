@@ -17,11 +17,11 @@ import { WafDataService } from '../waf-services/waf-data.service';
 export class WafCentralspaceComponent implements OnInit {
 
   get wafCode_html() {
-    let htmlCode = this.MainService.GetHtmlCode();
+    let htmlCode = this.DataService.GetHtmlCode();
     return this.domSanitizer.bypassSecurityTrustHtml(htmlCode);
   }
   get wafCode_css() {
-    let cssCode = this.MainService.GetCssCode();
+    let cssCode = this.DataService.GetCssCode();
     return this.domSanitizer.bypassSecurityTrustHtml(cssCode);
   }
 

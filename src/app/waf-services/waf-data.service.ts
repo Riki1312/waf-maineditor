@@ -363,7 +363,8 @@ export class WafDataService {
     return htmlCode;
   }
 
-  public GetCssCode(wafSpace: boolean): string {
+  public GetCssCode(wafSpace?: boolean): string {
+    //let wafSpaceName: string = "#wafspace";
     let cssCode: string = "";
 
     for (let style of this.Styles) {

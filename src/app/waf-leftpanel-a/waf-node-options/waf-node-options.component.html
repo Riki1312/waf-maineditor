@@ -1,6 +1,22 @@
 <div class="Main">
 
-  <mat-expansion-panel *ngIf="allowTextContent" expanded>
+  <mat-expansion-panel expanded>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Node options
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="Container">
+      <mat-form-field class="InputText">
+        <input matInput placeholder="Node name" [(ngModel)]="nodeName" spellcheck="false">
+      </mat-form-field>
+    </div>
+  </mat-expansion-panel>
+
+  <!-- Extra options -->
+
+  <mat-expansion-panel *ngIf="allowTextContent">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Text options
@@ -14,12 +30,7 @@
       </mat-form-field>
 
     </div>
-    <!--{{ textContentProperty[0].value }}-->
 
   </mat-expansion-panel>
-
-  <div *ngIf="noneOptions">
-    <p>No options for this node</p>
-  </div>
 
 </div>

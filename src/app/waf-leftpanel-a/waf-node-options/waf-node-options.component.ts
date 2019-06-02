@@ -33,24 +33,27 @@ export class WafNodeOptionsComponent implements OnInit {
           return "";
       },
       set value(value: string) {
-        that.DataService.SelectedNode.htmlContent = value;
-        console.log(this.DataService.Nodes);
+        that.DataService.SelectedNode.data.htmlContent = value;
+        console.log(that.DataService.Nodes);
       }
     }
   ];
-
   get allowTextContent(): boolean {
     let allowForElements: number[] = [ ElementsCode.title, ElementsCode.paragraph ];
     return allowForElements.indexOf(this.DataService.SelectedNode.codeElement) !== -1;
   }
 
-  get noneOptions(): boolean {
-    return !(this.allowTextContent);
+  get nodeName(): string {
+    return this.DataService.SelectedNode.name;
+  }
+  set nodeName(value: string) {
+    this.DataService.SelectedNode.name = value;
   }
 
   //
 
   constructor(private MainService: WafMainService, private DataService: WafDataService) {
+    that = this;
   }
 
   ngOnInit() {

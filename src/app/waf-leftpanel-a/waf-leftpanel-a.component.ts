@@ -58,6 +58,8 @@ const Tree_data: TData[] = [
   }
 ];
 
+const EventId_checkSelectedStyle: number = 2;
+
 //
 
 @Component({
@@ -133,7 +135,7 @@ export class WafLeftpanelAComponent implements OnInit {
     this.dataSource.data = this.treeData;
 
     //Event
-    this.DataService.AddEvent(WafEventsName.selectNode, this.CheckSelectedStyle);
+    this.DataService.AddEvent(WafEventsName.selectNode, EventId_checkSelectedStyle, this.CheckSelectedStyle);
   }
 
   ngOnInit() {

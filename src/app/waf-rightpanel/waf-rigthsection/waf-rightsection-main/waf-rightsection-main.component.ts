@@ -4,17 +4,15 @@ import { WafMainService, WafStyle } from '../../../waf-services/waf-main.service
 import { WafDataService } from '../../../waf-services/waf-data.service';
 
 //
+
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-//
 
-/*
---> TODO: Gestire l'aggiunta della stassa classe più di una volta (anche anuto complete).
-*/
+//
 
 @Component({
   selector: 'app-waf-rightsection-main',

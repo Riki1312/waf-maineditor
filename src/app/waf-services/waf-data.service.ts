@@ -105,7 +105,6 @@ export class WafDataService {
   public MoveupNodeById(subjectId: number, receiverId: number): boolean {
     let subjectNode: WafNode = this.FindNodeById(subjectId);
     let receiverNode: WafNode = this.FindNodeById(receiverId);
-    let subjectParent: WafNode | "root" = this.FindParentNodeById(subjectId);
     let receiverParent: WafNode | "root" = this.FindParentNodeById(receiverId);
 
     //Parent receiver allow children
@@ -121,12 +120,18 @@ export class WafDataService {
     }
 
     if (case0 && case1 && case2) {
+      let receiverIndex: number;
+      
       this.DeleteNodeById(subjectId);
       
-      if (receiverParent !== "root")
-        receiverParent.children.splice(receiverId, 0, subjectNode);
-      else
+      if (receiverParent !== "root") {
+        receiverIndex = receiverParent.children.indexOf(receiverNode);
+        receiverParent.children.splice(receiverIndex, 0, subjectNode);
+      }
+      else {
+        receiverIndex = this.Nodes.indexOf(receiverNode);
         this.Nodes.splice(receiverId, 0, subjectNode);
+      }
 
       return true;
     }

@@ -89,7 +89,7 @@ export class WafLeftpanelAComponent implements OnInit {
       }
 
       if (!result) {
-        this.snackBar.open(`Invalid action`, "Ok", {
+        this.snackBar.open(`Invalid move action`, "Ok", {
           duration: 3000,
           panelClass: ["snackBarStyle"]
         });

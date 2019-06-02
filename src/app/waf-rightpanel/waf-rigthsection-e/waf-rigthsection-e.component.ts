@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 import { WafMainService } from '../../waf-services/waf-main.service';
-import { WafDataService } from '../../waf-services/waf-data.service';
+import { WafDataService, WafEventsName } from '../../waf-services/waf-data.service';
 
 //
 
 interface PStyle {
   name: string;
   propertyCss: string;
+  defaultValue: string;
   value?: string;
 }
 
@@ -15,11 +16,13 @@ const StyleProperty_data: PStyle[] = [
   {
     name: "Color",
     propertyCss: "color",
+    defaultValue: "#000",
     value: "#000"
   },
   {
     name: "Opacity",
     propertyCss: "opacity",
+    defaultValue: "1",
     value: "1"
   }
 ];
@@ -33,7 +36,9 @@ export class WafRigthsectionEComponent implements OnInit {
 
   properties: PStyle[] = StyleProperty_data;
 
-  constructor(private MainService: WafMainService, private DataService: WafDataService) { }
+  constructor(private MainService: WafMainService, private DataService: WafDataService) {
+    this.DataService.AddEvent(WafEventsName.selectStyle, this.UpdatePropertyValue);
+  }
 
   ngOnInit() {
   }
@@ -44,7 +49,10 @@ export class WafRigthsectionEComponent implements OnInit {
 
   UpdatePropertyValue() {
     this.properties.forEach(x => {
-      x.value = this.DataService.GetValueByProperty(this.DataService.SelectedStyle.className, x.propertyCss);
+      let value = this.DataService.GetValueByProperty(this.DataService.SelectedStyle.className, x.propertyCss);
+
+      if (value) x.value = value;
+      else x.value = x.defaultValue;
     });
   }
 

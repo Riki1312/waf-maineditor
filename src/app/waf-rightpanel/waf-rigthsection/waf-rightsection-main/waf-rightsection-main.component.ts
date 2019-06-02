@@ -44,15 +44,13 @@ export class WafRightsectionMainComponent implements OnInit {
     return result;
   }
   get selectedClass(): string {
-    //this.CheckSelectedNode();
-
     if (this.DataService.SelectedStyle)
       return this.DataService.SelectedStyle.className;
     else
       return undefined;
   }
   set selectedClass(value) {
-    this.DataService.SelectedStyle = this.DataService.FindStyleByClass(value);
+    this.DataService.SelectStyleByName(value);
   }
 
   //

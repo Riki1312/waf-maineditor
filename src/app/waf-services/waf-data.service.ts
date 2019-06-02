@@ -12,6 +12,18 @@ import {
 
 //
 
+export enum WafEventsName {
+  selectStyle = "selectStyle",
+  selectNode = "selectNode"
+}
+
+export interface WafEvent {
+  [WafEventsName.selectNode]: (() => void)[];
+  [WafEventsName.selectStyle]: (() => void)[];
+}
+
+//
+
 @Injectable()
 export class WafDataService {
 
@@ -24,12 +36,29 @@ export class WafDataService {
 
   //
 
+  public Events: WafEvent = {
+    [WafEventsName.selectNode]: [],
+    [WafEventsName.selectStyle]: []
+  };
+
+  //
+
   constructor(private MainService: WafMainService) {
     this.Nodes = [];
     this.Styles = [];
   }
 
-  //Nodes
+  private RunEvents(eventKey: string): void {
+    for (let event of this.Events[eventKey]) event();
+  }
+
+  //Event
+
+  public AddEvent(eventKey: string, fun: () => void) {
+    this.Events[eventKey].push(fun);
+  }
+
+  //Select
 
   public SelectToolByCode(codeElement: number): void {
     this.SelectedTool = this.MainService.Elements_data.find(x => x.codeElement === codeElement);
@@ -37,7 +66,18 @@ export class WafDataService {
 
   public SelectNodeById(idNode: number): void {
     this.SelectedNode = this.FindNodeById(idNode);
+    //this.CheckSelectedStyle();
+
+    this.RunEvents(WafEventsName.selectNode);
   }
+
+  public SelectStyleByName(className: string): void {
+    this.SelectedStyle = this.FindStyleByClass(className);
+
+    this.RunEvents(WafEventsName.selectStyle);
+  }
+
+  //Nodes
 
   public GetElementByCode(codeElement: number): WafElement {
     return this.MainService.Elements_data.find(x => x.codeElement === codeElement);
@@ -205,17 +245,6 @@ export class WafDataService {
 
   //Styles
 
-  /*
-  export interface WafStyle {
-    className: string;
-    cssRules: StyleData[];
-  }
-  export interface StyleData {
-    cssProperty: string,
-    cssValue: any;
-  }
-  */
-
   public AddStyle(className: string, cssRules?: StyleData[]): boolean {
     if (this.GetStyleIndexByName(className) === -1) {
       let style: WafStyle = {
@@ -295,23 +324,6 @@ export class WafDataService {
     else return false;
   }
 
-  public CheckSelectedStyle(): void {
-    if (
-      (
-        this.SelectedNode &&
-        this.SelectedStyle &&
-        this.SelectedNode.data.className &&
-        this.SelectedNode.data.className.indexOf(this.SelectedStyle.className) === -1
-      )
-      ||
-      (
-        this.SelectedNode &&
-        this.SelectedStyle &&
-        !this.SelectedNode.data.className
-      )
-    ) {
-      this.SelectedStyle = undefined;
-    }
-  }
+  //
 
 }

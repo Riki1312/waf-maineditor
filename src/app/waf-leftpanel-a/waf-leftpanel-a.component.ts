@@ -7,7 +7,7 @@ import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material';
 
 import { WafMainService, WafNode, ElementsCode } from '../waf-services/waf-main.service';
-import { WafDataService } from '../waf-services/waf-data.service';
+import { WafDataService, WafEventsName } from '../waf-services/waf-data.service';
 
 import { WafNodeOptionsComponent } from './waf-node-options/waf-node-options.component';
 
@@ -120,7 +120,6 @@ export class WafLeftpanelAComponent implements OnInit {
   }
   set selectedNode(value: TNode) {
     this.DataService.SelectNodeById(value.idNode);
-    this.DataService.CheckSelectedStyle();
   }
 
   //
@@ -132,6 +131,9 @@ export class WafLeftpanelAComponent implements OnInit {
     private DataService: WafDataService
   ) {
     this.dataSource.data = this.treeData;
+
+    //Event
+    this.DataService.AddEvent(WafEventsName.selectNode, this.CheckSelectedStyle);
   }
 
   ngOnInit() {
@@ -241,6 +243,25 @@ export class WafLeftpanelAComponent implements OnInit {
     }
 
     return findNodes(tnodes, id);
+  }
+
+  private CheckSelectedStyle(): void {
+    if (
+      (
+        this.DataService.SelectedNode &&
+        this.DataService.SelectedStyle &&
+        this.DataService.SelectedNode.data.className &&
+        this.DataService.SelectedNode.data.className.indexOf(this.DataService.SelectedStyle.className) === -1
+      )
+      ||
+      (
+        this.DataService.SelectedNode &&
+        this.DataService.SelectedStyle &&
+        !this.DataService.SelectedNode.data.className
+      )
+    ) {
+      this.DataService.SelectedStyle = undefined;
+    }
   }
 
 }

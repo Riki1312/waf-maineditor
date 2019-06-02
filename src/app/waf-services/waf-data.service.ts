@@ -366,14 +366,28 @@ export class WafDataService {
   public GetCssCode(wafSpace: boolean): string {
     let cssCode: string;
 
-    
+    for (let style of this.Styles) {
+      let styleString: string = "";
+
+      if (style.cssRules.length > 0)
+        styleString = `
+          .${ style.className } {
+            ${ this.StyledataToCssString(style.cssRules) }
+          }
+        `;
+
+      cssCode = `
+        ${ cssCode }
+        ${ styleString }
+      `;
+    }
 
     return cssCode;
   }
 
   private NodeToHtmlString(node: WafNode, htmlContent?: string): string {
     let htmlString: string = "";
-    let classString: string | boolean = this.NodeToClassArray(node);
+    let classString: string | boolean = this.NodeToClassString(node);
 
     if (node.data.allowFinaltag) {
       if (classString)
@@ -393,7 +407,7 @@ export class WafDataService {
 
   private NodeToSplitHtml(node: WafNode): string[] {
     let htmlString: string[] = [];
-    let classString: string | boolean = this.NodeToClassArray(node);
+    let classString: string | boolean = this.NodeToClassString(node);
 
     if (node.data.allowFinaltag) {
       if (classString)
@@ -407,10 +421,23 @@ export class WafDataService {
     return htmlString;
   }
 
-  private NodeToClassArray(node: WafNode): string | boolean {
+  private NodeToClassString(node: WafNode): string | boolean {
     if (node.data.className)
       return node.data.className.map(x => `.${ x }`).reduce((a, b) => `${ a } ${ b }`);
     return false;
+  }
+
+  private StyledataToCssString(styleData: StyleData[]): string {
+    let cssString: string = "";
+
+    for (let rule of styleData) {
+      cssString = `
+        ${ cssString }
+        ${ rule.cssProperty }: ${ rule.cssValue };
+      `;
+    }
+
+    return cssString;
   }
 
 }

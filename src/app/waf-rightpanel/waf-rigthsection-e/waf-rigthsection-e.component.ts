@@ -37,7 +37,7 @@ export class WafRigthsectionEComponent implements OnInit {
   properties: PStyle[] = StyleProperty_data;
 
   constructor(private MainService: WafMainService, private DataService: WafDataService) {
-    this.DataService.AddEvent(WafEventsName.selectStyle, this.UpdatePropertyValue);
+    this.DataService.AddEvent(WafEventsName.selectStyle, this.UpdatePropertyValue, this.properties);
   }
 
   ngOnInit() {
@@ -47,9 +47,9 @@ export class WafRigthsectionEComponent implements OnInit {
     return (item.propertyCss === "color");
   }
 
-  UpdatePropertyValue() {
-    this.properties.forEach(x => {
-      let value = this.DataService.GetValueByProperty(this.DataService.SelectedStyle.className, x.propertyCss);
+  UpdatePropertyValue(that: any, data?: any) {
+    data.forEach(x => {
+      let value = that.GetValueByProperty(this.DataService.SelectedStyle.className, x.propertyCss);
 
       if (value) x.value = value;
       else x.value = x.defaultValue;
@@ -59,7 +59,7 @@ export class WafRigthsectionEComponent implements OnInit {
   PropertyChange(item: PStyle) {
     this.DataService.EditStyleRule(this.DataService.SelectedStyle.className, item.propertyCss, item.value, true);
 
-    ///
+    //
     console.log(this.DataService.Styles);
   }
 

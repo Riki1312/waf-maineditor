@@ -245,22 +245,22 @@ export class WafLeftpanelAComponent implements OnInit {
     return findNodes(tnodes, id);
   }
 
-  private CheckSelectedStyle(): void {
+  private CheckSelectedStyle(that: any, data?: any): void {
     if (
       (
-        this.DataService.SelectedNode &&
-        this.DataService.SelectedStyle &&
-        this.DataService.SelectedNode.data.className &&
-        this.DataService.SelectedNode.data.className.indexOf(this.DataService.SelectedStyle.className) === -1
+        that.SelectedNode &&
+        that.SelectedStyle &&
+        that.SelectedNode.data.className &&
+        that.SelectedNode.data.className.indexOf(that.SelectedStyle.className) === -1
       )
       ||
       (
-        this.DataService.SelectedNode &&
-        this.DataService.SelectedStyle &&
-        !this.DataService.SelectedNode.data.className
+        that.SelectedNode &&
+        that.SelectedStyle &&
+        !that.SelectedNode.data.className
       )
     ) {
-      this.DataService.SelectedStyle = undefined;
+      that.SelectedStyle = undefined;
     }
   }
 

@@ -18,8 +18,8 @@ export enum WafEventsName {
 }
 
 export interface WafEvent {
-  [WafEventsName.selectNode]: (() => void)[];
-  [WafEventsName.selectStyle]: (() => void)[];
+  [WafEventsName.selectNode]: ({ run: (that: any, data?: any) => void, data?: any })[],
+  [WafEventsName.selectStyle]: ({ run: (that: any, data?: any) => void, data?: any })[]
 }
 
 //
@@ -38,7 +38,7 @@ export class WafDataService {
 
   public Events: WafEvent = {
     [WafEventsName.selectNode]: [],
-    [WafEventsName.selectStyle]: []
+    [WafEventsName.selectStyle]: [],
   };
 
   //
@@ -49,13 +49,23 @@ export class WafDataService {
   }
 
   private RunEvents(eventKey: string): void {
-    for (let event of this.Events[eventKey]) event();
+    for (let event of this.Events[eventKey])
+      if (event.data) event.run(this, event.data);
+      else event.run(this);
   }
 
   //Event
 
-  public AddEvent(eventKey: string, fun: () => void) {
-    this.Events[eventKey].push(fun);
+  public AddEvent(eventKey: string, fun: (that: any) => void, eventData?: any) {
+    let event: {
+      run: (that: any, data?: any) => void, data?: any
+    } = {
+      run: fun
+    };
+    
+    if (eventData) event.data = eventData;
+
+    this.Events[eventKey].push(event);
   }
 
   //Select

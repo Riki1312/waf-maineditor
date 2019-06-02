@@ -7,7 +7,8 @@ import { WafDataService } from '../../waf-services/waf-data.service';
 
 interface PEdit {
   name: string;
-  value?: string;
+  value: string;
+  allowForElements?: number[];
   domain?: string[];
 }
 
@@ -34,7 +35,12 @@ export class WafNodeOptionsComponent implements OnInit {
 
   textContentProperty: PEdit[] = TextContentProperty_data;
   get allowTextContent(): boolean {
-    return false;
+    let allowForElements: number[] = [ ElementsCode.title, ElementsCode.paragraph ];
+    return allowForElements.indexOf(this.DataService.SelectedNode.codeElement) !== -1;
+  }
+
+  get noneOptions(): boolean {
+    return !(this.allowTextContent);
   }
 
   constructor(private MainService: WafMainService, private DataService: WafDataService) { }

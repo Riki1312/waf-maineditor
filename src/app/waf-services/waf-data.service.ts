@@ -94,7 +94,7 @@ export class WafDataService {
 
   public AddRootNode(node: WafNode, autoSelect?: boolean): void {
     this.Nodes.push(node);
-    if (autoSelect) this.SelectedNode = node;
+    if (autoSelect) this.SelectNodeById(node.idNode);
   }
 
   public AddNode(parentId: number, node: WafNode): boolean {
@@ -366,7 +366,7 @@ export class WafDataService {
   public GetCssCode(wafSpace: boolean): string {
     let cssCode: string;
 
-
+    
 
     return cssCode;
   }

@@ -143,6 +143,10 @@ export class WafLeftpanelAComponent implements OnInit {
     this.RebuildTree();
   }
 
+  OptionsNode() {
+    
+  }
+
   MoveNode(info: "in" | "up" | "down") {
     this.actionMode = true;
     this.actionSelected = "move";

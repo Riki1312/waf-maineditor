@@ -43,10 +43,9 @@ export class WafRigthsectionEComponent implements OnInit {
   }
 
   PropertyChange(item: PStyle) {
-    console.log(item);
-
     this.DataService.EditStyleRule(this.DataService.SelectedStyle.className, item.propertyCss, item.value, true);
 
+    //
     console.log(this.DataService.Styles);
   }
 

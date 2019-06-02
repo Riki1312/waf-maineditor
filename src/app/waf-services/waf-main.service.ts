@@ -135,18 +135,18 @@ export class WafMainService {
       codeElement: ElementsCode.div,
       name: "Div",
       generator: this.ElementsGeneretor_data[ElementsCode.div],
-      panels: [ StylePanelSection.alignment, StylePanelSection.background, StylePanelSection.border ]
+      panels: [ StylePanelSection.alignment, StylePanelSection.background, StylePanelSection.border, StylePanelSection.spacinSize ]
     },
     {
       codeElement: ElementsCode.title,
       name: "Title",
       generator: this.ElementsGeneretor_data[ElementsCode.title],
-      panels: [ StylePanelSection.typography, StylePanelSection.heading ]
+      panels: [ StylePanelSection.typography, StylePanelSection.heading, StylePanelSection.spacinSize ]
     },
     {
       codeElement: ElementsCode.paragraph,
       name: "Paragraph",
-      generator: this.ElementsGeneretor_data[ElementsCode.paragraph],
+      generator: this.ElementsGeneretor_data[ ElementsCode.paragraph, StylePanelSection.spacinSize ],
       panels: [ StylePanelSection.typography ]
     },
     {

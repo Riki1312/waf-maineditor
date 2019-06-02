@@ -34,6 +34,8 @@ export interface NodeData {
   htmlTag: string;
   //Allow
   allowFinaltag: boolean;
+  //Html content
+  htmlContent?: string;
   //Attribute class
   className?: string[];
   //Attribute id (univocal)
@@ -96,13 +98,15 @@ export class WafMainService {
       { codeElement: ElementsCode.title, name: "Title" },
       false,
       "h1",
-      true
+      true,
+      "Title"
     ),
     [ElementsCode.paragraph]: this.CreateDefaultGenerator(
       { codeElement: ElementsCode.paragraph, name: "Paragraph" },
       false,
       "p",
-      true
+      true,
+      "Paragraph"
     )
   };
 
@@ -158,7 +162,8 @@ export class WafMainService {
     element: WafElement,
     allowChildren: boolean,
     htmlTag: string,
-    allowFinaltag: boolean
+    allowFinaltag: boolean,
+    htmlContent?: string
   ): () => WafNode {
     let fun = (): WafNode => {
       let node: WafNode = {
@@ -174,6 +179,9 @@ export class WafMainService {
 
       if (allowChildren)
         node["children"] = [];
+
+      if (htmlContent)
+        node.data["htmlContent"] = htmlContent;
 
       return node;
     }

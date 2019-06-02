@@ -12,17 +12,7 @@ interface PEdit {
   domain?: string[];
 }
 
-const TextContentProperty_data: PEdit[] = [
-  {
-    name: "Node text content",
-    get value() {
-      return "ciao";
-    },
-    set value(value: string) {
-      console.log(value);
-    }
-  }
-];
+let that: any;
 
 //
 
@@ -33,7 +23,22 @@ const TextContentProperty_data: PEdit[] = [
 })
 export class WafNodeOptionsComponent implements OnInit {
 
-  textContentProperty: PEdit[] = TextContentProperty_data;
+  textContentProperty: PEdit[] = [
+    {
+      name: "Node text content",
+      get value() {
+        if (that.DataService.SelectedNode.data.htmlContent)
+          return that.DataService.SelectedNode.data.htmlContent;
+        else
+          return "";
+      },
+      set value(value: string) {
+        that.DataService.SelectedNode.htmlContent = value;
+        console.log(this.DataService.Nodes);
+      }
+    }
+  ];
+
   get allowTextContent(): boolean {
     let allowForElements: number[] = [ ElementsCode.title, ElementsCode.paragraph ];
     return allowForElements.indexOf(this.DataService.SelectedNode.codeElement) !== -1;
@@ -43,7 +48,10 @@ export class WafNodeOptionsComponent implements OnInit {
     return !(this.allowTextContent);
   }
 
-  constructor(private MainService: WafMainService, private DataService: WafDataService) { }
+  //
+
+  constructor(private MainService: WafMainService, private DataService: WafDataService) {
+  }
 
   ngOnInit() {
   }

@@ -335,12 +335,65 @@ export class WafDataService {
 
   //Code
 
+  //<div>aaaa</div>
+  //<div />
+
   public GetHtmlCode(): string {
     let htmlCode: string;
 
-    
+    let cycle = (nodes: WafNode[]): string => {
+      let htmlString: string;
+      for (let node of nodes) {
+        let htmlNode: string;
 
+        if (node.allowChildren && node.children.length > 0) {
+          htmlNode = `${ this.NodeToSplitHtml(node)[0] } ${ cycle(node.children) } ${ this.NodeToSplitHtml(node)[0] }`
+        }
+        else {
+          htmlNode = this.NodeToHtmlString(node, node.data.htmlContent);
+        }
+
+        htmlString = `
+          ${ htmlString }
+          ${ htmlNode }
+        `;
+      }
+
+      return htmlString;
+    }
+
+    htmlCode = cycle(this.Nodes);
     return htmlCode;
+  }
+
+  private NodeToHtmlString(node: WafNode, htmlContent?: string): string {
+    let htmlString: string = "";
+    let classString: string = this.NodeToClassArray(node);
+
+    if (node.data.allowFinaltag) {
+      htmlString = `<${ node.data.htmlTag } class="${ classString }">${ htmlContent ? htmlContent : "" }</${ node.data.htmlTag }>`;
+    }
+    else {
+      htmlString = `<${ node.data.htmlTag } class="${ classString }" />`;
+    }
+
+    return htmlString;
+  }
+
+  private NodeToSplitHtml(node: WafNode): string[] {
+    let htmlString: string[] = [];
+    let classString: string = this.NodeToClassArray(node);
+
+    if (node.data.allowFinaltag) {
+      htmlString[0] = `<${ node.data.htmlTag } class="${ classString }">`;
+      htmlString[1] = `</${ node.data.htmlTag }>`;
+    }
+
+    return htmlString;
+  }
+
+  private NodeToClassArray(node: WafNode): string {
+    return node.data.className.map(x => `.${ x }`).reduce((a, b) => `${ a } ${ b }`);
   }
 
 }

@@ -363,6 +363,14 @@ export class WafDataService {
     return htmlCode;
   }
 
+  public GetCssCode(wafSpace: string): string {
+    let cssCode: string;
+
+    
+
+    return cssCode;
+  }
+
   private NodeToHtmlString(node: WafNode, htmlContent?: string): string {
     let htmlString: string = "";
     let classString: string | boolean = this.NodeToClassArray(node);

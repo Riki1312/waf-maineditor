@@ -48,7 +48,7 @@ export class WafCentralspaceComponent implements OnInit {
         panelClass: ["snackBarStyle"]
       });
 
-      ///
+      //
       console.log(this.DataService.Nodes);
       console.log(this.DataService.Events);
     }

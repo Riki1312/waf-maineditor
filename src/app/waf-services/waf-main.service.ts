@@ -80,6 +80,11 @@ export enum StylePanelSection {
   effects = 7
 }
 
+export enum DataEventsId {
+  rigthsection_e = 1,
+  rigthsection_c = 3,
+}
+
 //
 
 @Injectable()

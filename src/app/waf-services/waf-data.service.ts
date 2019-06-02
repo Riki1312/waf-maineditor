@@ -365,13 +365,19 @@ export class WafDataService {
 
   private NodeToHtmlString(node: WafNode, htmlContent?: string): string {
     let htmlString: string = "";
-    let classString: string = this.NodeToClassArray(node);
+    let classString: string | boolean = this.NodeToClassArray(node);
 
     if (node.data.allowFinaltag) {
-      htmlString = `<${ node.data.htmlTag } class="${ classString }">${ htmlContent ? htmlContent : "" }</${ node.data.htmlTag }>`;
+      if (classString)
+        htmlString = `<${ node.data.htmlTag } class="${ classString }">${ htmlContent ? htmlContent : "" }</${ node.data.htmlTag }>`;
+      else
+        htmlString = `<${ node.data.htmlTag }>${ htmlContent ? htmlContent : "" }</${ node.data.htmlTag }>`;
     }
     else {
-      htmlString = `<${ node.data.htmlTag } class="${ classString }" />`;
+      if (classString)
+        htmlString = `<${ node.data.htmlTag } class="${ classString }" />`;
+      else
+        htmlString = `<${ node.data.htmlTag } />`;
     }
 
     return htmlString;
@@ -379,22 +385,24 @@ export class WafDataService {
 
   private NodeToSplitHtml(node: WafNode): string[] {
     let htmlString: string[] = [];
-    let classString: string = this.NodeToClassArray(node);
+    let classString: string | boolean = this.NodeToClassArray(node);
 
     if (node.data.allowFinaltag) {
-      htmlString[0] = `<${ node.data.htmlTag } class="${ classString }">`;
+      if (classString)
+        htmlString[0] = `<${ node.data.htmlTag } class="${ classString }">`;
+      else
+        htmlString[0] = `<${ node.data.htmlTag }>`;
+      
       htmlString[1] = `</${ node.data.htmlTag }>`;
     }
 
     return htmlString;
   }
 
-  private NodeToClassArray(node: WafNode): string {
+  private NodeToClassArray(node: WafNode): string | boolean {
     if (node.data.className)
       return node.data.className.map(x => `.${ x }`).reduce((a, b) => `${ a } ${ b }`);
-    return "";
-
-    //in realtà returnare true o folse e togliere class="".
+    return false;
   }
 
 }

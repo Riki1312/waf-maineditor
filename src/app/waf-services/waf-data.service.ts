@@ -333,6 +333,14 @@ export class WafDataService {
     else return false;
   }
 
-  //
+  //Code
+
+  public GetHtmlCode(): string {
+    let htmlCode: string;
+
+    
+
+    return htmlCode;
+  }
 
 }

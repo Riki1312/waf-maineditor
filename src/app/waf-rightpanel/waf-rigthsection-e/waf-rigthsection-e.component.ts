@@ -42,6 +42,12 @@ export class WafRigthsectionEComponent implements OnInit {
     return (item.propertyCss === "color");
   }
 
+  UpdatePropertyValue() {
+    this.properties.forEach(x => {
+      x.value = this.DataService.GetValueByProperty(this.DataService.SelectedStyle.className, x.propertyCss);
+    });
+  }
+
   PropertyChange(item: PStyle) {
     this.DataService.EditStyleRule(this.DataService.SelectedStyle.className, item.propertyCss, item.value, true);
 

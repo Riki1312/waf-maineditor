@@ -241,6 +241,15 @@ export class WafDataService {
     return index;
   }
 
+  public GetValueByProperty(className: string, cssProperty: string): string {
+    let style: WafStyle = this.FindStyleByClass(className);
+
+    for (let rule of style.cssRules)
+      if (rule.cssProperty === cssProperty)
+        return rule.cssValue;
+    return undefined;
+  }
+
   public AddStyleRules(className: string, cssRules: StyleData[]): boolean {
     let index: number = this.GetStyleIndexByName(className);
 

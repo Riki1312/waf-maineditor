@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MatSnackBar } from '@angular/material';
+
 import { WafMainService, ElementsCode } from '../waf-services/waf-main.service';
 import { WafDataService } from '../waf-services/waf-data.service';
 
@@ -12,7 +14,7 @@ import { WafDataService } from '../waf-services/waf-data.service';
 })
 export class WafCentralspaceComponent implements OnInit {
 
-  constructor(private MainService: WafMainService, private DataService: WafDataService) { }
+  constructor(private snackBar: MatSnackBar, private MainService: WafMainService, private DataService: WafDataService) { }
 
   ngOnInit() {
   }
@@ -20,6 +22,11 @@ export class WafCentralspaceComponent implements OnInit {
   CreateElement() {
     if (this.DataService.SelectedTool && this.DataService.SelectedTool.codeElement !== ElementsCode.none) {
       this.DataService.AddRootNode(this.DataService.SelectedTool.generator(), true);
+
+      this.snackBar.open(`${ this.DataService.SelectedTool.name } created`, "Ok", {
+        duration: 2000,
+        panelClass: ["snackBarStyle"]
+      });
 
       ///
       console.log(this.DataService.Nodes);

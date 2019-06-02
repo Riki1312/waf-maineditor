@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DomSanitizer } from '@angular/platform-browser';
+
 import { MatSnackBar } from '@angular/material';
 
 import { WafMainService, ElementsCode } from '../waf-services/waf-main.service';
@@ -14,10 +16,28 @@ import { WafDataService } from '../waf-services/waf-data.service';
 })
 export class WafCentralspaceComponent implements OnInit {
 
-  constructor(private snackBar: MatSnackBar, private MainService: WafMainService, private DataService: WafDataService) { }
+  get wafCode_html() {
+    let htmlCode = this.MainService.GetHtmlCode();
+    return this.domSanitizer.bypassSecurityTrustHtml(htmlCode);
+  }
+  get wafCode_css() {
+    let cssCode = this.MainService.GetCssCode();
+    return this.domSanitizer.bypassSecurityTrustHtml(cssCode);
+  }
+
+  //
+
+  constructor(
+    private domSanitizer: DomSanitizer,
+    private snackBar: MatSnackBar,
+    private MainService: WafMainService,
+    private DataService: WafDataService
+  ) { }
 
   ngOnInit() {
   }
+
+  //
 
   CreateElement() {
     if (this.DataService.SelectedTool && this.DataService.SelectedTool.codeElement !== ElementsCode.none) {
@@ -30,9 +50,6 @@ export class WafCentralspaceComponent implements OnInit {
 
       //
       console.log(this.DataService.Nodes);
-
-      console.log("html:");
-      console.log(this.DataService.GetCssCode());
     }
 
     //

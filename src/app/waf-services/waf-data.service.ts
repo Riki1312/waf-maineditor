@@ -363,10 +363,10 @@ export class WafDataService {
     return htmlCode;
   }
 
-  public GetCssCode(wafSpace: string): string {
+  public GetCssCode(wafSpace: boolean): string {
     let cssCode: string;
 
-    
+
 
     return cssCode;
   }

@@ -32,7 +32,7 @@ export class WafCentralspaceComponent implements OnInit {
       console.log(this.DataService.Nodes);
 
       console.log("html:");
-      console.log(this.DataService.GetHtmlCode());
+      console.log(this.DataService.GetCssCode(false));
     }
 
     //

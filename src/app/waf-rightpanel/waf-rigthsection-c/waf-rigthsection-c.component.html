@@ -10,7 +10,7 @@
     <div class="Container">
 
       <mat-form-field *ngFor="let item of properties" class="InputText">
-        <input matInput [matAutocomplete]="domain" [placeholder]="item.name" [(ngModel)]="item.value" spellcheck="false">
+        <input matInput (focusout)="PropertyChange(item)" [matAutocomplete]="domain" [placeholder]="item.name" [(ngModel)]="item.value" spellcheck="false">
 
         <div *ngIf="IsColorProperty(item)" matSuffix>
           <div [ngStyle]="{'background-color': item.value}" class="ColorIndicator"></div>
@@ -24,7 +24,6 @@
       </mat-form-field>
 
     </div>
-    <!--{{ properties[0].value }}-->
 
   </mat-expansion-panel>
 

@@ -51,6 +51,7 @@ export class WafCentralspaceComponent implements OnInit {
       //
       console.log(this.DataService.Nodes);
       console.log(this.DataService.Events);
+      console.log(this.DataService.Styles);
     }
 
     //

@@ -83,6 +83,7 @@ export enum StylePanelSection {
 export enum DataEventsId {
   rigthsection_e = 1,
   rigthsection_c = 3,
+  rigthsection_a = 4,
 }
 
 //

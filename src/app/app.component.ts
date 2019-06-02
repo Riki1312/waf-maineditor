@@ -27,4 +27,6 @@ Cose:
 - Da discutere: aggiungere due volte la stessa classe a un elemento.
 - Grafica: scroll bar menu autocompletamento nomi classi.
 
+- Miglioria codice: le varie right section hanno praticamente tutte lo stesso codice tranne le proprietà css, fare qualcosa
+
 */

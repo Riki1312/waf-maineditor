@@ -27,6 +27,8 @@ const StyleProperty_data: PStyle[] = [
   }
 ];
 
+const EventId_updateProperty: number = 1;
+
 @Component({
   selector: 'app-waf-rigthsection-e',
   templateUrl: './waf-rigthsection-e.component.html',
@@ -37,7 +39,7 @@ export class WafRigthsectionEComponent implements OnInit {
   properties: PStyle[] = StyleProperty_data;
 
   constructor(private MainService: WafMainService, private DataService: WafDataService) {
-    this.DataService.AddEvent(WafEventsName.selectStyle, this.UpdatePropertyValue, this.properties);
+    this.DataService.AddEvent(WafEventsName.selectStyle, this.UpdatePropertyValue, EventId_updateProperty, this.properties);
   }
 
   ngOnInit() {

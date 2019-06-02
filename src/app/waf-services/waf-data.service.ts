@@ -424,7 +424,7 @@ export class WafDataService {
 
   private NodeToClassString(node: WafNode): string | boolean {
     if (node.data.className)
-      return node.data.className.map(x => `.${ x }`).reduce((a, b) => `${ a } ${ b }`);
+      return node.data.className.map(x => `${ x }`).reduce((a, b) => `${ a } ${ b }`);
     return false;
   }
 

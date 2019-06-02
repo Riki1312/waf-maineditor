@@ -15,7 +15,7 @@ interface PStyle {
 const StyleProperty_data: PStyle[] = [
   {
     name: "Color",
-    propertyCss: "color",
+    propertyCss: "background-color",
     defaultValue: "#000",
     value: "#000"
   },
@@ -44,7 +44,7 @@ export class WafRigthsectionEComponent implements OnInit {
   }
 
   IsColorProperty(item: PStyle) {
-    return (item.propertyCss === "color");
+    return (item.propertyCss === "background-color" || item.propertyCss === "color");
   }
 
   UpdatePropertyValue(that: any, data?: any) {

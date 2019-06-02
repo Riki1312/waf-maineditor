@@ -76,8 +76,7 @@ export class WafDataService {
 
   public SelectNodeById(idNode: number): void {
     this.SelectedNode = this.FindNodeById(idNode);
-    //this.CheckSelectedStyle();
-
+    
     this.RunEvents(WafEventsName.selectNode);
   }
 

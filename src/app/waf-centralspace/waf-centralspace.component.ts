@@ -21,7 +21,7 @@ export class WafCentralspaceComponent implements OnInit {
     if (this.DataService.SelectedTool && this.DataService.SelectedTool.codeElement !== ElementsCode.none) {
       this.DataService.AddRootNode(this.DataService.SelectedTool.generator(), true);
 
-      //
+      ///
       console.log(this.DataService.Nodes);
     }
 

@@ -44,6 +44,8 @@ export class WafRightsectionMainComponent implements OnInit {
     return result;
   }
   get selectedClass(): string {
+    this.CheckSelectedNode();
+
     if (this.selectedStyle)
       return this.selectedStyle.className;
     else
@@ -52,6 +54,8 @@ export class WafRightsectionMainComponent implements OnInit {
   set selectedClass(value) {
     this.selectedStyle = this.DataService.FindStyleByClass(value);
   }
+
+  //
 
   @ViewChild('classInput', { static: false }) classInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
@@ -85,9 +89,6 @@ export class WafRightsectionMainComponent implements OnInit {
       }
 
       this.classlistCtrl.setValue(null);
-
-      //
-      console.log(this.DataService.Styles);
     }
   }
   RemoveClass(item: string): void {
@@ -114,6 +115,10 @@ export class WafRightsectionMainComponent implements OnInit {
 
   private AddClassToNode(className: string): void {
     this.DataService.AddStyle(className);
+
+    if (!this.DataService.SelectedNode.data.className)
+      this.DataService.SelectedNode.data.className = [];
+
     this.DataService.SelectedNode.data.className.push(className);
   }
 
@@ -122,6 +127,25 @@ export class WafRightsectionMainComponent implements OnInit {
 
     if (index >= 0) {
       this.DataService.SelectedNode.data.className.splice(index, 1);
+    }
+  }
+
+  private CheckSelectedNode(): void {
+    if (
+      (
+        this.DataService.SelectedNode &&
+        this.selectedStyle &&
+        this.DataService.SelectedNode.data.className &&
+        this.DataService.SelectedNode.data.className.indexOf(this.selectedStyle.className) === -1
+      )
+      ||
+      (
+        this.DataService.SelectedNode &&
+        this.selectedStyle &&
+        !this.DataService.SelectedNode.data.className
+      )
+    ) {
+      this.selectedStyle = undefined;
     }
   }
 

@@ -33,7 +33,10 @@ export class WafRightsectionMainComponent implements OnInit {
   //
 
   get classArray(): string[] {
-    return this.DataService.SelectedNode.data.className;
+    if (this.DataService.SelectedNode)
+      return this.DataService.SelectedNode.data.className;
+    else
+      return undefined;
   }
   get allClass(): string[] {
     let result: string[] = [];

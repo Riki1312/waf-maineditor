@@ -335,19 +335,16 @@ export class WafDataService {
 
   //Code
 
-  //<div>aaaa</div>
-  //<div />
-
   public GetHtmlCode(): string {
     let htmlCode: string;
 
     let cycle = (nodes: WafNode[]): string => {
-      let htmlString: string;
+      let htmlString: string = "";
       for (let node of nodes) {
-        let htmlNode: string;
+        let htmlNode: string = "";
 
         if (node.allowChildren && node.children.length > 0) {
-          htmlNode = `${ this.NodeToSplitHtml(node)[0] } ${ cycle(node.children) } ${ this.NodeToSplitHtml(node)[0] }`
+          htmlNode = `${ this.NodeToSplitHtml(node)[0] } ${ cycle(node.children) } ${ this.NodeToSplitHtml(node)[1] }`
         }
         else {
           htmlNode = this.NodeToHtmlString(node, node.data.htmlContent);
@@ -393,7 +390,11 @@ export class WafDataService {
   }
 
   private NodeToClassArray(node: WafNode): string {
-    return node.data.className.map(x => `.${ x }`).reduce((a, b) => `${ a } ${ b }`);
+    if (node.data.className)
+      return node.data.className.map(x => `.${ x }`).reduce((a, b) => `${ a } ${ b }`);
+    return "";
+
+    //in realtà returnare true o folse e togliere class="".
   }
 
 }

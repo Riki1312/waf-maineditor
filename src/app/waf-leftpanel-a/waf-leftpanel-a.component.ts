@@ -84,7 +84,10 @@ export class WafLeftpanelAComponent implements OnInit {
           result = this.DataService.MoveinNodeById(subject.idNode, receiver.idNode);
           break;
         case "up":
-          result = this.DataService.MoveupNodeById(subject.idNode, receiver.idNode);
+          result = this.DataService.MovenearNodeById(subject.idNode, receiver.idNode, 0);
+          break;
+        case "down":
+          result = this.DataService.MovenearNodeById(subject.idNode, receiver.idNode, 1);
           break;
       }
 

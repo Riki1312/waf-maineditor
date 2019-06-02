@@ -102,7 +102,7 @@ export class WafDataService {
     else return false;
   }
 
-  public MoveupNodeById(subjectId: number, receiverId: number): boolean {
+  public MovenearNodeById(subjectId: number, receiverId: number, indexOffset: number): boolean {
     let subjectNode: WafNode = this.FindNodeById(subjectId);
     let receiverNode: WafNode = this.FindNodeById(receiverId);
     let receiverParent: WafNode | "root" = this.FindParentNodeById(receiverId);
@@ -125,12 +125,12 @@ export class WafDataService {
       this.DeleteNodeById(subjectId);
       
       if (receiverParent !== "root") {
-        receiverIndex = receiverParent.children.indexOf(receiverNode);
+        receiverIndex = receiverParent.children.indexOf(receiverNode) + indexOffset;
         receiverParent.children.splice(receiverIndex, 0, subjectNode);
       }
       else {
-        receiverIndex = this.Nodes.indexOf(receiverNode);
-        this.Nodes.splice(receiverId, 0, subjectNode);
+        receiverIndex = this.Nodes.indexOf(receiverNode) + indexOffset;
+        this.Nodes.splice(receiverIndex, 0, subjectNode);
       }
 
       return true;

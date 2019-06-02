@@ -17,3 +17,14 @@ export class AppComponent  {
     this.rightpanel = index;
   }
 }
+
+//
+
+/*
+
+Cose:
+- Problema: reset elemento selezionato tool (se si usa due volte di fila lo stesso tool).
+- Da discutere: aggiungere due volte la stessa classe a un elemento.
+- Grafica: scroll bar menu autocompletamento nomi classi.
+
+*/

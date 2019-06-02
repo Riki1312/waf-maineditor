@@ -32,10 +32,6 @@ export class WafRightsectionMainComponent implements OnInit {
 
   //
 
-  private selectedStyle: WafStyle;
-
-  //
-
   get classArray(): string[] {
     if (this.DataService.SelectedNode)
       return this.DataService.SelectedNode.data.className;
@@ -48,15 +44,15 @@ export class WafRightsectionMainComponent implements OnInit {
     return result;
   }
   get selectedClass(): string {
-    this.CheckSelectedNode();
+    //this.CheckSelectedNode();
 
-    if (this.selectedStyle)
-      return this.selectedStyle.className;
+    if (this.DataService.SelectedStyle)
+      return this.DataService.SelectedStyle.className;
     else
       return undefined;
   }
   set selectedClass(value) {
-    this.selectedStyle = this.DataService.FindStyleByClass(value);
+    this.DataService.SelectedStyle = this.DataService.FindStyleByClass(value);
   }
 
   //
@@ -131,25 +127,6 @@ export class WafRightsectionMainComponent implements OnInit {
 
     if (index >= 0) {
       this.DataService.SelectedNode.data.className.splice(index, 1);
-    }
-  }
-
-  private CheckSelectedNode(): void {
-    if (
-      (
-        this.DataService.SelectedNode &&
-        this.selectedStyle &&
-        this.DataService.SelectedNode.data.className &&
-        this.DataService.SelectedNode.data.className.indexOf(this.selectedStyle.className) === -1
-      )
-      ||
-      (
-        this.DataService.SelectedNode &&
-        this.selectedStyle &&
-        !this.DataService.SelectedNode.data.className
-      )
-    ) {
-      this.selectedStyle = undefined;
     }
   }
 

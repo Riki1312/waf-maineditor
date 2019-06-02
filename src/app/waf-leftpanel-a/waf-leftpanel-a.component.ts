@@ -120,6 +120,7 @@ export class WafLeftpanelAComponent implements OnInit {
   }
   set selectedNode(value: TNode) {
     this.DataService.SelectNodeById(value.idNode);
+    this.DataService.CheckSelectedStyle();
   }
 
   //

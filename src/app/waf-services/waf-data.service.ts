@@ -17,7 +17,7 @@ export class WafDataService {
 
   public SelectedTool: WafElement;
   public SelectedNode: WafNode;
-  public ViewStylepanels: boolean;
+  public SelectedStyle: WafStyle;
 
   public Nodes: WafNode[];
   public Styles: WafStyle[];
@@ -27,7 +27,6 @@ export class WafDataService {
   constructor(private MainService: WafMainService) {
     this.Nodes = [];
     this.Styles = [];
-    this.ViewStylepanels = true;
   }
 
   //Nodes
@@ -285,6 +284,25 @@ export class WafDataService {
       return true;
     }
     else return false;
+  }
+
+  public CheckSelectedStyle(): void {
+    if (
+      (
+        this.SelectedNode &&
+        this.SelectedStyle &&
+        this.SelectedNode.data.className &&
+        this.SelectedNode.data.className.indexOf(this.SelectedStyle.className) === -1
+      )
+      ||
+      (
+        this.SelectedNode &&
+        this.SelectedStyle &&
+        !this.SelectedNode.data.className
+      )
+    ) {
+      this.SelectedStyle = undefined;
+    }
   }
 
 }

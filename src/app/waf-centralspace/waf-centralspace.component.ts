@@ -17,11 +17,11 @@ import { WafDataService } from '../waf-services/waf-data.service';
 export class WafCentralspaceComponent implements OnInit {
 
   get wafCode_html() {
-    let htmlCode = this.DataService.GetHtmlCode();
+    let htmlCode = `<div id="wafspace">${ this.DataService.GetHtmlCode() }<div>`;
     return this.domSanitizer.bypassSecurityTrustHtml(htmlCode);
   }
   get wafCode_css() {
-    let cssCode = this.DataService.GetCssCode();
+    let cssCode = `<style>${ this.DataService.GetCssCode() }</style>`;
     return this.domSanitizer.bypassSecurityTrustHtml(cssCode);
   }
 
@@ -48,7 +48,7 @@ export class WafCentralspaceComponent implements OnInit {
         panelClass: ["snackBarStyle"]
       });
 
-      ///
+      //
       console.log(this.DataService.Nodes);
     }
 

@@ -7,7 +7,7 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
 
-    <div class="Main">
+    <div class="Container">
 
       <mat-form-field *ngFor="let item of properties" class="InputText">
         <input matInput [matAutocomplete]="domain" [placeholder]="item.name" [(ngModel)]="item.value" spellcheck="false">

@@ -21,7 +21,7 @@ const StyleProperty_data: PStyle[] = [
     value: "left",
     domain: [ "left", "right", "center", "justify" ]
   },
-    {
+  {
     name: "Font family",
     propertyCss: "font-family",
     value: "Arial"

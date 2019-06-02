@@ -1,24 +1,25 @@
 <div class="Main">
 
-  <mat-expansion-panel>
+  <mat-expansion-panel *ngIf="allowTextContent" expanded>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Backgrounds
+        Text options
       </mat-panel-title>
     </mat-expansion-panel-header>
 
     <div class="Container">
 
-      <mat-form-field *ngFor="let item of properties" class="InputText">
+      <mat-form-field *ngFor="let item of textContentProperty" class="InputText">
         <input matInput [placeholder]="item.name" [(ngModel)]="item.value" spellcheck="false">
-
-        <div *ngIf="IsColorProperty(item)" matSuffix>
-          <div [ngStyle]="{'background-color': item.value}" class="ColorIndicator"></div>
-        </div>
       </mat-form-field>
 
     </div>
+    <!--{{ textContentProperty[0].value }}-->
 
   </mat-expansion-panel>
+
+  <div>
+    <p>No options for this node</p>
+  </div>
 
 </div>

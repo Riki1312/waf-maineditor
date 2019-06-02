@@ -50,8 +50,8 @@
 <!-- Contextmenu -->
 <mat-menu #contextmenu="matMenu">
   <button mat-menu-item [matMenuTriggerFor]="movemenu">Move</button>
+  <button mat-menu-item (click)="OptionsNode()">Edit</button>
   <button mat-menu-item (click)="DeleteNode()">Delete</button>
-  <button mat-menu-item (click)="OptionsNode()">Options</button>
 </mat-menu>
 
 <mat-menu #movemenu="matMenu">

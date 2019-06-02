@@ -1,17 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WafMainService, DataEventsId } from '../../waf-services/waf-main.service';
+import { DataEventsId } from '../../waf-services/waf-main.service';
 import { WafDataService, WafEventsName } from '../../waf-services/waf-data.service';
 
-//
+import { WafRightpanelClass, PStyle } from '../waf-rightpanel-class/waf-rightpanel-class';
 
-interface PStyle {
-  name: string;
-  propertyCss: string;
-  defaultValue: string;
-  value?: string;
-  domain?: string[];
-}
+//
 
 const StyleProperty_data: PStyle[] = [
   {
@@ -35,31 +29,20 @@ const StyleProperty_data: PStyle[] = [
 })
 export class WafRigthsectionEComponent implements OnInit {
 
-  properties: PStyle[] = StyleProperty_data;
+    properties: PStyle[] = StyleProperty_data;
+  panelManager: WafRightpanelClass;
 
-  constructor(private MainService: WafMainService, private DataService: WafDataService) {
-    this.DataService.AddEvent(WafEventsName.selectStyle, this.UpdatePropertyValue, DataEventsId.rigthsection_e, this.properties);
+  constructor(private DataService: WafDataService) {
+    this.panelManager = new WafRightpanelClass(this.DataService, this.properties);
+
+    this.panelManager.SetupEvent(DataEventsId.rigthsection_e);
   }
 
   ngOnInit() {
   }
 
-  //
-
-  IsColorProperty(item: PStyle) {
-    return (item.propertyCss === "background-color" || item.propertyCss === "color");
-  }
-  PropertyChange(item: PStyle) {
-    this.DataService.EditStyleRule(this.DataService.SelectedStyle.className, item.propertyCss, item.value, true);
-  }
-
-  UpdatePropertyValue(that: any, data?: any) {
-    data.forEach(x => {
-      let value = that.GetValueByProperty(that.SelectedStyle.className, x.propertyCss);
-
-      if (value) x.value = value;
-      else x.value = x.defaultValue;
-    });
-  }
+  IsColorProperty(item: PStyle): boolean { return this.panelManager.IsColorProperty(item); }
+  
+  PropertyChange(item: PStyle): void { this.panelManager.PropertyChange(item); }
 
 }

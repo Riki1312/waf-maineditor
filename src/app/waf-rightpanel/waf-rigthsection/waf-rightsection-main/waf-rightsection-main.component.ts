@@ -86,6 +86,7 @@ export class WafRightsectionMainComponent implements OnInit {
 
       this.classlistCtrl.setValue(null);
 
+      //
       console.log(this.DataService.Styles);
     }
   }

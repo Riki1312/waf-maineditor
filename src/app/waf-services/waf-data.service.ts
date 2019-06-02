@@ -108,28 +108,25 @@ export class WafDataService {
     let subjectParent: WafNode | "root" = this.FindParentNodeById(subjectId);
     let receiverParent: WafNode | "root" = this.FindParentNodeById(receiverId);
 
-    //Allow children
-    let case0: boolean = receiverNode.allowChildren;
+    //Parent receiver allow children
+    let case0: boolean = true;
     //Himself
     let case1: boolean = subjectId !== receiverId;
-    //Inside his son
+    //Up his son
     let case2: boolean = true;
-    //Inside his parent --> special: move in root
-    let case3: boolean = true;
 
-    if (receiverParent !== "root")
+    if (receiverParent !== "root") {
+      case0 = receiverParent.allowChildren;
       case2 = receiverParent.idNode !== subjectId;
-
-    if (subjectParent !== "root" )
-      case3 = subjectParent.idNode !== receiverId; //
+    }
 
     if (case0 && case1 && case2) {
       this.DeleteNodeById(subjectId);
       
-      if (case3)
-        receiverNode.children.push(subjectNode);
+      if (receiverParent !== "root")
+        receiverParent.children.splice(receiverId, 0, subjectNode);
       else
-        this.Nodes.push(subjectNode);
+        this.Nodes.splice(receiverId, 0, subjectNode);
 
       return true;
     }

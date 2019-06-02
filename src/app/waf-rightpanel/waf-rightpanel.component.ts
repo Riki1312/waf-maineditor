@@ -26,7 +26,7 @@ export class WafRightpanelComponent implements OnInit {
   }
 
   ShowPanel(code: number) {
-    if (this.selectedElement.panels)
+    if (this.selectedElement.panels && this.DataService.ViewStylepanels)
       return this.IsPanelSelected(code);
     else
       return false;

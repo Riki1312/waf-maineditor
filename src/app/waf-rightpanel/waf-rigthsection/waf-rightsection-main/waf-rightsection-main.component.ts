@@ -12,6 +12,10 @@ import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 //
 
+/*
+--> TODO: Gestire l'aggiunta della stassa classe più di una volta (anche anuto complete).
+*/
+
 @Component({
   selector: 'app-waf-rightsection-main',
   templateUrl: './waf-rightsection-main.component.html',

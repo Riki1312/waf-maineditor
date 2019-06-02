@@ -17,6 +17,7 @@ export class WafDataService {
 
   public SelectedTool: WafElement;
   public SelectedNode: WafNode;
+  public ViewStylepanels: boolean;
 
   public Nodes: WafNode[];
   public Styles: WafStyle[];
@@ -26,6 +27,7 @@ export class WafDataService {
   constructor(private MainService: WafMainService) {
     this.Nodes = [];
     this.Styles = [];
+    this.ViewStylepanels = true;
   }
 
   //Nodes

@@ -79,12 +79,13 @@ export class WafLeftpanelAComponent implements OnInit {
       let receiver: WafNode = node;
       let result: boolean = false;
 
-      if (subject.idNode !== receiver.idNode) {
-        switch (data) {
-          case "in":
-            result = this.DataService.MoveinNodeById(subject.idNode, receiver.idNode);
-            break;
-        }
+      switch (data) {
+        case "in":
+          result = this.DataService.MoveinNodeById(subject.idNode, receiver.idNode);
+          break;
+        case "up":
+          result = this.DataService.MoveupNodeById(subject.idNode, receiver.idNode);
+          break;
       }
 
       if (!result) {

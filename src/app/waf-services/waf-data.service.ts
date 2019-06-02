@@ -102,6 +102,40 @@ export class WafDataService {
     else return false;
   }
 
+  public MoveupNodeById(subjectId: number, receiverId: number): boolean {
+    let subjectNode: WafNode = this.FindNodeById(subjectId);
+    let receiverNode: WafNode = this.FindNodeById(receiverId);
+    let subjectParent: WafNode | "root" = this.FindParentNodeById(subjectId);
+    let receiverParent: WafNode | "root" = this.FindParentNodeById(receiverId);
+
+    //Allow children
+    let case0: boolean = receiverNode.allowChildren;
+    //Himself
+    let case1: boolean = subjectId !== receiverId;
+    //Inside his son
+    let case2: boolean = true;
+    //Inside his parent --> special: move in root
+    let case3: boolean = true;
+
+    if (receiverParent !== "root")
+      case2 = receiverParent.idNode !== subjectId;
+
+    if (subjectParent !== "root" )
+      case3 = subjectParent.idNode !== receiverId; //
+
+    if (case0 && case1 && case2) {
+      this.DeleteNodeById(subjectId);
+      
+      if (case3)
+        receiverNode.children.push(subjectNode);
+      else
+        this.Nodes.push(subjectNode);
+
+      return true;
+    }
+    else return false;
+  }
+
   public EditNodeById(id: number, property: string, value: any): boolean {
     let node = this.FindNodeById(id);
     if (node) {

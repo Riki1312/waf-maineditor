@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MatSnackBar } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material';
 
 import { WafMainService, WafNode, ElementsCode } from '../waf-services/waf-main.service';
 import { WafDataService } from '../waf-services/waf-data.service';
+
+import { WafNodeOptionsComponent } from './waf-node-options/waf-node-options.component';
 
 //
 
@@ -121,7 +124,12 @@ export class WafLeftpanelAComponent implements OnInit {
 
   //
 
-  constructor(private snackBar: MatSnackBar, private MainService: WafMainService, private DataService: WafDataService) {
+  constructor(
+    private snackBar: MatSnackBar,
+    private dialogOptions: MatDialog,
+    private MainService: WafMainService,
+    private DataService: WafDataService
+  ) {
     this.dataSource.data = this.treeData;
   }
 
@@ -144,7 +152,7 @@ export class WafLeftpanelAComponent implements OnInit {
   }
 
   OptionsNode() {
-    ///
+    this.dialogOptions.open(WafNodeOptionsComponent);
   }
 
   MoveNode(info: "in" | "up" | "down") {

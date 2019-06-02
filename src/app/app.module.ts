@@ -35,6 +35,7 @@ import { WafMainService } from './waf-services/waf-main.service';
 import { WafDataService } from './waf-services/waf-data.service';
 import { WafSettingsService } from './waf-services/waf-settings.service';
 
+//Component
 import { WafLeftbarComponent } from './waf-leftbar/waf-leftbar.component';
 import { WafLeftpanelComponent } from './waf-leftpanel/waf-leftpanel.component';
 import { WafCentralspaceComponent } from './waf-centralspace/waf-centralspace.component';
@@ -50,6 +51,7 @@ import { WafRigthsectionCComponent } from './waf-rightpanel/waf-rigthsection-c/w
 import { WafRigthsectionDComponent } from './waf-rightpanel/waf-rigthsection-d/waf-rigthsection-d.component';
 import { WafRigthsectionEComponent } from './waf-rightpanel/waf-rigthsection-e/waf-rigthsection-e.component';
 import { WafSettingsEditorComponent } from './waf-leftbar/waf-settings-editor/waf-settings-editor.component';
+import { WafNodeOptionsComponent } from './waf-leftpanel-a/waf-node-options/waf-node-options.component';
 import { WafRightsectionMainComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main/waf-rightsection-main.component';
 import { WafRightsectionMainAComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main-a/waf-rightsection-main-a.component';
 
@@ -94,7 +96,8 @@ import { WafRightsectionMainAComponent } from './waf-rightpanel/waf-rigthsection
     WafRigthsectionEComponent,
     WafSettingsEditorComponent,
     WafRightsectionMainComponent,
-    WafRightsectionMainAComponent
+    WafRightsectionMainAComponent,
+    WafNodeOptionsComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [
@@ -102,6 +105,9 @@ import { WafRightsectionMainAComponent } from './waf-rightpanel/waf-rigthsection
     WafDataService,
     WafSettingsService
   ],
-  entryComponents: [ WafSettingsEditorComponent ]
+  entryComponents: [
+    WafSettingsEditorComponent,
+    WafNodeOptionsComponent
+  ]
 })
 export class AppModule { }

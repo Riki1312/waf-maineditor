@@ -146,8 +146,8 @@ export class WafMainService {
     {
       codeElement: ElementsCode.paragraph,
       name: "Paragraph",
-      generator: this.ElementsGeneretor_data[ ElementsCode.paragraph, StylePanelSection.spacinSize ],
-      panels: [ StylePanelSection.typography ]
+      generator: this.ElementsGeneretor_data[ElementsCode.paragraph],
+      panels: [ StylePanelSection.typography, StylePanelSection.spacinSize ]
     },
     {
       codeElement: ElementsCode.image,

@@ -1,5 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
+import { WafMainService, WafStyle } from '../../../waf-services/waf-main.service';
+import { WafDataService } from '../../../waf-services/waf-data.service';
+
 //
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { FormControl } from '@angular/forms';
@@ -25,16 +28,34 @@ export class WafRightsectionMainComponent implements OnInit {
 
   //
 
-  classArray: string[] = ["Class01"];
-  allClass: string[] = ["Class02", "aClass02", "aClass03", "cClass04", "Class05"];
-  selectedClass: string;
+  private selectedStyle: WafStyle;
+
+  //
+
+  get classArray(): string[] {
+    return this.DataService.SelectedNode.data.className;
+  }
+  get allClass(): string[] {
+    let result: string[] = [];
+    this.DataService.Styles.forEach(x => result.push(x.className));
+    return result;
+  }
+  get selectedClass(): string {
+    if (this.selectedStyle)
+      return this.selectedStyle.className;
+    else
+      return undefined;
+  }
+  set selectedClass(value) {
+    this.selectedStyle = this.DataService.FindStyleByClass(value);
+  }
 
   @ViewChild('classInput', { static: false }) classInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
 
   //
 
-  constructor() {
+  constructor(private MainService: WafMainService, private DataService: WafDataService) {
     this.filteredClasslist = this.classlistCtrl.valueChanges.pipe(
       startWith(null),
       map((item: string | null) => item ? this._filter(item) : this.allClass.slice())
@@ -53,7 +74,7 @@ export class WafRightsectionMainComponent implements OnInit {
 
       //Add class
       if ((value || '').trim()) {
-        this.classArray.push(value.trim());
+        this.AddClassToNode(value.trim());
       }
       //Reset input value
       if (input) {
@@ -61,17 +82,15 @@ export class WafRightsectionMainComponent implements OnInit {
       }
 
       this.classlistCtrl.setValue(null);
+
+      console.log(this.DataService.Styles);
     }
   }
   RemoveClass(item: string): void {
-    const index = this.classArray.indexOf(item);
-
-    if (index >= 0) {
-      this.classArray.splice(index, 1);
-    }
+    this.RemoveClassToNode(item);
   }
   Selected(event: MatAutocompleteSelectedEvent): void {
-    this.classArray.push(event.option.viewValue);
+    this.AddClassToNode(event.option.viewValue);
     this.classInput.nativeElement.value = '';
     this.classlistCtrl.setValue(null);
   }
@@ -85,6 +104,21 @@ export class WafRightsectionMainComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.allClass.filter(item => item.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+  //
+
+  private AddClassToNode(className: string): void {
+    this.DataService.AddStyle(className);
+    this.DataService.SelectedNode.data.className.push(className);
+  }
+
+  private RemoveClassToNode(className: string): void {
+    const index = this.DataService.SelectedNode.data.className.indexOf(className);
+
+    if (index >= 0) {
+      this.DataService.SelectedNode.data.className.splice(index, 1);
+    }
   }
 
 }

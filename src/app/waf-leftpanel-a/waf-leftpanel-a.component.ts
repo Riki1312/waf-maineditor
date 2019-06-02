@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material';
 
-import { WafMainService, WafNode, ElementsCode } from '../waf-services/waf-main.service';
+import { WafMainService, WafNode, ElementsCode, DataEventsId } from '../waf-services/waf-main.service';
 import { WafDataService, WafEventsName } from '../waf-services/waf-data.service';
 
 import { WafNodeOptionsComponent } from './waf-node-options/waf-node-options.component';
@@ -57,8 +57,6 @@ const Tree_data: TData[] = [
     imgPath: "assets/Icons/Light/tools_code.svg"
   }
 ];
-
-const EventId_checkSelectedStyle: number = 2;
 
 //
 
@@ -135,7 +133,7 @@ export class WafLeftpanelAComponent implements OnInit {
     this.dataSource.data = this.treeData;
 
     //Event
-    this.DataService.AddEvent(WafEventsName.selectNode, this.CheckSelectedStyle, EventId_checkSelectedStyle);
+    this.DataService.AddEvent(WafEventsName.selectNode, this.CheckSelectedStyle, DataEventsId.leftpanel_a);
   }
 
   ngOnInit() {

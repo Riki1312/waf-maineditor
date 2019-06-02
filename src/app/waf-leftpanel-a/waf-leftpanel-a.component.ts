@@ -152,7 +152,10 @@ export class WafLeftpanelAComponent implements OnInit {
   }
 
   OptionsNode() {
-    this.dialogOptions.open(WafNodeOptionsComponent);
+    let dialogOptionsRef = this.dialogOptions.open(WafNodeOptionsComponent);
+    dialogOptionsRef.afterClosed().subscribe(result => {
+      this.RebuildTree();
+    });
   }
 
   MoveNode(info: "in" | "up" | "down") {

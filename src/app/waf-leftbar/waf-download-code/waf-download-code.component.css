@@ -1,0 +1,16 @@
+p {
+  font-family: var(--font-roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+
+  color: var(--color-white0);
+}
+
+.Main {
+  width: 600px;
+}
+
+.Textarea {
+  width: 100%;
+}

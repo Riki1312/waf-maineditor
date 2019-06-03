@@ -14,3 +14,23 @@ p {
 .Textarea {
   width: 100%;
 }
+
+/*Scrollbar [*/
+textarea::-webkit-scrollbar-track
+{
+	background-color: rgba(68, 68, 68, 0.8);
+}
+textarea::-webkit-scrollbar
+{
+	width: 7px;
+  height: 7px;
+}
+textarea::-webkit-scrollbar-thumb
+{
+	border-radius: 4px;
+	background-color: var(--color-gray1);
+}
+textarea::-webkit-scrollbar-corner {
+  background: transparent;
+}
+/*Scrollbar ]*/

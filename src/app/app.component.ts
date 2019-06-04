@@ -46,5 +46,6 @@ Cose:
 - Evidenziare l'elemento selezionato nel editor centrale.
 - Zoom (+/-) nel editor centrale (barra in alto).
 - Sistemare menu e link a docuimentazione e sito web.
+- Messaggio per le funzionalità non ancora implementate.
 
 */

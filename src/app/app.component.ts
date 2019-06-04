@@ -27,4 +27,21 @@ Cose:
 - Da discutere: aggiungere due volte la stessa classe a un elemento.
 - Grafica: scroll bar menu autocompletamento nomi classi.
 
+- Frame (e relativo pannello).
+- Proprietà style div Layout (suddividere in flex e grid (e a sua volta in container e children)).
+- Modalità tutorial iniziale per ogni pannello (gestione dinamica).
+- Rimuovere regola css da una classe (scorciatoia da tastiera e messaggio).
+- Modalità anteprima (navigare verso una pagina con NgHtml impostato al codice generato).
+- Formattazione codice generato.
+- Download e upload json file waf.
+- Interazione con dati dinamici da db (cms).
+- Eventi e click.
+- Animazioni.
+- Codice css personalizzato.
+- Anteprima codice classi secondo pannello destra.
+- Creazione automatica classe quando si creare un elemento (modificabile nelle impostazioni).
+- Elemento immagine.
+- Problema: overflow sul body.
+- Elemento custom code (anche per media query e animazioni o interazioni con mouse).
+
 */

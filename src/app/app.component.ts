@@ -41,11 +41,13 @@ Cose:
 - Anteprima codice classi secondo pannello destra.
 - Creazione automatica classe quando si creare un elemento (modificabile nelle impostazioni).
 - Elemento immagine.
-- Problema: overflow sul body.
+- ✔ Problema: overflow sul body.
 - Elemento custom code (anche per media query e animazioni o interazioni con mouse).
 - Evidenziare l'elemento selezionato nel editor centrale.
 - Zoom (+/-) nel editor centrale (barra in alto).
 - Sistemare menu e link a docuimentazione e sito web.
 - Messaggio per le funzionalità non ancora implementate.
+- Anteprima proprietà css come per il colore.
+- Undo e redro, cronologia modifiche.
 
 */

@@ -43,5 +43,8 @@ Cose:
 - Elemento immagine.
 - Problema: overflow sul body.
 - Elemento custom code (anche per media query e animazioni o interazioni con mouse).
+- Evidenziare l'elemento selezionato nel editor centrale.
+- Zoom (+/-) nel editor centrale (barra in alto).
+- Sistemare menu e link a docuimentazione e sito web.
 
 */

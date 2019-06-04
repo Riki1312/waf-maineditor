@@ -110,12 +110,14 @@ export class WafRightsectionMainComponent implements OnInit {
   //
 
   private AddClassToNode(className: string): void {
-    this.DataService.AddStyle(className);
+    if (this.DataService.SelectedNode) {
+      this.DataService.AddStyle(className);
 
-    if (!this.DataService.SelectedNode.data.className)
-      this.DataService.SelectedNode.data.className = [];
+      if (!this.DataService.SelectedNode.data.className)
+        this.DataService.SelectedNode.data.className = [];
 
-    this.DataService.SelectedNode.data.className.push(className);
+      this.DataService.SelectedNode.data.className.push(className);
+    }
   }
 
   private RemoveClassToNode(className: string): void {

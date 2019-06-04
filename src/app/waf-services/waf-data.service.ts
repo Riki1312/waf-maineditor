@@ -350,22 +350,19 @@ export class WafDataService {
         let htmlNode: string = "";
 
         if (node.allowChildren && node.children.length > 0) {
-          htmlNode = `${ this.NodeToSplitHtml(node)[0] } ${ cycle(node.children) } ${ this.NodeToSplitHtml(node)[1] }`
+          htmlNode = `${ this.NodeToSplitHtml(node)[0] } ${ cycle(node.children) } ${ this.NodeToSplitHtml(node)[1] }`;
         }
         else {
           htmlNode = this.NodeToHtmlString(node, node.data.htmlContent);
         }
 
-        htmlString = `
-          ${ htmlString }
-          ${ htmlNode }
-        `;
+        htmlString = `${ htmlString }${ htmlNode }`;
       }
 
       return htmlString;
     }
 
-    htmlCode = cycle(this.Nodes);
+    htmlCode = cycle(this.Nodes).replace(/>/g, '>\n').replace(/</g, '\n<');
     return htmlCode;
   }
 
@@ -377,18 +374,12 @@ export class WafDataService {
       let styleString: string = "";
 
       if (style.cssRules.length > 0)
-        styleString = `
-          .${ style.className } {
-            ${ this.StyledataToCssString(style.cssRules) }
-          }
-        `;
+        styleString = `.${ style.className } {\n${ this.StyledataToCssString(style.cssRules) }}`;
 
-      cssCode = `
-        ${ cssCode }
-        ${ styleString }
-      `;
+      cssCode = `${ cssCode }${ styleString }`;
     }
 
+    cssCode = cssCode.replace(/;/g, ';\n').replace(/}/g, '}\n\n');
     return cssCode;
   }
 
@@ -438,10 +429,7 @@ export class WafDataService {
     let cssString: string = "";
 
     for (let rule of styleData) {
-      cssString = `
-        ${ cssString }
-        ${ rule.cssProperty }: ${ rule.cssValue };
-      `;
+      cssString = `${ cssString } ${ rule.cssProperty }: ${ rule.cssValue };`;
     }
 
     return cssString;

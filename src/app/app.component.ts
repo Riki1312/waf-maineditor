@@ -32,7 +32,7 @@ Cose:
 - Modalità tutorial iniziale per ogni pannello (gestione dinamica).
 - Rimuovere regola css da una classe (scorciatoia da tastiera e messaggio).
 - Modalità anteprima (navigare verso una pagina con NgHtml impostato al codice generato).
-- Formattazione codice generato.
+- ✔ Formattazione codice generato.
 - Download e upload json file waf.
 - Interazione con dati dinamici da db (cms).
 - Eventi e click.
@@ -45,9 +45,10 @@ Cose:
 - Elemento custom code (anche per media query e animazioni o interazioni con mouse).
 - Evidenziare l'elemento selezionato nel editor centrale.
 - Zoom (+/-) nel editor centrale (barra in alto).
-- Sistemare menu e link a docuimentazione e sito web.
+- ✔ Sistemare menu e link a docuimentazione e sito web.
 - Messaggio per le funzionalità non ancora implementate.
 - Anteprima proprietà css come per il colore.
 - Undo e redro, cronologia modifiche.
+- Visualizzare nel pannelo di style le opzioni se nessun elemento è selezionato.
 
 */

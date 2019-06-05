@@ -44,7 +44,7 @@ export class WafRightpanelClass {
     if (event.key === "Delete") {
       console.log(event);
 
-      //Problemi: rimane nel codice css con default value e nel pannello non si resetta il valore
+      //Problemi: rimane nel codice css con default value e nel pannello non si resetta il valore.
       this._DataService.EditStyleRule(this._DataService.SelectedStyle.className, item.propertyCss, item.defaultValue, true);
       this._DataService.DeleteStyleRule(this._DataService.SelectedStyle.className, item.propertyCss);
       this._PropertyChangeActive = false;

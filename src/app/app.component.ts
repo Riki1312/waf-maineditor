@@ -24,13 +24,13 @@ export class AppComponent  {
 
 Cose:
 - ✔ Problema: reset elemento selezionato tool (se si usa due volte di fila lo stesso tool).
-- Da discutere: aggiungere due volte la stessa classe a un elemento.
+- ✔ Da discutere: aggiungere due volte la stessa classe a un elemento.
 - ✔ Grafica: scroll bar menu autocompletamento nomi classi.
 
 - Frame (e relativo pannello).
 - Proprietà style div Layout (suddividere in flex e grid (e a sua volta in container e children)).
 - Modalità tutorial iniziale per ogni pannello (gestione dinamica).
-- Rimuovere regola css da una classe (scorciatoia da tastiera e messaggio).
+- ✔ Rimuovere regola css da una classe (scorciatoia da tastiera e messaggio).
 - Modalità anteprima (navigare verso una pagina con NgHtml impostato al codice generato).
 - ✔ Formattazione codice generato.
 - Download e upload json file waf.
@@ -52,4 +52,3 @@ Cose:
 - Visualizzare nel pannelo di style le opzioni se nessun elemento è selezionato.
 
 */
-//

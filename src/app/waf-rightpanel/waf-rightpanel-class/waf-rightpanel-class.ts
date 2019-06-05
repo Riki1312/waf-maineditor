@@ -15,10 +15,12 @@ export class WafRightpanelClass {
 
   private _DataService: WafDataService;
   private _Properties: PStyle[];
+  private _PropertyChangeActive: boolean;
   
   constructor(dataService: WafDataService, properties: PStyle[]) {
     this._DataService = dataService;
     this._Properties = properties;
+    this._PropertyChangeActive = true;
   }
 
   //
@@ -32,7 +34,21 @@ export class WafRightpanelClass {
   }
 
   public PropertyChange(item: PStyle): void {
-    this._DataService.EditStyleRule(this._DataService.SelectedStyle.className, item.propertyCss, item.value, true);
+    if (this._PropertyChangeActive)
+      this._DataService.EditStyleRule(this._DataService.SelectedStyle.className, item.propertyCss, item.value, true);
+    else
+      this._PropertyChangeActive = true;
+  }
+
+  public PropertyKeydown(item: PStyle, event: any): void {
+    if (event.key === "Delete") {
+      console.log(event);
+
+      //Problemi: rimane nel codice css con default value e nel pannello non si resetta il valore
+      this._DataService.EditStyleRule(this._DataService.SelectedStyle.className, item.propertyCss, item.defaultValue, true);
+      this._DataService.DeleteStyleRule(this._DataService.SelectedStyle.className, item.propertyCss);
+      this._PropertyChangeActive = false;
+    }
   }
 
   public UpdatePropertyValue(that: any, data?: any): void {

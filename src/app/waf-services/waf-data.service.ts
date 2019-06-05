@@ -276,11 +276,31 @@ export class WafDataService {
     else return false;
   }
 
+  public DeleteStyle(className: string): boolean {
+    let indexClass: number = this.GetStyleIndexByName(className);
+
+    if (indexClass !== -1) {
+      this.Styles.splice(indexClass, 1);
+      return true;
+    }
+    else return false;
+  }
+
   public GetStyleIndexByName(className: string): number {
     let index: number = -1;
 
     this.Styles.forEach((x, i) => {
       if (x.className === className) index = i;
+    });
+
+    return index;
+  }
+
+  public GetStyledataIndexByProperty(cssRules: StyleData[], cssProperty: string): number {
+    let index: number = -1;
+
+    cssRules.forEach((x, i) => {
+      if (x.cssProperty === cssProperty) index = i;
     });
 
     return index;
@@ -301,6 +321,19 @@ export class WafDataService {
     if (index !== -1) {
       for (let rule of cssRules)
         this.AddStyleRule(className, rule);
+      return true;
+    }
+    else return false;
+  }
+
+  public DeleteStyleRule(className: string, cssProperty: string): boolean {
+    let indexClass: number = this.GetStyleIndexByName(className);
+    let existsProperty: boolean = this.Styles[indexClass].cssRules.every(x => x.cssProperty === cssProperty);
+
+    if (indexClass !== -1 && existsProperty) {
+      let indexRule: number = this.GetStyledataIndexByProperty(this.Styles[indexClass].cssRules, cssProperty);
+      this.Styles[indexClass].cssRules.splice(indexRule, 1);
+
       return true;
     }
     else return false;

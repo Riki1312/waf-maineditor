@@ -14,12 +14,14 @@ import {
 
 export enum WafEventsName {
   selectStyle = "selectStyle",
-  selectNode = "selectNode"
+  selectNode = "selectNode",
+  selectTool = "selectTool"
 }
 
 export interface WafEvent {
   [WafEventsName.selectNode]: EventData[],
-  [WafEventsName.selectStyle]: EventData[]
+  [WafEventsName.selectStyle]: EventData[],
+  [WafEventsName.selectTool]: EventData[]
 }
 
 export interface EventData {
@@ -45,6 +47,7 @@ export class WafDataService {
   public Events: WafEvent = {
     [WafEventsName.selectNode]: [],
     [WafEventsName.selectStyle]: [],
+    [WafEventsName.selectTool]: []
   };
 
   //
@@ -62,7 +65,7 @@ export class WafDataService {
 
   //Event
 
-  public AddEvent(eventKey: string, fun: (that: any) => void, eventId: number, eventData?: any) {
+  public AddEvent(eventKey: string, fun: (that: any) => void, eventId: number, eventData?: any[]) {
     let event: EventData = {
       run: fun,
       eventId: eventId
@@ -78,6 +81,8 @@ export class WafDataService {
 
   public SelectToolByCode(codeElement: number): void {
     this.SelectedTool = this.MainService.Elements_data.find(x => x.codeElement === codeElement);
+
+    this.RunEvents(WafEventsName.selectTool);
   }
 
   public SelectNodeById(idNode: number): void {

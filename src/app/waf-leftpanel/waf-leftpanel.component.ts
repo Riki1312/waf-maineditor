@@ -5,8 +5,8 @@ import { MatSnackBar } from '@angular/material';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
-import { WafMainService, ElementsCode } from '../waf-services/waf-main.service';
-import { WafDataService } from '../waf-services/waf-data.service';
+import { WafMainService, ElementsCode, DataEventsId } from '../waf-services/waf-main.service';
+import { WafDataService, WafEventsName } from '../waf-services/waf-data.service';
 
 //
 
@@ -57,34 +57,63 @@ export class WafLeftpanelComponent {
   dataSource = new MatTreeNestedDataSource<TNode>();
   hasChild = (_: number, node: TNode) => !!node.children && node.children.length > 0;
 
-  //
-  selectedNode: TNode;
+  //Selected tool
+  get selectedNode(): TNode {
+    if (this.DataService.SelectedTool)
+      return {
+        name: this.DataService.SelectedTool.name,
+        codeElement: this.DataService.SelectedTool.codeElement
+      }
+    else return undefined;
+  }
+  set selectedNode(node: TNode) {
+    if (node)
+      this.DataService.SelectToolByCode(node.codeElement);
+    else
+      this.DataService.SelectToolByCode(ElementsCode.none);
+  }
 
   constructor(private snackBar: MatSnackBar, private MainService: WafMainService, private DataService: WafDataService) {
     this.dataSource.data = ToolsTree_data;
+
+    //Event
+    //this.DataService.AddEvent(WafEventsName.selectTool, this.CheckSelectedTool, DataEventsId.leftpanel, this.selectedNode);
   }
 
   IsSelectedTool(node: TNode) {
-    if (this.selectedNode && node.codeElement === this.DataService.SelectedTool.codeElement)
+    if (this.selectedNode && node.codeElement === this.selectedNode.codeElement)
       return "primary";
     else return "";
   }
 
   SelectTool(node: TNode) {
-    if (!this.selectedNode || this.selectedNode.name !== node.name)
-    {
+    if (
+      !this.selectedNode ||
+      this.selectedNode.codeElement === ElementsCode.none ||
+      this.selectedNode.codeElement !== node.codeElement
+    ) {
       this.selectedNode = node;
-      this.DataService.SelectToolByCode(this.selectedNode.codeElement);
-
-      this.snackBar.open("Click where you want to create the " + this.selectedNode.name, "Ok", {
+      this.snackBar.open("Click where you want to create the " + node.name, "Ok", {
         duration: 2000,
         panelClass: ["snackBarStyle"]
       });
     }
     else {
       this.selectedNode = null;
-      this.DataService.SelectToolByCode(ElementsCode.none);
     }
   }
+
+  /*
+  CheckSelectedTool(that: any, data?: any): void {
+    let tnode: TNode = {
+      name: that.SelectedTool.name,
+      codeElement: that.SelectedTool.codeElement
+    };
+    data[0] = tnode;
+
+    console.log("CheckSelectedTool - data:");
+    console.log(JSON.stringify(data));
+  }
+  */
 
 }

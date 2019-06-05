@@ -88,7 +88,8 @@ export enum DataEventsId {
   rigthsection_c = 4,
   rigthsection_d = 5,
   rigthsection_e = 6,
-  rigthsection_f = 7
+  rigthsection_f = 7,
+  leftpanel = 8
 }
 
 //

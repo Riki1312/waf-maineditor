@@ -5,8 +5,8 @@ import { MatSnackBar } from '@angular/material';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
-import { WafMainService, ElementsCode, DataEventsId } from '../waf-services/waf-main.service';
-import { WafDataService, WafEventsName } from '../waf-services/waf-data.service';
+import { WafMainService, ElementsCode } from '../waf-services/waf-main.service';
+import { WafDataService } from '../waf-services/waf-data.service';
 
 //
 
@@ -73,11 +73,10 @@ export class WafLeftpanelComponent {
       this.DataService.SelectToolByCode(ElementsCode.none);
   }
 
+  //
+
   constructor(private snackBar: MatSnackBar, private MainService: WafMainService, private DataService: WafDataService) {
     this.dataSource.data = ToolsTree_data;
-
-    //Event
-    //this.DataService.AddEvent(WafEventsName.selectTool, this.CheckSelectedTool, DataEventsId.leftpanel, this.selectedNode);
   }
 
   IsSelectedTool(node: TNode) {
@@ -102,18 +101,5 @@ export class WafLeftpanelComponent {
       this.selectedNode = null;
     }
   }
-
-  /*
-  CheckSelectedTool(that: any, data?: any): void {
-    let tnode: TNode = {
-      name: that.SelectedTool.name,
-      codeElement: that.SelectedTool.codeElement
-    };
-    data[0] = tnode;
-
-    console.log("CheckSelectedTool - data:");
-    console.log(JSON.stringify(data));
-  }
-  */
 
 }

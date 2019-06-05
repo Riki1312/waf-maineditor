@@ -20,8 +20,7 @@ export enum WafEventsName {
 
 export interface WafEvent {
   [WafEventsName.selectNode]: EventData[],
-  [WafEventsName.selectStyle]: EventData[],
-  [WafEventsName.selectTool]: EventData[]
+  [WafEventsName.selectStyle]: EventData[]
 }
 
 export interface EventData {
@@ -46,8 +45,7 @@ export class WafDataService {
 
   public Events: WafEvent = {
     [WafEventsName.selectNode]: [],
-    [WafEventsName.selectStyle]: [],
-    [WafEventsName.selectTool]: []
+    [WafEventsName.selectStyle]: []
   };
 
   //
@@ -81,8 +79,6 @@ export class WafDataService {
 
   public SelectToolByCode(codeElement: number): void {
     this.SelectedTool = this.MainService.Elements_data.find(x => x.codeElement === codeElement);
-
-    this.RunEvents(WafEventsName.selectTool);
   }
 
   public SelectNodeById(idNode: number): void {

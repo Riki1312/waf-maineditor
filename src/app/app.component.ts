@@ -25,7 +25,7 @@ export class AppComponent  {
 Cose:
 - Problema: reset elemento selezionato tool (se si usa due volte di fila lo stesso tool).
 - Da discutere: aggiungere due volte la stessa classe a un elemento.
-- Grafica: scroll bar menu autocompletamento nomi classi.
+- ✔ Grafica: scroll bar menu autocompletamento nomi classi.
 
 - Frame (e relativo pannello).
 - Proprietà style div Layout (suddividere in flex e grid (e a sua volta in container e children)).

@@ -37,4 +37,22 @@ body {
   font: inherit !important;
 }
 
+.mat-autocomplete-panel::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+.mat-autocomplete-panel::-webkit-scrollbar
+{
+	width: 7px;
+  height: 7px;
+}
+.mat-autocomplete-panel::-webkit-scrollbar-thumb
+{
+	border-radius: 4px;
+	background-color: var(--color-gray1);
+}
+.mat-autocomplete-panel::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 /**/

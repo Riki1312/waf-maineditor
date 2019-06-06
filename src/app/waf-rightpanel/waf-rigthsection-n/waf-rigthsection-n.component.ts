@@ -22,7 +22,7 @@ export class WafRigthsectionNComponent implements OnInit {
   
   PropertyChange(): void {
     //property: value;
-    
+
     console.log("Custom css - PropertyChange");
   }
 

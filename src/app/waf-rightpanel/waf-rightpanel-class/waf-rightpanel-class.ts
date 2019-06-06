@@ -30,7 +30,11 @@ export class WafRightpanelClass {
   }
 
   public IsColorProperty(item: PStyle): boolean {
-    return (item.propertyCss === "background-color" || item.propertyCss === "color");
+    return (
+      item.propertyCss === "background-color" ||
+      item.propertyCss === "color" ||
+      item.propertyCss === "border-color"
+    );
   }
 
   public PropertyChange(item: PStyle): void {

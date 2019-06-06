@@ -60,6 +60,7 @@ import { WafRigthsectionGComponent } from './waf-rightpanel/waf-rigthsection-g/w
 import { WafRigthsectionHComponent } from './waf-rightpanel/waf-rigthsection-h/waf-rigthsection-h.component';
 import { WafRigthsectionIComponent } from './waf-rightpanel/waf-rigthsection-i/waf-rigthsection-i.component';
 import { WafRigthsectionLComponent } from './waf-rightpanel/waf-rigthsection-l/waf-rigthsection-l.component';
+import { WafRigthsectionMComponent } from './waf-rightpanel/waf-rigthsection-m/waf-rigthsection-m.component';
 
 //
 
@@ -109,7 +110,8 @@ import { WafRigthsectionLComponent } from './waf-rightpanel/waf-rigthsection-l/w
     WafRigthsectionGComponent,
     WafRigthsectionHComponent,
     WafRigthsectionIComponent,
-    WafRigthsectionLComponent
+    WafRigthsectionLComponent,
+    WafRigthsectionMComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [

@@ -78,7 +78,8 @@ export enum StylePanelSection {
   background = 5,
   border = 6,
   effects = 7,
-  spacinSize = 8
+  spacinSize = 8,
+  customCss = 9
 }
 
 export enum DataEventsId {
@@ -135,7 +136,7 @@ export class WafMainService {
       codeElement: ElementsCode.div,
       name: "Div",
       generator: this.ElementsGeneretor_data[ElementsCode.div],
-      panels: [ StylePanelSection.alignment, StylePanelSection.background, StylePanelSection.border, StylePanelSection.spacinSize ]
+      panels: [ StylePanelSection.alignment, StylePanelSection.background, StylePanelSection.border, StylePanelSection.spacinSize, StylePanelSection.customCss ]
     },
     {
       codeElement: ElementsCode.title,

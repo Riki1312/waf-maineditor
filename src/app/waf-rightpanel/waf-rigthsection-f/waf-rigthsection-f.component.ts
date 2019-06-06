@@ -33,7 +33,31 @@ const StyleProperty_data: PStyle[] = [
     value: "auto"
   },
   {
-    name: "overflow",
+    name: "Min W",
+    propertyCss: "min-width",
+    defaultValue: "0",
+    value: "0"
+  },
+  {
+    name: "Min H",
+    propertyCss: "min-height",
+    defaultValue: "0",
+    value: "0"
+  },
+  {
+    name: "Max W",
+    propertyCss: "max-width",
+    defaultValue: "none",
+    value: "none"
+  },
+  {
+    name: "Max H",
+    propertyCss: "max-height",
+    defaultValue: "none",
+    value: "none"
+  },
+  {
+    name: "Overflow",
     propertyCss: "overflow",
     defaultValue: "visible",
     value: "visible",

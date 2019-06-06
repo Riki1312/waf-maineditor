@@ -9,43 +9,34 @@ import { WafRightpanelClass, PStyle } from '../waf-rightpanel-class/waf-rightpan
 
 const StyleProperty_data: PStyle[] = [
   {
-    name: "Display",
-    propertyCss: "display",
-    defaultValue: "block",
-    value: "block",
-    domain: [ "block", "inline", "flex", "grid" ]
+    name: "Order",
+    propertyCss: "order",
+    defaultValue: "0",
+    value: "0"
   },
   {
-    name: "Float",
-    propertyCss: "float",
-    value: "none",
-    defaultValue: "none",
-    domain: [ "none", "left", "right" ]
+    name: "Flex grow",
+    propertyCss: "flex-grow",
+    defaultValue: "0",
+    value: "0"
   },
   {
-    name: "Position",
-    propertyCss: "position",
-    value: "static",
-    defaultValue: "static",
-    domain: [ "static", "relative", "fixed", "absolute", "sticky" ]
-  },
-  {
-    name: "Visibility",
-    propertyCss: "visibility",
-    value: "visible",
-    defaultValue: "visible",
-    domain: [ "visible", "hidden", "collapse" ]
+    name: "Align self",
+    propertyCss: "align-self",
+    value: "auto",
+    defaultValue: "auto",
+    domain: [ "flex-start", "flex-end", "center", "stretch", "baseline" ]
   }
 ];
 
 //
 
 @Component({
-  selector: 'app-waf-rigthsection-a',
-  templateUrl: './waf-rigthsection-a.component.html',
-  styleUrls: ['./waf-rigthsection-a.component.css']
+  selector: 'app-waf-rigthsection-h',
+  templateUrl: './waf-rigthsection-h.component.html',
+  styleUrls: ['./waf-rigthsection-h.component.css']
 })
-export class WafRigthsectionAComponent implements OnInit {
+export class WafRigthsectionHComponent implements OnInit {
 
   properties: PStyle[] = StyleProperty_data;
   panelManager: WafRightpanelClass;

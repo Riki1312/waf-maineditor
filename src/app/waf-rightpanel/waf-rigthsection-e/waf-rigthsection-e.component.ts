@@ -19,6 +19,12 @@ const StyleProperty_data: PStyle[] = [
     propertyCss: "opacity",
     defaultValue: "1",
     value: "1"
+  },
+  {
+    name: "Image",
+    propertyCss: "background-image",
+    defaultValue: "none",
+    value: "none"
   }
 ];
 
@@ -29,7 +35,7 @@ const StyleProperty_data: PStyle[] = [
 })
 export class WafRigthsectionEComponent implements OnInit {
 
-    properties: PStyle[] = StyleProperty_data;
+  properties: PStyle[] = StyleProperty_data;
   panelManager: WafRightpanelClass;
 
   constructor(private DataService: WafDataService) {

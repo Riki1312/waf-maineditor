@@ -27,8 +27,17 @@ export class WafRightpanelComponent implements OnInit {
   ngOnInit() {
   }
 
-  ShowPanel(code: number) {
-    if (this.selectedElement.panels && this.DataService.SelectedStyle)
+  ShowPanel(code: number, propertyCondition?: string, valueCondition?: string) {
+    let condition: boolean;
+
+    if (propertyCondition && valueCondition && this.DataService.SelectedStyle)
+      condition = this.DataService.SelectedStyle.cssRules.some(
+        x => (x.cssProperty === propertyCondition && x.cssValue === valueCondition)
+      );
+    else
+      condition = true;
+
+    if (this.selectedElement.panels && this.DataService.SelectedStyle && condition)
       return this.IsPanelSelected(code);
     else
       return false;

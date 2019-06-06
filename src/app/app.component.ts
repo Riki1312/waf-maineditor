@@ -30,7 +30,7 @@ Cose:
 - Frame (e relativo pannello).
 - Proprietà style div Layout (suddividere in flex e grid (e a sua volta in container e children)).
 - Modalità tutorial iniziale per ogni pannello (gestione dinamica).
-- ✔!!!! Rimuovere regola css da una classe (scorciatoia da tastiera e messaggio). !!!!!
+- ✔ Rimuovere regola css da una classe (scorciatoia da tastiera e messaggio).
 - Modalità anteprima (navigare verso una pagina con NgHtml impostato al codice generato).
 - ✔ Formattazione codice generato.
 - Download e upload json file waf.

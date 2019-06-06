@@ -56,6 +56,10 @@ import { WafRightsectionMainComponent } from './waf-rightpanel/waf-rigthsection/
 import { WafRightsectionMainAComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main-a/waf-rightsection-main-a.component';
 import { WafRigthsectionFComponent } from './waf-rightpanel/waf-rigthsection-f/waf-rigthsection-f.component';
 import { WafDownloadCodeComponent } from './waf-leftbar/waf-download-code/waf-download-code.component';
+import { WafRigthsectionGComponent } from './waf-rightpanel/waf-rigthsection-g/waf-rigthsection-g.component';
+import { WafRigthsectionHComponent } from './waf-rightpanel/waf-rigthsection-h/waf-rigthsection-h.component';
+import { WafRigthsectionIComponent } from './waf-rightpanel/waf-rigthsection-i/waf-rigthsection-i.component';
+import { WafRigthsectionLComponent } from './waf-rightpanel/waf-rigthsection-l/waf-rigthsection-l.component';
 
 //
 
@@ -101,7 +105,11 @@ import { WafDownloadCodeComponent } from './waf-leftbar/waf-download-code/waf-do
     WafRightsectionMainAComponent,
     WafNodeOptionsComponent,
     WafRigthsectionFComponent,
-    WafDownloadCodeComponent
+    WafDownloadCodeComponent,
+    WafRigthsectionGComponent,
+    WafRigthsectionHComponent,
+    WafRigthsectionIComponent,
+    WafRigthsectionLComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [

@@ -1,0 +1,33 @@
+<div class="Main">
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Layout
+      </mat-panel-title>
+      <mat-panel-description>
+        Grid items
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="Container">
+
+      <mat-form-field *ngFor="let item of properties" class="InputText">
+        <input matInput (focusout)="PropertyChange(item)" [matAutocomplete]="domain" [placeholder]="item.name" [(ngModel)]="item.value" spellcheck="false">
+
+        <div *ngIf="IsColorProperty(item)" matSuffix>
+          <div [ngStyle]="{'background-color': item.value}" class="ColorIndicator"></div>
+        </div>
+
+        <mat-autocomplete #domain="matAutocomplete">
+          <mat-option *ngFor="let option of item.domain" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+    </div>
+
+  </mat-expansion-panel>
+
+</div>

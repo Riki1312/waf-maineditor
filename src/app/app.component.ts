@@ -37,7 +37,7 @@ Cose:
 - Interazione con dati dinamici da db (cms).
 - Eventi e click.
 - Animazioni.
-- ✔Codice css personalizzato.
+- ✔ Codice css personalizzato.
 - Anteprima codice classi secondo pannello destra.
 - Creazione automatica classe quando si creare un elemento (modificabile nelle impostazioni).
 - Elemento immagine.

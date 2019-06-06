@@ -328,7 +328,7 @@ export class WafDataService {
 
   public DeleteStyleRule(className: string, cssProperty: string): boolean {
     let indexClass: number = this.GetStyleIndexByName(className);
-    let existsProperty: boolean = this.Styles[indexClass].cssRules.every(x => x.cssProperty === cssProperty);
+    let existsProperty: boolean = this.Styles[indexClass].cssRules.some(x => x.cssProperty === cssProperty);
 
     if (indexClass !== -1 && existsProperty) {
       let indexRule: number = this.GetStyledataIndexByProperty(this.Styles[indexClass].cssRules, cssProperty);

@@ -42,10 +42,9 @@ export class WafRightpanelClass {
 
   public PropertyKeydown(item: PStyle, event: any): void {
     if (event.key === "Delete") {
-      console.log(event);
-
-      //Problemi: rimane nel codice css con default value e nel pannello non si resetta il valore.
-      this._DataService.EditStyleRule(this._DataService.SelectedStyle.className, item.propertyCss, item.defaultValue, true);
+      this._Properties.forEach(x => {
+        if (x.propertyCss === item.propertyCss) x.value = item.defaultValue;
+      });
       this._DataService.DeleteStyleRule(this._DataService.SelectedStyle.className, item.propertyCss);
       this._PropertyChangeActive = false;
     }

@@ -12,7 +12,7 @@ import { WafDataService } from '../../waf-services/waf-data.service';
 })
 export class WafRigthsectionNComponent implements OnInit {
 
-  customCssCode: string = "property: value;"
+  customCssCode: string = " ";
 
   constructor(private DataService: WafDataService) {
   }
@@ -21,6 +21,8 @@ export class WafRigthsectionNComponent implements OnInit {
   }
   
   PropertyChange(): void {
+    //property: value;
+    
     console.log("Custom css - PropertyChange");
   }
 

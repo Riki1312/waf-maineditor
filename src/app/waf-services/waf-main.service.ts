@@ -57,6 +57,12 @@ export interface StyleData {
   //Is custom property
   customStyle?: boolean;
 }
+export interface StyleVariable {
+  //Css variable name
+  variableName: string,
+  //Css variable value
+  variableValue: string;
+}
 
 //
 

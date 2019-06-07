@@ -1,6 +1,6 @@
 <div class="Main">
 
-  <mat-expansion-panel>
+  <mat-expansion-panel expanded>
     <mat-expansion-panel-header>
       <mat-panel-title>
         Global style variables
@@ -9,8 +9,25 @@
 
     <div class="Container">
 
-      
+      <mat-form-field class="InputText">
+        <span matPrefix>--</span>
+        <input matInput value="nomevariabile">
+      </mat-form-field>
+      <mat-form-field class="InputText">
+        <span matPrefix>:</span>
+        <input matInput value="valore">
+      </mat-form-field>
+      <div class="Buttonclear">
+        <button mat-icon-button>
+          <mat-icon>clear</mat-icon>
+        </button>
+      </div>
 
+    </div>
+    <div class="Buttonadd">
+      <button mat-icon-button (click)="AddVariable()">
+        <mat-icon>add</mat-icon>
+      </button>
     </div>
 
   </mat-expansion-panel>

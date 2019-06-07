@@ -7,6 +7,7 @@ import {
   NodeData,
   WafStyle,
   StyleData,
+  StyleVariable,
   ElementsCode
 } from './waf-main.service';
 
@@ -40,6 +41,7 @@ export class WafDataService {
 
   public Nodes: WafNode[];
   public Styles: WafStyle[];
+  public StyleVariables: StyleVariable[];
 
   //
 
@@ -378,6 +380,34 @@ export class WafDataService {
     }
     else if (make) {
       this.AddStyleRule(className, { cssProperty: cssProperty, cssValue: newValue });
+      return true;
+    }
+    else return false;
+  }
+
+  //StyleVariables
+
+  public AddStyleVariable(variableName: string, variableValue: string): boolean {
+    let nonExists: boolean = this.StyleVariables.every(x => x.variableName !== variableName);
+
+    if (nonExists) {
+      this.StyleVariables.push({ variableName: variableName, variableValue: variableValue });
+      return true;
+    }
+    else return false;
+  }
+
+  public EditStyleVariable(variableName: string, variableValue: string, make?: boolean): boolean {
+    for (let styleVariable of this.StyleVariables) {
+      if (styleVariable.variableName === variableName) {
+        styleVariable.variableValue = variableValue;
+
+        return true;
+      }
+    }
+
+    if (make) {
+      this.AddStyleVariable(variableName, variableValue);
       return true;
     }
     else return false;

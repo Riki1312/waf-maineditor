@@ -13,7 +13,16 @@
   opacity: 0.5 !important;
 }
 
+mat-icon {
+  opacity: 0.5 !important;
+  transform: scale(0.8);
+}
+
 /**/
+
+span {
+  opacity: 0.5;
+}
 
 .Main {
   padding-top: 20px;
@@ -27,13 +36,15 @@
 }
 
 .InputText {
-  width: 120px;
+  width: 110px;
 }
 
-.ColorIndicator {
-  width: 20px;
-  height: 20px;
-  border-radius: 3px;
+.Buttonclear {
+  padding-top: 8px;
+}
 
-  cursor: pointer;
+.Buttonadd {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

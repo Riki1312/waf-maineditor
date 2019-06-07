@@ -12,4 +12,8 @@ export class WafRightsectionMainBComponent implements OnInit {
   ngOnInit() {
   }
 
+  AddVariable() {
+    
+  }
+
 }

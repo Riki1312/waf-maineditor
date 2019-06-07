@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { MatSnackBar } from '@angular/material';
+
 import { DataEventsId } from '../../waf-services/waf-main.service';
 import { WafDataService, WafEventsName } from '../../waf-services/waf-data.service';
 
@@ -57,9 +59,9 @@ export class WafRigthsectionGComponent implements OnInit {
   properties: PStyle[] = StyleProperty_data;
   panelManager: WafRightpanelClass;
 
-  constructor(private DataService: WafDataService) {
-    this.panelManager = new WafRightpanelClass(this.DataService, this.properties);
-
+  constructor(private snackBar: MatSnackBar, private DataService: WafDataService) {
+    this.panelManager = new WafRightpanelClass(this.snackBar, this.DataService, this.properties);
+    
     this.panelManager.SetupEvent(DataEventsId.rigthsection_a);
   }
 

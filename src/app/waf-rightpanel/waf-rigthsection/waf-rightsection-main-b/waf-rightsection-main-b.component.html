@@ -9,18 +9,18 @@
 
     <div class="Container">
 
-      <mat-form-field class="InputText">
-        <span matPrefix>--</span>
-        <input matInput value="nomevariabile">
-      </mat-form-field>
-      <mat-form-field class="InputText">
-        <span matPrefix>:</span>
-        <input matInput value="valore">
-      </mat-form-field>
-      <div class="Buttonclear">
-        <button mat-icon-button>
-          <mat-icon>clear</mat-icon>
-        </button>
+      <div *ngFor="let styleVariable of styleVariables" class="Stylevariable">
+        <mat-form-field class="InputText">
+          <span matPrefix>--</span>
+          <input matInput (focusout)="StyleVariableChange('variableName', styleVariable, $event)" [value]="styleVariable.variableName">
+        </mat-form-field>
+        <mat-form-field class="InputText">
+          <span matPrefix>:</span>
+          <input matInput (focusout)="StyleVariableChange('variableValue', styleVariable, $event)" [value]="styleVariable.variableValue">
+        </mat-form-field>
+        <div class="Buttonclear">
+          <button mat-icon-button><mat-icon>clear</mat-icon></button>
+        </div>
       </div>
 
     </div>

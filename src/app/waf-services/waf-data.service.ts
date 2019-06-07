@@ -55,6 +55,7 @@ export class WafDataService {
   constructor(private MainService: WafMainService) {
     this.Nodes = [];
     this.Styles = [];
+    this.StyleVariables = [];
   }
 
   private RunEvents(eventKey: string): void {
@@ -401,6 +402,7 @@ export class WafDataService {
     for (let styleVariable of this.StyleVariables) {
       if (styleVariable.variableName === variableName) {
         styleVariable.variableValue = variableValue;
+        styleVariable.variableName = variableName;
 
         return true;
       }

@@ -176,6 +176,8 @@ export class WafMainService {
     }
   ];
 
+  //
+
   public WafSecurityKey: string = "wefvrfg34t555";
 
   public WafBasicClassName: any = {
@@ -247,7 +249,7 @@ export class WafMainService {
         data: {
           htmlTag: "div",
           allowFinaltag: true,
-          className: [this.WafFrameClassName]
+          className: [this.WafBasicClassName[ElementsCode.frame]]
         },
         allowChildren: true
       }

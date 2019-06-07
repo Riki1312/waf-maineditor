@@ -14,6 +14,10 @@ export class WafRightpanelComponent implements OnInit {
 
   panelSection = StylePanelSection;
 
+  get classlessElement(): boolean {
+    return this.selectedElement.codeElement === ElementsCode.frame;
+  }
+
   get selectedElement() {
     if (this.DataService.SelectedNode)
       return this.DataService.GetElementByCode(this.DataService.SelectedNode.codeElement);
@@ -34,10 +38,9 @@ export class WafRightpanelComponent implements OnInit {
       condition = this.DataService.SelectedStyle.cssRules.some(
         x => (x.cssProperty === propertyCondition && x.cssValue === valueCondition)
       );
-    else
-      condition = true;
+    else condition = true;
 
-    if (this.selectedElement.panels && this.DataService.SelectedStyle && condition)
+    if (this.selectedElement.panels && ((this.DataService.SelectedStyle && condition) || this.classlessElement))
       return this.IsPanelSelected(code);
     else
       return false;

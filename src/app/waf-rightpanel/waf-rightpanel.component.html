@@ -1,6 +1,6 @@
 <div class="Main">
   <div class="Container">
-    <app-waf-rigthsection></app-waf-rigthsection>
+    <app-waf-rigthsection *ngIf="!classlessElement"></app-waf-rigthsection>
     <app-waf-rigthsection-a *ngIf="ShowPanel(panelSection.alignment)"></app-waf-rigthsection-a>
     <app-waf-rigthsection-g *ngIf="ShowPanel(panelSection.alignment, 'display', 'flex')"></app-waf-rigthsection-g>
     <app-waf-rigthsection-h *ngIf="ShowPanel(panelSection.alignment, 'display', 'flex')"></app-waf-rigthsection-h>

@@ -104,6 +104,10 @@ export enum DataEventsId {
 
 //
 
+const WafSecurityKey: string = btoa(Math.random().toString()).substr(8, 8);
+
+//
+
 @Injectable()
 export class WafMainService {
 
@@ -178,10 +182,8 @@ export class WafMainService {
 
   //
 
-  public WafSecurityKey: string = "wefvrfg34t555";
-
   public WafBasicClassName: any = {
-    [ElementsCode.frame]: this.WafSecurityKey + "_WafFrame"
+    [ElementsCode.frame]: WafSecurityKey + "_WafFrame"
   };
 
   public WafBasicStyle: WafStyle[] = [

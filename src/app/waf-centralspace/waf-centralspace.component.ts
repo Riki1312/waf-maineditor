@@ -49,9 +49,6 @@ export class WafCentralspaceComponent implements OnInit {
       });
 
       //
-      console.log(this.DataService.Nodes);
-      console.log(this.DataService.Events);
-      console.log(this.DataService.Styles);
     }
     else {
       this.DataService.SelectNodeById(-1);
@@ -59,6 +56,7 @@ export class WafCentralspaceComponent implements OnInit {
 
     //
     this.DataService.SelectToolByCode(ElementsCode.none);
+
   }
 
 }

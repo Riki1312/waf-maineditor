@@ -404,7 +404,7 @@ export class WafDataService {
     if (styleVariabile) {
       let index = this.StyleVariables.indexOf(styleVariabile);
       this.StyleVariables.splice(index, 1);
-      
+
       return true;
     }
     else return false;
@@ -467,6 +467,7 @@ export class WafDataService {
       cssCode = `${ cssCode }${ styleString }`;
     }
 
+    cssCode = this.VariablesToCssString() + cssCode;
     cssCode = this.FormatCssCode(cssCode);
     return cssCode;
   }
@@ -488,6 +489,7 @@ export class WafDataService {
     .replace(/\n/g, '')
     //Recreates correct formatting
     .replace(/:/g, ': ')
+    .replace(/: root/g, ':root')
     .replace(/;/g, ';\n')
     .replace(/}/g, '}\n\n')
     .replace(/{/g, '{\n');
@@ -541,6 +543,17 @@ export class WafDataService {
     for (let rule of styleData) {
       cssString = `${ cssString } ${ rule.cssProperty }: ${ rule.cssValue };`;
     }
+
+    return cssString;
+  }
+
+  private VariablesToCssString(): string {
+    let cssString: string = ":root {";
+
+    for (let styleVar of this.StyleVariables) {
+      cssString += `--${ styleVar.variableName.trim() }: ${ styleVar.variableValue };`;
+    }
+    cssString += "}";
 
     return cssString;
   }

@@ -176,17 +176,23 @@ export class WafMainService {
     }
   ];
 
-  public WafFrameClassName: string = "WafFrame";
+  public WafSecurityKey: string = "wefvrfg34t555";
 
-  public WafBasicStyle: WafStyle = {
-    className: this.WafFrameClassName,
-    cssRules: [
-      { cssProperty: "background-color", cssValue: "white" },
-      { cssProperty: "width", cssValue: "500px" },
-      { cssProperty: "height", cssValue: "500px" }
-    ],
-    basicWafStyle: true
+  public WafBasicClassName: any = {
+    [ElementsCode.frame]: this.WafSecurityKey + "_WafFrame"
   };
+
+  public WafBasicStyle: WafStyle[] = [
+    {
+      className: this.WafBasicClassName[ElementsCode.frame],
+      cssRules: [
+        { cssProperty: "background-color", cssValue: "white" },
+        { cssProperty: "width", cssValue: "500px" },
+        { cssProperty: "height", cssValue: "500px" }
+      ],
+      basicWafStyle: true
+    }
+  ];
 
   //
 

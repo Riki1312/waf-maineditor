@@ -66,7 +66,7 @@ export class WafDataService {
 
   private ComputeBasicWafStyles(): void {
     let mainService = new WafMainService();
-    this.Styles.push(mainService.WafBasicStyle);
+    this.Styles = this.Styles.concat(mainService.WafBasicStyle);
   }
 
   private RunEvents(eventKey: string): void {

@@ -104,7 +104,7 @@ export enum DataEventsId {
 
 //
 
-const WafSecurityKey: string = btoa(Math.random().toString()).substr(8, 8);
+export const WafSecurityKey: string = btoa(Math.random().toString()).substr(8, 8);
 
 //
 
@@ -146,7 +146,7 @@ export class WafMainService {
       codeElement: ElementsCode.frame,
       name: "Frame",
       generator: this.ElementsGeneretor_data[ElementsCode.frame],
-      panels: [ StylePanelSection.frame,  ]
+      panels: [ StylePanelSection.frame ]
     },
     {
       codeElement: ElementsCode.div,

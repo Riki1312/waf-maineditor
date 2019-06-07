@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+import { WafSecurityKey } from '../../waf-services/waf-main.service';
+import { WafDataService } from '../../waf-services/waf-data.service';
+
+//
+
 @Component({
   selector: 'app-waf-rigthsection-b',
   templateUrl: './waf-rigthsection-b.component.html',
@@ -7,9 +12,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WafRigthsectionBComponent implements OnInit {
 
-  constructor() { }
+  constructor(private DataService: WafDataService) { }
 
   ngOnInit() {
+  }
+
+  FramePropertyChange(cssProperty: string, event: any) {
+    console.log(event.target.value);
+    console.log(WafSecurityKey);
   }
 
 }

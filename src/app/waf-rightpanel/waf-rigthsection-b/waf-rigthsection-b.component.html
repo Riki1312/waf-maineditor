@@ -1,3 +1,35 @@
-<div>
-  Frame (frame)
+<div class="Main">
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Frame
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="Container">
+
+      <mat-form-field class="InputText">
+        <input matInput (focusout)="FramePropertyChange('left', $event)" placeholder="X" value="0px" spellcheck="false">
+      </mat-form-field>
+      <mat-form-field class="InputText">
+        <input matInput placeholder="Y" value="0px" spellcheck="false">
+      </mat-form-field>
+      <mat-form-field class="InputText">
+        <input matInput placeholder="Width" value="500px" spellcheck="false">
+      </mat-form-field>
+      <mat-form-field class="InputText">
+        <input matInput placeholder="Height" value="500px" spellcheck="false">
+      </mat-form-field>
+      <mat-form-field class="InputText">
+        <input matInput placeholder="Color" value="#" spellcheck="false">
+        <div matSuffix>
+          <div [ngStyle]="{'background-color': 'red'}" class="ColorIndicator"></div>
+        </div>
+      </mat-form-field>
+
+    </div>
+
+  </mat-expansion-panel>
+
 </div>

@@ -13,8 +13,8 @@ const StyleProperty_data: PStyle[] = [
   {
     name: "Color",
     propertyCss: "background-color",
-    defaultValue: "#000",
-    value: "#000"
+    defaultValue: "transparent",
+    value: "transparent"
   },
   {
     name: "Opacity",

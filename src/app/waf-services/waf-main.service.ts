@@ -146,7 +146,7 @@ export class WafMainService {
       codeElement: ElementsCode.frame,
       name: "Frame",
       generator: this.ElementsGeneretor_data[ElementsCode.frame],
-      panels: [ StylePanelSection.frame ]
+      panels: [ StylePanelSection.frame,  ]
     },
     {
       codeElement: ElementsCode.div,
@@ -190,7 +190,8 @@ export class WafMainService {
     {
       className: this.WafBasicClassName[ElementsCode.frame],
       cssRules: [
-        { cssProperty: "background-color", cssValue: "white" },
+        { cssProperty: "pointer-events", cssValue: "none" },
+        { cssProperty: "background-color", cssValue: "#fffa" },
         { cssProperty: "width", cssValue: "500px" },
         { cssProperty: "height", cssValue: "500px" }
       ],

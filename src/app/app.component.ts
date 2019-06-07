@@ -38,7 +38,7 @@ Cose:
 - Eventi e click.
 - Animazioni.
 - ✔ Codice css personalizzato.
-- Anteprima codice classi secondo pannello destra.
+- ✔ Anteprima codice classi secondo pannello destra.
 - Creazione automatica classe quando si creare un elemento (modificabile nelle impostazioni).
 - Elemento immagine.
 - ✔ Problema: overflow sul body.
@@ -49,6 +49,6 @@ Cose:
 - Messaggio per le funzionalità non ancora implementate.
 - Anteprima proprietà css come per il colore.
 - Undo e redro, cronologia modifiche.
-- || Visualizzare nel pannelo di style le opzioni se nessun elemento è selezionato.
+- ✔ Visualizzare nel pannelo di style le opzioni se nessun elemento è selezionato.
 
 */

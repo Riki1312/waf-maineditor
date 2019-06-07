@@ -31,6 +31,8 @@ export class WafRightsectionMainBComponent implements OnInit {
     if (data === "variableName") newValue = styleVariable.variableValue;
 
     this.DataService.EditStyleVariable(styleVariable.variableName, newValue);
+
+    console.log(this.DataService.StyleVariables);
   }
 
 }

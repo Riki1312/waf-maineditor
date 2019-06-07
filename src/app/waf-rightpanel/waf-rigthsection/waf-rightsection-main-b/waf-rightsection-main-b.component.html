@@ -19,7 +19,9 @@
           <input matInput (focusout)="StyleVariableChange('variableValue', styleVariable, $event)" [value]="styleVariable.variableValue" spellcheck="false">
         </mat-form-field>
         <div class="Buttonclear">
-          <button mat-icon-button><mat-icon>clear</mat-icon></button>
+          <button mat-icon-button (click)="DeleteVariable(styleVariable)">
+            <mat-icon class="Smallicon">clear</mat-icon>
+          </button>
         </div>
       </div>
 

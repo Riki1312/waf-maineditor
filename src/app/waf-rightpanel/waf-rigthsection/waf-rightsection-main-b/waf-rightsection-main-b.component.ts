@@ -25,6 +25,11 @@ export class WafRightsectionMainBComponent implements OnInit {
     this.DataService.AddStyleVariable("", "");
   }
 
+  DeleteVariable(styleVariable: StyleVariable) {
+    this.DataService.DeleteStyleVariable(styleVariable.variableName);
+    console.log(this.DataService.StyleVariables);
+  }
+
   StyleVariableChange(data: "variableName" | "variableValue", styleVariable: StyleVariable, event: any) {
     let newValue: string = event.target.value;
 
@@ -34,8 +39,6 @@ export class WafRightsectionMainBComponent implements OnInit {
     else if (data === "variableValue") {
       this.DataService.EditStyleVariable(styleVariable.variableName, newValue);
     }
-
-    console.log(this.DataService.StyleVariables);
   }
 
 }

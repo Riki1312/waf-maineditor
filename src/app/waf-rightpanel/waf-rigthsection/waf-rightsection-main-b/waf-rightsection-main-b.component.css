@@ -15,7 +15,7 @@
 
 mat-icon {
   opacity: 0.5 !important;
-  transform: scale(0.8);
+  transform: scale(0.);
 }
 
 /**/
@@ -26,6 +26,10 @@ span {
 
 .Main {
   padding-top: 20px;
+}
+
+.Smallicon {
+  transform: scale(0.7);
 }
 
 .Container {

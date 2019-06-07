@@ -398,6 +398,18 @@ export class WafDataService {
     else return false;
   }
 
+  public DeleteStyleVariable(variableName: string): boolean {
+    let styleVariabile: StyleVariable = this.StyleVariables.find(x => x.variableName === variableName);
+
+    if (styleVariabile) {
+      let index = this.StyleVariables.indexOf(styleVariabile);
+      this.StyleVariables.splice(index, 1);
+      
+      return true;
+    }
+    else return false;
+  }
+
   public EditStyleVariable(variableName: string, variableValue: string, variableNewName?: string, make?: boolean): boolean {
     for (let styleVariable of this.StyleVariables) {
       if (styleVariable.variableName === variableName) {

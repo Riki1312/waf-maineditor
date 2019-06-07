@@ -486,7 +486,7 @@ export class WafDataService {
   public GetSelectedCssCode(): string {
     let cssCode: string = "";
 
-    if (this.SelectedStyle) {
+    if (this.SelectedNode &this.SelectedStyle) {
       cssCode = this.StyledataToCssString(this.SelectedStyle.cssRules);
       cssCode = this.FormatCssCode(cssCode);
     }

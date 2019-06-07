@@ -31,4 +31,10 @@ p {
   font-size: 15px;
 
   color: var(--color-white0);
+
+  white-space: pre-line;
+}
+
+.Container {
+  padding-top: 20px;
 }

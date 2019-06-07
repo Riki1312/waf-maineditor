@@ -27,7 +27,6 @@ export class WafRightsectionMainBComponent implements OnInit {
 
   DeleteVariable(styleVariable: StyleVariable) {
     this.DataService.DeleteStyleVariable(styleVariable.variableName);
-    console.log(this.DataService.StyleVariables);
   }
 
   StyleVariableChange(data: "variableName" | "variableValue", styleVariable: StyleVariable, event: any) {

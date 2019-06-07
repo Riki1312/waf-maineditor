@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { DataEventsId } from '../../waf-services/waf-main.service';
-import { WafDataService, WafEventsName } from '../../waf-services/waf-data.service';
+import { WafDataService } from '../../waf-services/waf-data.service';
 
 import { WafRightpanelClass, PStyle } from '../waf-rightpanel-class/waf-rightpanel-class';
 

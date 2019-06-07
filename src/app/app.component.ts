@@ -49,6 +49,6 @@ Cose:
 - Messaggio per le funzionalità non ancora implementate.
 - Anteprima proprietà css come per il colore.
 - Undo e redro, cronologia modifiche.
-- Visualizzare nel pannelo di style le opzioni se nessun elemento è selezionato.
+- || Visualizzare nel pannelo di style le opzioni se nessun elemento è selezionato.
 
 */

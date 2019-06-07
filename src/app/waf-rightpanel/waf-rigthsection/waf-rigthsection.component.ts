@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { WafSettingsService, SettingsCode } from '../../waf-services/waf-settings.service';
+import { WafDataService } from '../../waf-services/waf-data.service';
 
 //
 
@@ -15,11 +16,16 @@ export class WafRigthsectionComponent implements OnInit {
     return this.SettingsService.GetSettingByCode(SettingsCode.simplifiedMode);
   }
 
-  constructor(private SettingsService: WafSettingsService) {
+  constructor(private SettingsService: WafSettingsService, private DataService: WafDataService) {
 
   }
 
   ngOnInit() {
+  }
+
+  NodeSelected(): boolean {
+    if (this.DataService.SelectedNode) return true;
+    else return false;
   }
 
 }

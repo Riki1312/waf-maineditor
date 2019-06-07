@@ -53,6 +53,9 @@ export class WafCentralspaceComponent implements OnInit {
       console.log(this.DataService.Events);
       console.log(this.DataService.Styles);
     }
+    else {
+      this.DataService.SelectNodeById(-1);
+    }
 
     //
     this.DataService.SelectToolByCode(ElementsCode.none);

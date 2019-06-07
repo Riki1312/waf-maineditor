@@ -1,3 +1,5 @@
+import { MatSnackBar } from '@angular/material';
+
 import { WafMainService } from '../../waf-services/waf-main.service';
 import { WafDataService, WafEventsName } from '../../waf-services/waf-data.service';
 
@@ -13,11 +15,13 @@ export interface PStyle {
 
 export class WafRightpanelClass {
 
+  private _SnackBar: MatSnackBar;
   private _DataService: WafDataService;
   private _Properties: PStyle[];
   private _PropertyChangeActive: boolean;
   
-  constructor(dataService: WafDataService, properties: PStyle[]) {
+  constructor(private snackBar: MatSnackBar, dataService: WafDataService, properties: PStyle[]) {
+    this._SnackBar = snackBar;
     this._DataService = dataService;
     this._Properties = properties;
     this._PropertyChangeActive = true;
@@ -51,6 +55,11 @@ export class WafRightpanelClass {
       });
       this._DataService.DeleteStyleRule(this._DataService.SelectedStyle.className, item.propertyCss);
       this._PropertyChangeActive = false;
+
+      this.snackBar.open(`Style property removed`, "Ok", {
+        duration: 2000,
+        panelClass: ["snackBarStyle"]
+      });
     }
   }
 

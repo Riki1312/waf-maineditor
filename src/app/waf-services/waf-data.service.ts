@@ -57,7 +57,9 @@ export class WafDataService {
   constructor(private MainService: WafMainService) {
     this.Nodes = [];
     this.Styles = [];
+
     this.StyleVariables = [];
+    this.CustomGolobalCode = "";
   }
 
   private RunEvents(eventKey: string): void {
@@ -480,7 +482,7 @@ export class WafDataService {
       cssCode = `${ cssCode }${ styleString }`;
     }
 
-    cssCode = this.VariablesToCssString() + this.CustomGolobalCode + cssCode;
+    cssCode = `${ this.VariablesToCssString() } ${ this.CustomGolobalCode } ${ cssCode }`;
     cssCode = this.FormatCssCode(cssCode);
     return cssCode;
   }

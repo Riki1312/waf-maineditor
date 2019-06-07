@@ -60,6 +60,13 @@ export class WafDataService {
 
     this.StyleVariables = [];
     this.CustomGolobalCode = "";
+
+    this.ComputeBasicWafStyles();
+  }
+
+  private ComputeBasicWafStyles(): void {
+    let mainService = new WafMainService();
+    this.Styles.push(mainService.WafBasicStyle);
   }
 
   private RunEvents(eventKey: string): void {

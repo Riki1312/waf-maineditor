@@ -48,6 +48,8 @@ export interface WafStyle {
   className: string;
   //Css rules
   cssRules: StyleData[];
+  //Is basic waf style
+  basicWafStyle?: boolean;
 }
 export interface StyleData {
   //Css property
@@ -108,6 +110,7 @@ export class WafMainService {
   private NodesId_data: number[] = [0];
 
   private ElementsGeneretor_data: any = {
+    [ElementsCode.frame]: this.FrameGeneretor(),
     [ElementsCode.div]: this.CreateDefaultGenerator(
       { codeElement: ElementsCode.div, name: "Div" },
       true,
@@ -138,6 +141,7 @@ export class WafMainService {
     {
       codeElement: ElementsCode.frame,
       name: "Frame",
+      generator: this.ElementsGeneretor_data[ElementsCode.frame],
       panels: [ StylePanelSection.frame ]
     },
     {
@@ -171,6 +175,18 @@ export class WafMainService {
       name: "CustomCode"
     }
   ];
+
+  public WafFrameClassName: string = "WafFrame";
+
+  public WafBasicStyle: WafStyle = {
+    className: this.WafFrameClassName,
+    cssRules: [
+      { cssProperty: "background-color", cssValue: "white" },
+      { cssProperty: "width", cssValue: "500px" },
+      { cssProperty: "height", cssValue: "500px" }
+    ],
+    basicWafStyle: true
+  };
 
   //
 
@@ -212,6 +228,28 @@ export class WafMainService {
     let id: number = this.NodesId_data.pop() + 1;
     this.NodesId_data.push(id);
     return id;
+  }
+
+  //
+
+  private FrameGeneretor(): () => WafNode {
+    let fun = (): WafNode => {
+      let node: WafNode = {
+        idNode: this.GenerateNodeId(),
+        codeElement:  ElementsCode.frame,
+        name: "Frame",
+        data: {
+          htmlTag: "div",
+          allowFinaltag: true,
+          className: [this.WafFrameClassName]
+        },
+        allowChildren: true
+      }
+
+      node["children"] = [];
+      return node;
+    }
+    return fun;
   }
 
 }

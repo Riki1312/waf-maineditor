@@ -457,8 +457,10 @@ export class WafDataService {
   public GetSelectedHtmlCode(): string {
     let htmlCode: string;
 
-    htmlCode = this.FormatHtmlCode(this.NodeToHtmlString(this.SelectedNode));
-    htmlCode = this.FormatHtmlCode(htmlCode);
+    if (this.SelectedNode) {
+      htmlCode = this.FormatHtmlCode(this.NodeToHtmlString(this.SelectedNode));
+      htmlCode = this.FormatHtmlCode(htmlCode);
+    }
 
     return htmlCode;
   }
@@ -484,8 +486,10 @@ export class WafDataService {
   public GetSelectedCssCode(): string {
     let cssCode: string = "";
 
-    cssCode = this.StyledataToCssString(this.SelectedStyle.cssRules);
-    cssCode = this.FormatCssCode(cssCode);
+    if (this.SelectedStyle) {
+      cssCode = this.StyledataToCssString(this.SelectedStyle.cssRules);
+      cssCode = this.FormatCssCode(cssCode);
+    }
 
     return cssCode;
   }

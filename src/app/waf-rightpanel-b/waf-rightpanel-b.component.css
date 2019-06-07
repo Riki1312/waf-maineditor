@@ -1,6 +1,34 @@
+.mat-expansion-panel {
+  box-shadow: none !important;
+  background: transparent !important;
+  width: 100% !important;
+}
+
+.mat-expansion-panel-header-title {
+  color: var(--color-white1) !important;
+}
+
+.mat-expansion-panel-header-description {
+  color: var(--color-white1) !important;
+  opacity: 0.5 !important;
+}
+
 .Main {
   height: 100%;
 
   background-color: var(--color-gray0);
   border-bottom: var(--border-barpanel);
+}
+
+/**/
+
+p {
+  margin: 0px;
+
+  font-family: var(--font-roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+
+  color: var(--color-white0);
 }

@@ -19,7 +19,8 @@ export class WafRigthsectionBComponent implements OnInit {
 
   FramePropertyChange(cssProperty: string, event: any) {
     console.log(event.target.value);
-    console.log(WafSecurityKey);
-  }
+    console.log(WafSecurityKey);//
+    //TODO
+  }//
 
 }

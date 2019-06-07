@@ -454,6 +454,15 @@ export class WafDataService {
     return htmlCode;
   }
 
+  public GetSelectedHtmlCode(): string {
+    let htmlCode: string;
+
+    htmlCode = this.FormatHtmlCode(this.NodeToHtmlString(this.SelectedNode));
+    htmlCode = this.FormatHtmlCode(htmlCode);
+
+    return htmlCode;
+  }
+
   public GetCssCode(wafSpace?: boolean): string {
     //let wafSpaceName: string = "#wafspace";
     let cssCode: string = "";
@@ -469,6 +478,15 @@ export class WafDataService {
 
     cssCode = this.VariablesToCssString() + cssCode;
     cssCode = this.FormatCssCode(cssCode);
+    return cssCode;
+  }
+
+  public GetSelectedCssCode(): string {
+    let cssCode: string = "";
+
+    cssCode = this.StyledataToCssString(this.SelectedStyle.cssRules);
+    cssCode = this.FormatCssCode(cssCode);
+
     return cssCode;
   }
 

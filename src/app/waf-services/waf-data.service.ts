@@ -480,7 +480,7 @@ export class WafDataService {
       cssCode = `${ cssCode }${ styleString }`;
     }
 
-    cssCode = this.VariablesToCssString() + cssCode;
+    cssCode = this.VariablesToCssString() + this.CustomGolobalCode + cssCode;
     cssCode = this.FormatCssCode(cssCode);
     return cssCode;
   }

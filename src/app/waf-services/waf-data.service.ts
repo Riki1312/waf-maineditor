@@ -339,6 +339,16 @@ export class WafDataService {
     else return false;
   }
 
+  public CleanCustomStyleRules(className: string): void {
+    let style: WafStyle = this.FindStyleByClass(className);
+
+    for (let rule of style.cssRules) {
+      if (rule.customStyle) {
+        this.DeleteStyleRule(className, rule.cssProperty);
+      }
+    }
+  }
+
   public AddStyleRule(className: string, cssRule: StyleData): boolean {
     let index: number = this.GetStyleIndexByName(className);
     let nonExists: boolean = this.Styles[index].cssRules.every(x => x.cssProperty !== cssRule.cssProperty);
@@ -396,7 +406,7 @@ export class WafDataService {
       return htmlString;
     }
 
-    htmlCode = cycle(this.Nodes).replace(/>/g, '>\n').replace(/</g, '\n<');
+    htmlCode = this.FormatHtmlCode(cycle(this.Nodes));
     return htmlCode;
   }
 
@@ -413,8 +423,30 @@ export class WafDataService {
       cssCode = `${ cssCode }${ styleString }`;
     }
 
-    cssCode = cssCode.replace(/;/g, ';\n').replace(/}/g, '}\n\n');
+    cssCode = this.FormatCssCode(cssCode);
     return cssCode;
+  }
+
+  public FormatHtmlCode(htmlCode: string): string {
+    return htmlCode
+    .replace(/^\s+/g, '')
+    .replace(/>/g, '>\n')
+    .replace(/</g, '\n<');
+  }
+
+  public FormatCssCode(cssCode: string): string {
+    return cssCode
+    //Removes all spaces except those inside a rule.
+    .replace(/^\s+/g, '')
+    .replace(/:\s+/g, ':')
+    .replace(/;\s+/g, ';')
+    .replace(/\n\s+/g, '')
+    .replace(/\n/g, '')
+    //Recreates correct formatting
+    .replace(/:/g, ': ')
+    .replace(/;/g, ';\n')
+    .replace(/}/g, '}\n\n')
+    .replace(/{/g, '{\n');
   }
 
   private NodeToHtmlString(node: WafNode, htmlContent?: string): string {

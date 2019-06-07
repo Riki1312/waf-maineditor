@@ -54,6 +54,8 @@ export interface StyleData {
   cssProperty: string,
   //Css value
   cssValue: any;
+  //Is custom property
+  customStyle?: boolean;
 }
 
 //

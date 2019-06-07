@@ -16,6 +16,13 @@ export class WafRightsectionMainBComponent implements OnInit {
     return this.DataService.StyleVariables;
   }
 
+  get customCssCode(): string {
+    return this.DataService.CustomGolobalCode;
+  }
+  set customCssCode(value: string) {
+    this.DataService.CustomGolobalCode = value;
+  }
+
   constructor(private DataService: WafDataService) { }
 
   ngOnInit() {

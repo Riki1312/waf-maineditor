@@ -31,7 +31,22 @@
         <mat-icon>add</mat-icon>
       </button>
     </div>
+  </mat-expansion-panel>
 
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Global custom code
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="Container">
+
+      <mat-form-field class="InputTextarea">
+        <textarea matInput placeholder="Css" [(ngModel)]="customCssCode" matTooltip="property: value;" spellcheck="false"></textarea>
+      </mat-form-field>
+
+    </div>
   </mat-expansion-panel>
 
 </div>

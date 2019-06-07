@@ -18,6 +18,24 @@ mat-icon {
   transform: scale(0.8);
 }
 
+textarea::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+textarea::-webkit-scrollbar
+{
+	width: 7px;
+  height: 7px;
+}
+textarea::-webkit-scrollbar-thumb
+{
+	border-radius: 4px;
+	background-color: var(--color-gray1);
+}
+textarea::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 /**/
 
 span {
@@ -48,7 +66,11 @@ span {
 }
 
 .InputText {
-  width: 110px;
+  width: 100px;
+}
+
+.InputTextarea {
+  width: 220px;
 }
 
 .Buttonclear {

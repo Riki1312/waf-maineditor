@@ -52,4 +52,3 @@ Cose:
 - ✔ Visualizzare nel pannelo di style le opzioni se nessun elemento è selezionato.
 
 */
-/

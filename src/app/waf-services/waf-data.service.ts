@@ -41,7 +41,9 @@ export class WafDataService {
 
   public Nodes: WafNode[];
   public Styles: WafStyle[];
+
   public StyleVariables: StyleVariable[];
+  public CustomGolobalCode: string;
 
   //
 

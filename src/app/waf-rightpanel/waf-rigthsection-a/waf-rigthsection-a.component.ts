@@ -65,4 +65,6 @@ export class WafRigthsectionAComponent implements OnInit {
   
   PropertyChange(item: PStyle): void { this.panelManager.PropertyChange(item); }
 
+  PropertyKeydown(item: PStyle, event: any): void { this.panelManager.PropertyKeydown(item, event); }
+
 }

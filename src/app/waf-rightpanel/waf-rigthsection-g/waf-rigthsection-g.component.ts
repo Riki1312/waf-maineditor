@@ -61,7 +61,7 @@ export class WafRigthsectionGComponent implements OnInit {
 
   constructor(private snackBar: MatSnackBar, private DataService: WafDataService) {
     this.panelManager = new WafRightpanelClass(this.snackBar, this.DataService, this.properties);
-    
+
     this.panelManager.SetupEvent(DataEventsId.rigthsection_a);
   }
 
@@ -71,5 +71,7 @@ export class WafRigthsectionGComponent implements OnInit {
   IsColorProperty(item: PStyle): boolean { return this.panelManager.IsColorProperty(item); }
   
   PropertyChange(item: PStyle): void { this.panelManager.PropertyChange(item); }
+
+  PropertyKeydown(item: PStyle, event: any): void { this.panelManager.PropertyKeydown(item, event); }
 
 }

@@ -13,7 +13,7 @@
     <div class="Container">
 
       <mat-form-field *ngFor="let item of properties" class="InputText">
-        <input matInput (focusout)="PropertyChange(item)" [matAutocomplete]="domain" [placeholder]="item.name" [(ngModel)]="item.value" spellcheck="false">
+        <input matInput (focusout)="PropertyChange(item)" (keydown)="PropertyKeydown(item, $event)" [matAutocomplete]="domain" [placeholder]="item.name" [(ngModel)]="item.value" spellcheck="false">
 
         <div *ngIf="IsColorProperty(item)" matSuffix>
           <div [ngStyle]="{'background-color': item.value}" class="ColorIndicator"></div>

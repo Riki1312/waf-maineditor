@@ -26,11 +26,14 @@ export class WafRightsectionMainBComponent implements OnInit {
   }
 
   StyleVariableChange(data: "variableName" | "variableValue", styleVariable: StyleVariable, event: any) {
-    let newValue: string = event.target.value
+    let newValue: string = event.target.value;
 
-    if (data === "variableName") newValue = styleVariable.variableValue;
-
-    this.DataService.EditStyleVariable(styleVariable.variableName, newValue);
+    if (data === "variableName") {
+      this.DataService.EditStyleVariable(styleVariable.variableName, styleVariable.variableValue, newValue);
+    }
+    else if (data === "variableValue") {
+      this.DataService.EditStyleVariable(styleVariable.variableName, newValue);
+    }
 
     console.log(this.DataService.StyleVariables);
   }

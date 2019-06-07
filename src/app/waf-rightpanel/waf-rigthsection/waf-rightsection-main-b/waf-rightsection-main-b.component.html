@@ -12,11 +12,11 @@
       <div *ngFor="let styleVariable of styleVariables" class="Stylevariable">
         <mat-form-field class="InputText">
           <span matPrefix>--</span>
-          <input matInput (focusout)="StyleVariableChange('variableName', styleVariable, $event)" [value]="styleVariable.variableName">
+          <input matInput (focusout)="StyleVariableChange('variableName', styleVariable, $event)" [value]="styleVariable.variableName" spellcheck="false">
         </mat-form-field>
         <mat-form-field class="InputText">
           <span matPrefix>:</span>
-          <input matInput (focusout)="StyleVariableChange('variableValue', styleVariable, $event)" [value]="styleVariable.variableValue">
+          <input matInput (focusout)="StyleVariableChange('variableValue', styleVariable, $event)" [value]="styleVariable.variableValue" spellcheck="false">
         </mat-form-field>
         <div class="Buttonclear">
           <button mat-icon-button><mat-icon>clear</mat-icon></button>

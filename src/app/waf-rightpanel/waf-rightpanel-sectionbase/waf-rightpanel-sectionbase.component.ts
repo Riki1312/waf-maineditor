@@ -1,9 +1,9 @@
-import { Component, OnInit, Input,  } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { MatSnackBar } from '@angular/material';
 
-import { WafMainService, WafStyle } from '../../waf-services/waf-main.service';
-import { WafDataService } from '../../waf-services/waf-data.service';
+import { WafMainService, WafStyle, DataEventsId } from '../../waf-services/waf-main.service';
+import { WafDataService, WafEventsName } from '../../waf-services/waf-data.service';
 
 import { WafRightpanelClass, PStyle, PGroup } from '../waf-rightpanel-class/waf-rightpanel-class';
 
@@ -43,6 +43,9 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
 
   ngOnInit() {
     this.panelManager = new WafRightpanelClass(this.snackBar, this.DataService, this.properties);
+
+    //
+    this.DataService.AddEvent(WafEventsName.selectStyle, this.UpdatePropertyValue, DataEventsId.rigthsection_e, this.property_data);
   }
 
   //
@@ -58,6 +61,17 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
 
   private PropertyKeydown(item: PStyle, event: any): void {
     this.panelManager.PropertyKeydown(item, event.key);
+  }
+
+  //
+
+  public UpdatePropertyValue(that: any, data?: any): void {
+    data.forEach(x => {
+      let value = that.GetValueByProperty(that.SelectedStyle.className, x.propertyCss);
+
+      if (value) x.value = value;
+      else x.value = x.defaultValue;
+    });
   }
 
 }

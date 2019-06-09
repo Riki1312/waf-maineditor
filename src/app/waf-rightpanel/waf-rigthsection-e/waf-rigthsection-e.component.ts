@@ -43,7 +43,7 @@ export class WafRigthsectionEComponent implements OnInit {
 
   constructor(private DataService: WafDataService) {
     //
-    this.DataService.AddEvent(WafEventsName.selectStyle, this.UpdatePropertyValue, DataEventsId.rigthsection_e, this.styleProperty);
+    /*this.DataService.AddEvent(WafEventsName.selectStyle, this.UpdatePropertyValue, DataEventsId.rigthsection_e, this.styleProperty);*/
   }
 
   ngOnInit() {
@@ -51,13 +51,13 @@ export class WafRigthsectionEComponent implements OnInit {
 
   //
 
-  public UpdatePropertyValue(that: any, data?: any): void {
+  /*public UpdatePropertyValue(that: any, data?: any): void {
     data.forEach(x => {
       let value = that.GetValueByProperty(that.SelectedStyle.className, x.propertyCss);
 
       if (value) x.value = value;
       else x.value = x.defaultValue;
     });
-  }
+  }*/
 
 }

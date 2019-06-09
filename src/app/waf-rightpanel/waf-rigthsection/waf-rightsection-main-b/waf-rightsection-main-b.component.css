@@ -59,6 +59,7 @@ span {
 
 .Stylevariable {
   width: 100%;
+  margin-bottom: -20px;
 
   display: flex;
   flex-direction: row;
@@ -81,4 +82,6 @@ span {
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  margin-: 10px;
 }

@@ -586,13 +586,18 @@ export class WafDataService {
 
   private VariablesToCssString(): string {
     let cssString: string = ":root {";
+    let variables: boolean = false;
 
     for (let styleVar of this.StyleVariables) {
-      cssString += `--${ styleVar.variableName.trim() }: ${ styleVar.variableValue };`;
+      if (styleVar.variableName.trim() !== "") {
+        cssString += `--${ styleVar.variableName.trim() }: ${ styleVar.variableValue };`;
+        variables = true;
+      }
     }
     cssString += "}";
 
-    return cssString;
+    if (variables) return cssString;
+    else return "";
   }
 
 }

@@ -58,9 +58,9 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
 
   //
 
-  public ReloadPropertyData(propertyData: PStyle[]): void {
+  /*public ReloadPropertyData(propertyData: PStyle[]): void {
     this.property_data = propertyData;
-  }
+  }*/
 
   private PropertyChange(cssProperty: string, event: any): void {
     let newValue = event.target.value;

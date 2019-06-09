@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core';
+import { Component, OnInit, Input,  } from '@angular/core';
 
 import { MatSnackBar } from '@angular/material';
 
@@ -45,22 +45,7 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
     this.panelManager = new WafRightpanelClass(this.snackBar, this.DataService, this.properties);
   }
 
-  ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
-    for (let propName in changes) {
-      let changedProp = changes[propName];
-      
-      if (propName === "property_data")
-        this.property_data = changedProp.currentValue;
-    }
-
-    console.log("ngOnChanges");
-  }
-
   //
-
-  /*public ReloadPropertyData(propertyData: PStyle[]): void {
-    this.property_data = propertyData;
-  }*/
 
   private PropertyChange(cssProperty: string, event: any): void {
     let newValue = event.target.value;

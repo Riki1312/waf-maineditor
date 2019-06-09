@@ -52,7 +52,7 @@ export class WafRigthsectionEComponent implements OnInit {
   //
 
   public UpdatePropertyValue(that: any, data?: any): void {
-    data0.forEach(x => {
+    data.forEach(x => {
       let value = that.GetValueByProperty(that.SelectedStyle.className, x.propertyCss);
 
       if (value) x.value = value;

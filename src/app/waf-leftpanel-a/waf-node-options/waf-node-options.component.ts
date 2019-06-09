@@ -38,6 +38,7 @@ export class WafNodeOptionsComponent implements OnInit {
       }
     }
   ];
+  
   get allowTextContent(): boolean {
     let allowForElements: number[] = [ ElementsCode.title, ElementsCode.paragraph ];
     return allowForElements.indexOf(this.DataService.SelectedNode.codeElement) !== -1;

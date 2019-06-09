@@ -27,5 +27,3 @@ export class WafSettingsEditorComponent implements OnInit {
   }
 
 }
-
-//https://angular.io/guide/entry-components

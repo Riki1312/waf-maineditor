@@ -60,6 +60,17 @@ export class WafDataService {
 
     this.StyleVariables = [];
     this.CustomGolobalCode = "";
+
+    this.Load();
+  }
+
+  private Load(): void {
+    let mainService = new WafMainService();
+    this.Styles = this.Styles.concat(mainService.WafBasicStyle);
+  }
+
+  private LoadBaseCode(): void {
+
   }
 
   private RunEvents(eventKey: string): void {
@@ -482,7 +493,7 @@ export class WafDataService {
       cssCode = `${ cssCode }${ styleString }`;
     }
 
-    cssCode = `${ this.VariablesToCssString() } ${ this.ComputeBasicWafStyles() } ${ this.CustomGolobalCode } ${ cssCode }`;
+    cssCode = `${ this.VariablesToCssString() } ${ this.CustomGolobalCode } ${ cssCode }`;
     cssCode = this.FormatCssCode(cssCode);
     return cssCode;
   }

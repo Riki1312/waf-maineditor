@@ -17,7 +17,7 @@
         [value]="item.value"
         spellcheck="false">
 
-        <div *ngIf="IsColorProperty(item)" matSuffix>
+        <div *ngIf="IsProperty(item, PGroup.color)" matSuffix>
           <div [ngStyle]="{'background-color': item.value}" class="ColorIndicator"></div>
         </div>
       </mat-form-field>

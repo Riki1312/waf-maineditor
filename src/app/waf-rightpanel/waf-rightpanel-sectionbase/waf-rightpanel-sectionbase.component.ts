@@ -17,6 +17,7 @@ import { WafRightpanelClass, PStyle, PGroup } from '../waf-rightpanel-class/waf-
 export class WafRightpanelSectionbaseComponent implements OnInit {
 
   @Input() public panel_title: string;
+  @Input() public panel_description: string;
   @Input() public property_data: PStyle[];
 
   //

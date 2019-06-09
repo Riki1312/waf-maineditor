@@ -152,7 +152,7 @@ export class WafMainService {
       codeElement: ElementsCode.div,
       name: "Div",
       generator: this.ElementsGeneretor_data[ElementsCode.div],
-      panels: [ StylePanelSection.background ]
+      panels: [ StylePanelSection.alignment, StylePanelSection.spacinSize, StylePanelSection.background, StylePanelSection.border, StylePanelSection.customCss ]
     },
     {
       codeElement: ElementsCode.title,

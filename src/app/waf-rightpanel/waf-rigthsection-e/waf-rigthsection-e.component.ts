@@ -38,7 +38,7 @@ export class WafRigthsectionEComponent implements OnInit {
   private panelTitle = "Background";
   private styleProperty = StyleProperty_data;
 
-  constructor(private DataService: WafDataService) {
+  constructor() {
   }
 
   ngOnInit() {

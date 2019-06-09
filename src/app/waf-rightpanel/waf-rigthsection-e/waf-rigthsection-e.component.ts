@@ -1,11 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { MatSnackBar } from '@angular/material';
-
-import { DataEventsId } from '../../waf-services/waf-main.service';
-import { WafDataService, WafEventsName } from '../../waf-services/waf-data.service';
-
-import { WafRightpanelClass, PStyle } from '../waf-rightpanel-class/waf-rightpanel-class';
+import { WafRightpanelSectionbaseComponent } from '../waf-rightpanel-sectionbase/waf-rightpanel-sectionbase.component';
+import { PStyle } from '../waf-rightpanel-class/waf-rightpanel-class';
 
 //
 
@@ -37,22 +33,15 @@ const StyleProperty_data: PStyle[] = [
 })
 export class WafRigthsectionEComponent implements OnInit {
 
-  properties: PStyle[] = StyleProperty_data;
-  panelManager: WafRightpanelClass;
+  @ViewChild(WafRightpanelSectionbaseComponent, { static: false })
+  private sectionbaseComponent: WafRightpanelSectionbaseComponent;
 
-  constructor(private snackBar: MatSnackBar, private DataService: WafDataService) {
-    this.panelManager = new WafRightpanelClass(this.snackBar, this.DataService, this.properties);
-
-    this.panelManager.SetupEvent(DataEventsId.rigthsection_e);
+  constructor() {
+    this.sectionbaseComponent.panel_title = "Background";
+    this.sectionbaseComponent.property_data = StyleProperty_data;
   }
 
   ngOnInit() {
   }
-
-  IsColorProperty(item: PStyle): boolean { return this.panelManager.IsColorProperty(item); }
-  
-  PropertyChange(item: PStyle): void { this.panelManager.PropertyChange(item); }
-
-  PropertyKeydown(item: PStyle, event: any): void { this.panelManager.PropertyKeydown(item, event); }
 
 }

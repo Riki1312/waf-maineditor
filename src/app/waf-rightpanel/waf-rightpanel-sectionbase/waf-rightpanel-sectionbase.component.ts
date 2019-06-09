@@ -16,16 +16,16 @@ import { WafRightpanelClass, PStyle } from '../waf-rightpanel-class/waf-rightpan
 })
 export class WafRightpanelSectionbaseComponent implements OnInit {
 
-  @Input() panel_title: string;
-  @Input() property_data: PStyle[];
+  @Input() public panel_title: string;
+  @Input() publicproperty_data: PStyle[];
 
   //
 
-  panelManager: WafRightpanelClass;
+  private panelManager: WafRightpanelClass;
 
   //
 
-  get properties(): PStyle[] {
+  private get properties(): PStyle[] {
     return this.property_data.map(x => {
       let style: WafStyle = this.DataService.SelectedStyle;
 
@@ -49,13 +49,13 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
 
   //
 
-  PropertyChange(cssProperty: string, event: any) {
+  private PropertyChange(cssProperty: string, event: any) {
     let newValue = event.target.value;
     this.DataService.EditStyleRule(this.DataService.SelectedStyle.className, cssProperty, newValue, true);
   }
 
-  IsColorProperty(item: PStyle): boolean { return this.panelManager.IsColorProperty(item); }
+  private IsColorProperty(item: PStyle): boolean { return this.panelManager.IsColorProperty(item); }
 
-  PropertyKeydown(item: PStyle, event: any): void { this.panelManager.PropertyKeydown(item, event); }
+  private PropertyKeydown(item: PStyle, event: any): void { this.panelManager.PropertyKeydown(item, event); }
 
 }

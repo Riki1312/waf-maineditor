@@ -1,7 +1,7 @@
 import { MatSnackBar } from '@angular/material';
 
-import { WafMainService } from '../../waf-services/waf-main.service';
-import { WafDataService } from '../../waf-services/waf-data.service';
+import { WafMainService, DataEventsId } from '../../waf-services/waf-main.service';
+import { WafDataService, WafEventsName } from '../../waf-services/waf-data.service';
 
 //
 
@@ -35,6 +35,8 @@ export class WafRightpanelClass {
     this._DataService = dataService;
     this._Properties = properties;
     this._PropertyChangeActive = true;
+
+    this._DataService.AddEvent(WafEventsName.selectStyle, this.UpdatePropertyValue, DataEventsId.rigthsection_a, this._Properties);
   }
 
   //
@@ -63,6 +65,17 @@ export class WafRightpanelClass {
 
   public PropertyPreview(cssProperty: string, propertyGroup: string): boolean {
     return this._PreviewData[propertyGroup].indexOf(cssProperty) !== -1;
+  }
+
+  //
+
+  public UpdatePropertyValue(that: any, data?: any): void {
+    data.forEach(x => {
+      let value = that.GetValueByProperty(that.SelectedStyle.className, x.propertyCss);
+
+      if (value) x.value = value;
+      else x.value = x.defaultValue;
+    });
   }
 
 }

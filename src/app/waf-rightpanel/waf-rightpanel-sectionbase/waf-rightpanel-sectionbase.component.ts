@@ -52,6 +52,8 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
       if (propName === "property_data")
         this.property_data = changedProp.currentValue;
     }
+
+    console.log("ngOnChanges");
   }
 
   //

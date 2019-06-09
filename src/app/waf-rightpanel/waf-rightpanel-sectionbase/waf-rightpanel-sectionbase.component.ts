@@ -17,7 +17,7 @@ import { WafRightpanelClass, PStyle } from '../waf-rightpanel-class/waf-rightpan
 export class WafRightpanelSectionbaseComponent implements OnInit {
 
   @Input() public panel_title: string;
-  @Input() publicproperty_data: PStyle[];
+  @Input() public property_data: PStyle[];
 
   //
 
@@ -26,14 +26,17 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
   //
 
   private get properties(): PStyle[] {
-    return this.property_data.map(x => {
-      let style: WafStyle = this.DataService.SelectedStyle;
+    if (this.property_data) {
+      return this.property_data.map(x => {
+        let style: WafStyle = this.DataService.SelectedStyle;
 
-      for (let rule of style.cssRules)
-        if (rule.cssProperty === x.propertyCss) x.value = rule.cssValue;
-      
-      return x;
-    });
+        for (let rule of style.cssRules)
+          if (rule.cssProperty === x.propertyCss) x.value = rule.cssValue;
+        
+        return x;
+      });
+    }
+    else return []
   }
 
   constructor(

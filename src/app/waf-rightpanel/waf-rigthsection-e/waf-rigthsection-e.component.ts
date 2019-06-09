@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 
 import { WafRightpanelSectionbaseComponent } from '../waf-rightpanel-sectionbase/waf-rightpanel-sectionbase.component';
 import { PStyle } from '../waf-rightpanel-class/waf-rightpanel-class';
@@ -26,22 +26,19 @@ const StyleProperty_data: PStyle[] = [
   }
 ];
 
+//
+
 @Component({
   selector: 'app-waf-rigthsection-e',
   templateUrl: './waf-rigthsection-e.component.html',
   styleUrls: ['./waf-rigthsection-e.component.css']
 })
-export class WafRigthsectionEComponent implements OnInit {
+export class WafRigthsectionEComponent {
 
-  @ViewChild(WafRightpanelSectionbaseComponent, { static: false })
-  private sectionbaseComponent: WafRightpanelSectionbaseComponent;
+  private panelTitle = "Background";
+  private styleProperty = StyleProperty_data;
 
   constructor() {
-    this.sectionbaseComponent.panel_title = "Background";
-    this.sectionbaseComponent.property_data = StyleProperty_data;
-  }
-
-  ngOnInit() {
   }
 
 }

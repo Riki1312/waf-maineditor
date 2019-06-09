@@ -51,6 +51,6 @@ Cose:
 - Undo e redro, cronologia modifiche.
 - ✔ Visualizzare nel pannelo di style le opzioni se nessun elemento è selezionato.
 - ✔ Rendere più generico ed espansibile il sistema che gestisce i waf-rightsection-x e riorganizzare i servizi.
-- ✔Ridefinire completamente il sistema degli eventi.
+- ✔ Ridefinire completamente il sistema degli eventi.
 
 */

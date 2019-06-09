@@ -1,30 +1,4 @@
-<div class="Main">
-
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Typography
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-
-    <div class="Container">
-
-      <mat-form-field *ngFor="let item of properties" class="InputText">
-        <input matInput (focusout)="PropertyChange(item)" (keydown)="PropertyKeydown(item, $event)" [matAutocomplete]="domain" [placeholder]="item.name" [(ngModel)]="item.value" spellcheck="false">
-
-        <div *ngIf="IsColorProperty(item)" matSuffix>
-          <div [ngStyle]="{'background-color': item.value}" class="ColorIndicator"></div>
-        </div>
-
-        <mat-autocomplete #domain="matAutocomplete">
-          <mat-option *ngFor="let option of item.domain" [value]="option">
-            {{option}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-
-    </div>
-
-  </mat-expansion-panel>
-
-</div>
+<app-waf-rightpanel-sectionbase
+[panel_title]="panelTitle"
+[property_data]="styleProperty"
+></app-waf-rightpanel-sectionbase>

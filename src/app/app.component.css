@@ -8,9 +8,11 @@
   height: 100%;
 }
 
+/*
 .Main>div {
-  /*border: solid 1px red;*/
+  border: solid 1px red;
 }
+*/
 
 .LeftBar {
   grid-column: 1 / 2;

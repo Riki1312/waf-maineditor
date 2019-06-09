@@ -16,9 +16,16 @@
         <input matInput
         (focusout)="PropertyChange(item.propertyCss, $event)"
         (keydown)="PropertyKeydown(item, $event)"
+        [matAutocomplete]="domain"
         [placeholder]="item.name"
         [value]="item.value"
         spellcheck="false">
+
+        <mat-autocomplete #domain="matAutocomplete">
+          <mat-option *ngFor="let option of item.domain" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
 
         <div *ngIf="IsProperty(item, propertyGroup.color)" matSuffix>
           <div [ngStyle]="{'background-color': item.value}" class="ColorIndicator"></div>

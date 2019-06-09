@@ -1,20 +1,4 @@
-<div class="Main">
-
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Frame
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-
-    <div class="Container">
-
-      <mat-form-field *ngFor="let item of properties" class="InputText">
-        <input matInput (focusout)="FramePropertyChange(item.propertyCss, $event)" [placeholder]="item.name" [value]="item.value" spellcheck="false">
-      </mat-form-field>
-
-    </div>
-
-  </mat-expansion-panel>
-
-</div>
+<app-waf-rightpanel-sectionbase
+[panel_title]="panelTitle"
+[property_data]="styleProperty"
+></app-waf-rightpanel-sectionbase>

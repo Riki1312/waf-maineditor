@@ -1,0 +1,29 @@
+<div class="Main">
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ panel_title }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="Container">
+
+      <mat-form-field *ngFor="let item of properties" class="InputText">
+        <input matInput
+        (focusout)="PropertyChange(item.propertyCss, $event)"
+        (keydown)="PropertyKeydown(item, $event)"
+        [placeholder]="item.name"
+        [value]="item.value"
+        spellcheck="false">
+
+        <div *ngIf="IsColorProperty(item)" matSuffix>
+          <div [ngStyle]="{'background-color': item.value}" class="ColorIndicator"></div>
+        </div>
+      </mat-form-field>
+
+    </div>
+
+  </mat-expansion-panel>
+
+</div>

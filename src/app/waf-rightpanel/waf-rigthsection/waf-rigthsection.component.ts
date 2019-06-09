@@ -17,7 +17,6 @@ export class WafRigthsectionComponent implements OnInit {
   }
 
   constructor(private SettingsService: WafSettingsService, private DataService: WafDataService) {
-
   }
 
   ngOnInit() {

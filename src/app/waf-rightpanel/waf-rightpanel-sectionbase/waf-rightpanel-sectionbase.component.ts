@@ -22,6 +22,7 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
   //
 
   private panelManager: WafRightpanelClass;
+  private propertyGroup: PGroup;
 
   //
 

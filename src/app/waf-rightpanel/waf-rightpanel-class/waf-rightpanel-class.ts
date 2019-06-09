@@ -17,6 +17,8 @@ export enum PGroup {
   color = "color"
 }
 
+//
+
 export class WafRightpanelClass {
 
   private _SnackBar: MatSnackBar;

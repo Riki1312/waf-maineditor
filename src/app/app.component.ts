@@ -50,6 +50,6 @@ Cose:
 - Anteprima proprietà css come per il colore.
 - Undo e redro, cronologia modifiche.
 - ✔ Visualizzare nel pannelo di style le opzioni se nessun elemento è selezionato.
-- Rendere più generico ed espansibile il sistema che gestisce i waf-rightsection-x.
+- Rendere più generico ed espansibile il sistema che gestisce i waf-rightsection-x e riorganizzare i servizi.
 
 */

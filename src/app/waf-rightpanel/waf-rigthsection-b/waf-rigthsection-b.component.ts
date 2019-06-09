@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WafMainService, ElementsCode,  } from '../../waf-services/waf-main.service';
+import { WafMainService, ElementsCode } from '../../waf-services/waf-main.service';
 import { WafDataService } from '../../waf-services/waf-data.service';
 
 import { PStyle } from '../waf-rightpanel-class/waf-rightpanel-class';

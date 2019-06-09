@@ -133,7 +133,7 @@ export class WafLeftpanelAComponent implements OnInit {
     this.dataSource.data = this.treeData;
 
     //Event
-    this.DataService.AddEvent(WafEventsName.selectNode, this.CheckSelectedStyle, DataEventsId.leftpanel_a);
+    //this.DataService.AddEvent(WafEventsName.selectNode, this.CheckSelectedStyle, DataEventsId.leftpanel_a);
   }
 
   ngOnInit() {

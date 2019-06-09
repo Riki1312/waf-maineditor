@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { DataEventsId } from '../../waf-services/waf-main.service';
-import { WafDataService, WafEventsName } from '../../waf-services/waf-data.service';
-
 import { WafRightpanelSectionbaseComponent } from '../waf-rightpanel-sectionbase/waf-rightpanel-sectionbase.component';
 import { PStyle } from '../waf-rightpanel-class/waf-rightpanel-class';
 
@@ -42,22 +39,9 @@ export class WafRigthsectionEComponent implements OnInit {
   private styleProperty = StyleProperty_data;
 
   constructor(private DataService: WafDataService) {
-    //
-    /*this.DataService.AddEvent(WafEventsName.selectStyle, this.UpdatePropertyValue, DataEventsId.rigthsection_e, this.styleProperty);*/
   }
 
   ngOnInit() {
   }
-
-  //
-
-  /*public UpdatePropertyValue(that: any, data?: any): void {
-    data.forEach(x => {
-      let value = that.GetValueByProperty(that.SelectedStyle.className, x.propertyCss);
-
-      if (value) x.value = value;
-      else x.value = x.defaultValue;
-    });
-  }*/
 
 }

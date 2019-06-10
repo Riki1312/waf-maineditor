@@ -50,6 +50,6 @@ Cose:
 - ✔ Elimina rinomina classe.
 - Deploy guida
 - Anteprima proprietà css come per il colore.
-- Anteprima sito in nuova finestra, più barra centro in alto.
+- ✔ Anteprima sito in nuova finestra, più barra centro in alto.
 
 */

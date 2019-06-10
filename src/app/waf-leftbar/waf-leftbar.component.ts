@@ -6,6 +6,7 @@ import { WafSettingsEditorComponent } from './waf-settings-editor/waf-settings-e
 import { WafDownloadCodeComponent } from './waf-download-code/waf-download-code.component';
 import { WafDownloadFilewafComponent } from './waf-download-filewaf/waf-download-filewaf.component';
 import { WafImportFilewafComponent } from './waf-import-filewaf/waf-import-filewaf.component';
+import { WafDeployCodeComponent } from './waf-deploy-code/waf-deploy-code.component';
 
 import { WafDataService } from '../waf-services/waf-data.service';
 import { WafMainService } from '../waf-services/waf-main.service';
@@ -67,6 +68,10 @@ export class WafLeftbarComponent implements OnInit {
       if (result)
         this._CodeClass.ImportFileWafCode(result);
     });
+  }
+
+  DeployWebsite() {
+    this.dialogEditor.open(WafDeployCodeComponent);
   }
 
 }

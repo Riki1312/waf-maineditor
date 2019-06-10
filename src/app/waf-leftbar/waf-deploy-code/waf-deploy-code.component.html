@@ -1,0 +1,47 @@
+<div>
+
+  <mat-horizontal-stepper #stepper>
+    <ng-template matStepperIcon="edit">
+      <mat-icon>done</mat-icon>
+    </ng-template>
+    <ng-template matStepperIcon="done">
+      <mat-icon>done_all</mat-icon>
+    </ng-template>
+    <mat-step>
+
+      <ng-template matStepLabel>Fill out your name</ng-template>
+      <p>
+        Ok
+      </p>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+
+    </mat-step>
+    <mat-step>
+
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <p>
+        Ok
+      </p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+
+    </mat-step>
+    <mat-step>
+
+      <ng-template matStepLabel>Done</ng-template>
+      <p>
+        You are now done.
+      </p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</div>

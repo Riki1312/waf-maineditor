@@ -27,7 +27,7 @@
   <button mat-menu-item>New</button>
   <button mat-menu-item [matMenuTriggerFor]="importMenu">Import</button>
   <button mat-menu-item (click)="DownloadSourceCode()">Download</button>
-  <button mat-menu-item>Deploy</button>
+  <button mat-menu-item (click)="DeployWebsite()">Deploy</button>
 </mat-menu>
 
 <mat-menu #editMenu="matMenu">

@@ -25,7 +25,8 @@ import {
   MatMenuModule,
   MatAutocompleteModule,
   MatListModule,
-  MatChipsModule
+  MatChipsModule,
+  MatStepperModule
 }
 from '@angular/material';
 
@@ -49,6 +50,7 @@ import { WafDownloadCodeComponent } from './waf-leftbar/waf-download-code/waf-do
 import { WafSettingsEditorComponent } from './waf-leftbar/waf-settings-editor/waf-settings-editor.component';
 import { WafDownloadFilewafComponent } from './waf-leftbar/waf-download-filewaf/waf-download-filewaf.component';
 import { WafImportFilewafComponent } from './waf-leftbar/waf-import-filewaf/waf-import-filewaf.component';
+import { WafDeployCodeComponent } from './waf-leftbar/waf-deploy-code/waf-deploy-code.component';
 //
 import { WafLeftpanelComponent } from './waf-leftpanel/waf-leftpanel.component';
 import { WafLeftpanelAComponent } from './waf-leftpanel-a/waf-leftpanel-a.component';
@@ -111,7 +113,8 @@ const appRoutes: Routes = [
     MatListModule,
     MatChipsModule,
     ReactiveFormsModule,
-    DragDropModule
+    DragDropModule,
+    MatStepperModule
   ],
   declarations: [
     AppComponent,
@@ -148,7 +151,8 @@ const appRoutes: Routes = [
     WafRightpanelSectionbaseComponent,
     WafRightsectionMenustyleComponent,
     WafDownloadFilewafComponent,
-    WafImportFilewafComponent
+    WafImportFilewafComponent,
+    WafDeployCodeComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [
@@ -163,7 +167,8 @@ const appRoutes: Routes = [
     WafDownloadCodeComponent,
     WafRightsectionMenustyleComponent,
     WafDownloadFilewafComponent,
-    WafImportFilewafComponent
+    WafImportFilewafComponent,
+    WafDeployCodeComponent
   ]
 })
 export class AppModule { }

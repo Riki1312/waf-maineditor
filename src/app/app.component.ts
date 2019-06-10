@@ -56,7 +56,7 @@ Cose:
 
 - Filtro nomi classi.
 - Generare codice di 2 tipi.
-- Download e json.
+- ✔ Download json.
 - ✔ Elimina rinomina classe.
 - Deploy guida
 - Anteprima proprietà css come per il colore.

@@ -1,6 +1,6 @@
 .Main {
   display: grid;
-  grid-template-columns: 50px 4fr 20fr 4.5fr;
+  grid-template-columns: 50px 3fr 20fr 4fr;
   /*grid-template-columns: 50px 4fr 10fr 5fr;*/
   grid-template-rows: 25px auto 50px;
 

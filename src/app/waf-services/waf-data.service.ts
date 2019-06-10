@@ -82,7 +82,7 @@ export class WafDataService {
       else event.run(this);
   }
 
-  //Event
+  //
 
   public AddEvent(eventKey: string, fun: (that: any) => void, eventId: number, eventData?: any[]) {
     let event: EventData = {
@@ -95,30 +95,5 @@ export class WafDataService {
     if (!this.Events[eventKey].find(x => x.eventId === event.eventId))
       this.Events[eventKey].push(event);
   }
-
-  //Select
-
-  public SelectToolByCode(codeElement: number): void {
-    this.SelectedTool = this.MainService.Elements_data.find(x => x.codeElement === codeElement);
-  }
-
-  public SelectNodeById(idNode: number): void {
-    this.SelectedNode = this._NodeClass.FindNodeById(idNode);
-    
-    //this.RunEvents(WafEventsName.selectNode);
-    this.SelectedStyle = undefined;
-  }
-
-  public SelectStyleByName(className: string): void {
-    this.SelectedStyle = this._StyleClass.FindStyleByClass(className);
-
-    //this.RunEvents(WafEventsName.selectStyle);
-  }
-
-  //Element
-
-  public GetElementByCode(codeElement: number): WafElement {
-    return this.MainService.Elements_data.find(x => x.codeElement === codeElement);
-  }  
 
 }

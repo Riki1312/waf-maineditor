@@ -9,9 +9,16 @@ export class WafNodeClass {
 
   //
 
+  public SelectNodeById(idNode: number): void {
+    this.DataService.SelectedNode = this.FindNodeById(idNode);
+
+    //
+    this.DataService.SelectedStyle = undefined;
+  }
+
   public AddRootNode(node: WafNode, autoSelect?: boolean): void {
     this.DataService.Nodes.push(node);
-    if (autoSelect) this.DataService.SelectNodeById(node.idNode);
+    if (autoSelect) this.SelectNodeById(node.idNode);
   }
 
   public AddNode(parentId: number, node: WafNode): boolean {

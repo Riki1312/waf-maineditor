@@ -9,6 +9,10 @@ export class WafStyleClass {
 
   //
 
+  public SelectStyleByName(className: string): void {
+    this.DataService.SelectedStyle = this.FindStyleByClass(className);
+  }
+
   public AddStyle(className: string, cssRules?: StyleData[]): boolean {
     if (this.GetStyleIndexByName(className) === -1) {
       let style: WafStyle = {

@@ -63,12 +63,12 @@ export class WafRightsectionMainComponent implements OnInit {
   private _StyleCalss: WafStyleClass;
 
   constructor(private DataService: WafDataService, private FunctionService: WafFunctionService) {
+    this._StyleCalss = new WafStyleClass(this.DataService, this.FunctionService);
+    
     this.filteredClasslist = this.classlistCtrl.valueChanges.pipe(
       startWith(null),
       map((item: string | null) => item ? this._filter(item) : this.allClass.slice())
     );
-
-    this._StyleCalss = new WafStyleClass(this.DataService, this.FunctionService);
   }
 
   ngOnInit() {

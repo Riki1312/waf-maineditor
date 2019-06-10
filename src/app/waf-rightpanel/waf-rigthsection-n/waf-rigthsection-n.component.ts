@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { StyleData } from '../../waf-services/waf-main.service';
+import { WafMainService, StyleData } from '../../waf-services/waf-main.service';
 import { WafDataService } from '../../waf-services/waf-data.service';
+import { WafFunctionService } from '../../waf-services/waf-function.service';
+
+import { WafStyleClass } from '../../waf-services/waf-style/waf-style-class';
+import { WafCodeClass } from '../../waf-services/waf-code/waf-code-class';
 
 //
 
@@ -14,7 +18,13 @@ export class WafRigthsectionNComponent implements OnInit {
 
   customCssCode: string;
 
-  constructor(private DataService: WafDataService) {
+  private _StyleClass: WafStyleClass;
+  private _CodeClass: WafCodeClass;
+
+  constructor(private MainService: WafMainService, private DataService: WafDataService, private FunctionService: WafFunctionService) {
+    this._StyleClass = new WafStyleClass(this.DataService, this.FunctionService);
+    this._CodeClass = new WafCodeClass(this.MainService, this.DataService);
+
     this.LoadCustomCssCode();
   }
 
@@ -24,7 +34,7 @@ export class WafRigthsectionNComponent implements OnInit {
   PropertyChange(): void {
     let cssRuleString: string[] = this.customCssCode.split(';');
 
-    this.DataService.CleanCustomStyleRules(this.DataService.SelectedStyle.className);
+    this._StyleClass.CleanCustomStyleRules(this.DataService.SelectedStyle.className);
 
     for (let ruleString of cssRuleString) {
       if (ruleString && ruleString.trim() !== "" && ruleString.includes(':')) {
@@ -39,7 +49,7 @@ export class WafRigthsectionNComponent implements OnInit {
           customStyle: true
         }
         
-        this.DataService.AddStyleRule(this.DataService.SelectedStyle.className, cssRule);
+        this._StyleClass.AddStyleRule(this.DataService.SelectedStyle.className, cssRule);
       }
     }
   }
@@ -53,7 +63,7 @@ export class WafRigthsectionNComponent implements OnInit {
       }
     }
 
-    this.customCssCode = this.DataService.FormatCssCode(this.customCssCode);
+    this.customCssCode = this._CodeClass.FormatCssCode(this.customCssCode);
   }
 
 }

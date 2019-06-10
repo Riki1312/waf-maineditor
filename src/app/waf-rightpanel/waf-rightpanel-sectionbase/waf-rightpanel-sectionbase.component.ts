@@ -20,6 +20,10 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
   @Input() public panel_description: string;
   @Input() public property_data: PStyle[];
 
+  @Input() public override_propertyChange: (cssProperty: string, event: any) => void;
+  @Input() public override_getProperties: () => PStyle[];
+  @Input() public override_propertyKeydown: (item: PStyle, event: any) => void;
+
   //
 
   private panelManager: WafRightpanelClass;
@@ -28,6 +32,24 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
   //
 
   private get properties(): PStyle[] {
+    if (!this.override_getProperties) {
+      return this.PropertiesGetter();
+    }
+    else {
+      return this.override_getProperties();
+    }
+  }
+
+  constructor(private snackBar: MatSnackBar, private MainService: WafMainService, private DataService: WafDataService) {
+  }
+
+  ngOnInit() {
+    this.panelManager = new WafRightpanelClass(this.snackBar, this.DataService, this.properties);
+  }
+
+  //
+
+  private PropertiesGetter(): PStyle[] {
     let result: PStyle[] = this.property_data.map(x => {
       let style: WafStyle = this.DataService.SelectedStyle;
 
@@ -42,26 +64,27 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
     return result;
   }
 
-  constructor(private snackBar: MatSnackBar, private MainService: WafMainService, private DataService: WafDataService) {
-  }
-
-  ngOnInit() {
-    this.panelManager = new WafRightpanelClass(this.snackBar, this.DataService, this.properties);
-  }
-
-  //
-
-  private PropertyChange(cssProperty: string, event: any): void {
-    let newValue = event.target.value;
-    this.panelManager.PropertyChange(cssProperty, newValue);
-  }
-
   private IsProperty(item: PStyle, group: string): boolean {
     return this.panelManager.PropertyPreview(item.propertyCss, group);
   }
 
+  private PropertyChange(cssProperty: string, event: any): void {
+    if (!this.override_propertyChange) {
+      let newValue = event.target.value;
+      this.panelManager.PropertyChange(cssProperty, newValue);
+    }
+    else {
+      this.override_propertyChange(cssProperty, event);
+    }
+  }
+
   private PropertyKeydown(item: PStyle, event: any): void {
-    this.panelManager.PropertyKeydown(item, event.key);
+    if (!this.override_propertyKeydown) {
+      this.panelManager.PropertyKeydown(item, event.key);
+    }
+    else {
+      this.override_propertyKeydown(item, event);
+    }
   }
 
 }

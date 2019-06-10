@@ -5,6 +5,12 @@ import { WafDataService } from '../waf-services/waf-data.service';
 
 //
 
+export interface PanelOptions {
+  ruleCondition?: string
+}
+
+//
+
 @Component({
   selector: 'app-waf-rightpanel',
   templateUrl: './waf-rightpanel.component.html',
@@ -31,13 +37,17 @@ export class WafRightpanelComponent implements OnInit {
   ngOnInit() {
   }
 
-  ShowPanel(code: number, propertyCondition?: string, valueCondition?: string) {
+  ShowPanel(code: number, options?: PanelOptions) {
     let condition: boolean;
 
-    if (propertyCondition && valueCondition && this.DataService.SelectedStyle)
+    if (options && options.ruleCondition && this.DataService.SelectedStyle) {
+      let propertyCondition = options.ruleCondition.split(':')[0].trim();
+      let valueCondition = options.ruleCondition.split(':')[1].trim();
+
       condition = this.DataService.SelectedStyle.cssRules.some(
         x => (x.cssProperty === propertyCondition && x.cssValue === valueCondition)
       );
+    }
     else condition = true;
 
     if (this.selectedElement.panels && ((this.DataService.SelectedStyle && condition) || this.classlessElement))

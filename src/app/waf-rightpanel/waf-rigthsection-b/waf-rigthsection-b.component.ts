@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WafRightpanelSectionbaseComponent } from '../waf-rightpanel-sectionbase/waf-rightpanel-sectionbase.component';
+import { WafMainService, ElementsCode } from '../../waf-services/waf-main.service';
+import { WafDataService } from '../../waf-services/waf-data.service';
+
 import { PStyle } from '../waf-rightpanel-class/waf-rightpanel-class';
 
 //
@@ -50,10 +52,30 @@ export class WafRigthsectionBComponent implements OnInit {
   private panelTitle = "Frame";
   private styleProperty = StyleProperty_data;
 
-  constructor() {
-  }
+  constructor(private MainService: WafMainService, private DataService: WafDataService) { }
 
   ngOnInit() {
+  }
+
+  //
+
+  FramePropertiesGetter(): PStyle[] {
+    return StyleProperty_data.map(x => {
+      let style = this.DataService.FindStyleByClass(this.MainService.WafBasicClassName[ElementsCode.frame]);
+
+      for (let rule of style.cssRules)
+        if (rule.cssProperty === x.propertyCss) x.value = rule.cssValue;
+      
+      return x;
+    });
+  }
+
+  FramePropertyChange(cssProperty: string, event: any) {
+    let newValue = event.target.value;
+    this.DataService.EditStyleRule(this.MainService.WafBasicClassName[ElementsCode.frame], cssProperty, newValue, true);
+  }
+
+  FramePropertyKeydown(item: PStyle, event: any): void {
   }
 
 }

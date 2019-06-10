@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WafRightpanelSectionbaseComponent } from '../waf-rightpanel-sectionbase/waf-rightpanel-sectionbase.component';
 import { PStyle } from '../waf-rightpanel-class/waf-rightpanel-class';
 
 //

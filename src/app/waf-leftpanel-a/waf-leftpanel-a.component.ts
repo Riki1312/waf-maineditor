@@ -6,8 +6,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material';
 
-import { WafMainService, WafNode, ElementsCode, DataEventsId } from '../waf-services/waf-main.service';
-import { WafDataService, WafEventsName } from '../waf-services/waf-data.service';
+import { WafNode, ElementsCode } from '../waf-services/waf-main.service';
+import { WafDataService } from '../waf-services/waf-data.service';
+import { WafFunctionService } from '../waf-services/waf-function.service';
+
+import { WafNodeClass } from '../waf-services/waf-node/waf-node-class';
 
 import { WafNodeOptionsComponent } from './waf-node-options/waf-node-options.component';
 
@@ -84,13 +87,13 @@ export class WafLeftpanelAComponent implements OnInit {
 
       switch (data) {
         case "in":
-          result = this.DataService.MoveinNodeById(subject.idNode, receiver.idNode);
+          result = this._NodeClass.MoveinNodeById(subject.idNode, receiver.idNode);
           break;
         case "up":
-          result = this.DataService.MovenearNodeById(subject.idNode, receiver.idNode, 0);
+          result = this._NodeClass.MovenearNodeById(subject.idNode, receiver.idNode, 0);
           break;
         case "down":
-          result = this.DataService.MovenearNodeById(subject.idNode, receiver.idNode, 1);
+          result = this._NodeClass.MovenearNodeById(subject.idNode, receiver.idNode, 1);
           break;
       }
 
@@ -119,21 +122,22 @@ export class WafLeftpanelAComponent implements OnInit {
       return undefined;
   }
   set selectedNode(value: TNode) {
-    this.DataService.SelectNodeById(value.idNode);
+    this.FunctionService.SelectNodeById(value.idNode);
   }
 
   //
 
+  private _NodeClass: WafNodeClass;
+
   constructor(
     private snackBar: MatSnackBar,
     private dialogOptions: MatDialog,
-    private MainService: WafMainService,
-    private DataService: WafDataService
+    private DataService: WafDataService,
+    private FunctionService: WafFunctionService
   ) {
-    this.dataSource.data = this.treeData;
+    this._NodeClass = new WafNodeClass(this.DataService, this.FunctionService);
 
-    //Event
-    //this.DataService.AddEvent(WafEventsName.selectNode, this.CheckSelectedStyle, DataEventsId.leftpanel_a);
+    this.dataSource.data = this.treeData;
   }
 
   ngOnInit() {
@@ -150,7 +154,7 @@ export class WafLeftpanelAComponent implements OnInit {
   }
 
   DeleteNode() {
-    this.DataService.DeleteNodeById(this.selectedNode.idNode);
+    this._NodeClass.DeleteNodeById(this.selectedNode.idNode);
     this.RebuildTree();
   }
 

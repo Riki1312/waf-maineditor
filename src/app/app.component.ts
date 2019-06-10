@@ -9,7 +9,7 @@ export class AppComponent  {
 
 }
 
-///
+////
 
 /*
 
@@ -53,4 +53,6 @@ Cose:
 - ✔ Anteprima sito in nuova finestra, più barra centro in alto.
 - Aggiungere tutte le icone necessarie (ricreandole tutte con lo stesso stile).
 
+//
 */
+//

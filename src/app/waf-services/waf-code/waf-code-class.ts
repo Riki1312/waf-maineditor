@@ -1,4 +1,4 @@
-import { WafMainService, WafNode, StyleData } from '../waf-main.service';
+import { WafMainService, WafSecurityKey, WafNode, StyleData } from '../waf-main.service';
 import { WafDataService } from '../waf-data.service';
 
 //
@@ -82,7 +82,10 @@ export class WafCodeClass {
       "wafdata_styleVariable": this.DataService.StyleVariables,
       "wafdata_customGolobalCode": this.DataService.CustomGolobalCode,
       "wafsettings": "",
-      "wafinfo": ""
+      "wafinfo": {
+        "nodesId_data": this.MainService.NodesId_data
+      },
+      "wafsecurity_key": WafSecurityKey
     }
     wafCode = JSON.stringify(wafData);
 
@@ -92,11 +95,14 @@ export class WafCodeClass {
   public ImportFileWafCode(wafCode: string): void {
     let wafData = JSON.parse(wafCode);
 
+    wafCode.replace(wafData["wafsecurity_key"], WafSecurityKey);
+    wafData = JSON.parse(wafCode);
+
+    this.MainService.NodesId_data = wafData["wafinfo"]["nodesId_data"];
     this.DataService.Nodes = wafData["wafdata_node"];
     this.DataService.Styles = wafData["wafdata_style"];
     this.DataService.StyleVariables = wafData["wafdata_styleVariable"];
     this.DataService.CustomGolobalCode = wafData["wafdata_customGolobalCode"];
-  
   }
 
   public FormatHtmlCode(htmlCode: string): string {

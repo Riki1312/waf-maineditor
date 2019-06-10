@@ -111,7 +111,7 @@ export const WafSecurityKey: string = btoa(Math.random().toString()).substr(8, 8
 @Injectable()
 export class WafMainService {
 
-  private NodesId_data: number[] = [0];
+  public NodesId_data: number[] = [0];
 
   private ElementsGeneretor_data: any = {
     [ElementsCode.frame]: this.FrameGeneretor(),

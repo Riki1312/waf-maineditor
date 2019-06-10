@@ -116,6 +116,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     WafMainComponent,
+    WafPreviewComponent,
+      WafPagenotfoundComponent,
     WafLeftbarComponent,
     WafLeftpanelComponent,
     WafCentralspaceComponent,
@@ -146,9 +148,7 @@ const appRoutes: Routes = [
     WafRightpanelSectionbaseComponent,
     WafRightsectionMenustyleComponent,
     WafDownloadFilewafComponent,
-    WafImportFilewafComponent,
-    WafPreviewComponent,
-    WafPagenotfoundComponent
+    WafImportFilewafComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [

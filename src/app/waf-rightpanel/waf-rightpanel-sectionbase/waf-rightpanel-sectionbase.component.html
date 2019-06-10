@@ -36,6 +36,21 @@
           <mat-icon *ngIf="item.value === 'center'">format_align_center</mat-icon>
           <mat-icon *ngIf="item.value === 'justify'">format_align_justify</mat-icon>
         </div>
+        <div *ngIf="IsProperty(item, propertyGroup.size)" matSuffix>
+          <mat-icon>format_size</mat-icon>
+        </div>
+        <div *ngIf="IsProperty(item, propertyGroup.display)" matSuffix>
+          <mat-icon *ngIf="item.value === 'block'">view_agenda</mat-icon>
+          <mat-icon *ngIf="item.value === 'inline'">view_array</mat-icon>
+          <mat-icon *ngIf="item.value === 'flex'">view_week</mat-icon>
+          <mat-icon *ngIf="item.value === 'grid'">dashboard</mat-icon>
+        </div>
+        <div *ngIf="IsProperty(item, propertyGroup.opacity)" matSuffix>
+          <mat-icon>opacity</mat-icon>
+        </div>
+        <div *ngIf="IsProperty(item, propertyGroup.line)" matSuffix>
+          <mat-icon>line_style</mat-icon>
+        </div>
       </mat-form-field>
 
     </div>

@@ -17,7 +17,11 @@ export interface PStyle {
 
 export enum PGroup {
   color = "color",
-  formatAlign = "format_align"
+  formatAlign = "format_align",
+  size = "size",
+  display = "display",
+  opacity = "opacity",
+  line = "line"
 }
 
 //
@@ -35,7 +39,11 @@ export class WafRightpanelClass {
 
   private _PreviewData: any = {
     [PGroup.color]: ["background-color", "color", "border-color"],
-    [PGroup.formatAlign]: ["text-align"]
+    [PGroup.formatAlign]: ["text-align", "float"],
+    [PGroup.size]: ["font-size"],
+    [PGroup.display]: ["display"],
+    [PGroup.opacity]: ["opacity"],
+    [PGroup.line]: ["border-style"]
   };
   
   constructor(private snackBar: MatSnackBar, dataService: WafDataService, functionService: WafFunctionService, properties: PStyle[]) {

@@ -6,6 +6,8 @@ import { WafMainService, WafStyle } from '../../waf-services/waf-main.service';
 import { WafDataService } from '../../waf-services/waf-data.service';
 import { WafFunctionService } from '../../waf-services/waf-function.service';
 
+import { WafStyleClass } from '../../waf-services/waf-style/waf-style-class';
+
 import { WafRightpanelClass, PStyle, PGroup } from '../waf-rightpanel-class/waf-rightpanel-class';
 
 //
@@ -41,7 +43,15 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
     }
   }
 
-  constructor(private snackBar: MatSnackBar, private DataService: WafDataService, private FunctionService: WafFunctionService) {
+  private _StyleClass: WafStyleClass;
+
+  constructor(
+    private snackBar: MatSnackBar,
+    private MainService: WafMainService,
+    private DataService: WafDataService,
+    private FunctionService: WafFunctionService
+  ) {
+    this._StyleClass = new WafStyleClass(this.DataService, this.FunctionService);
   }
 
   ngOnInit() {

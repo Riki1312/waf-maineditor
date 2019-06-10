@@ -51,14 +51,14 @@ Cose:
 - ✔ Rendere più generico ed espansibile il sistema che gestisce i waf-rightsection-x e riorganizzare i servizi.
 - ✔ Ridefinire completamente il sistema degli eventi.
 - ✔ Riprogettare il sistema dei servizi.
-- In pratica può esistere un solo frame perché condividono tutti la stessa class.
 - Generare codice di 2 tipi.
-- Anteprima sito in nuova finestra, più barra centro in alto.
+- Problema: In pratica può esistere un solo frame perché condividono tutti la stessa class.
 
-- ✔Filtro nomi classi.
+- ✔ Filtro nomi classi.
 - ✔ Download json.
 - ✔ Elimina rinomina classe.
 - Deploy guida
 - Anteprima proprietà css come per il colore.
+- Anteprima sito in nuova finestra, più barra centro in alto.
 
 */

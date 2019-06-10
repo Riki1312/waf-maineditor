@@ -33,7 +33,6 @@ Cose:
 - ✔ Rimuovere regola css da una classe (scorciatoia da tastiera e messaggio).
 - Modalità anteprima (navigare verso una pagina con NgHtml impostato al codice generato).
 - ✔ Formattazione codice generato.
-- Download e upload json file waf.
 - Interazione con dati dinamici da db (cms).
 - Eventi e click.
 - Animazioni.
@@ -46,13 +45,20 @@ Cose:
 - Evidenziare l'elemento selezionato nel editor centrale.
 - Zoom (+/-) nel editor centrale (barra in alto).
 - ✔ Sistemare menu e link a docuimentazione e sito web.
-- Messaggio per le funzionalità non ancora implementate.
-- Anteprima proprietà css come per il colore.
 - Undo e redro, cronologia modifiche.
 - ✔ Visualizzare nel pannelo di style le opzioni se nessun elemento è selezionato.
 - ✔ Rendere più generico ed espansibile il sistema che gestisce i waf-rightsection-x e riorganizzare i servizi.
 - ✔ Ridefinire completamente il sistema degli eventi.
 - ✔ Riprogettare il sistema dei servizi.
 - In pratica può esistere un solo frame perché condividono tutti la stessa class
+
+- Filtro nomi classi.
+- Generare codice di 2 tipi.
+- Download e upload json file waf.
+- Elimina rinomina classe.
+- Deploy guida
+- Anteprima sito in nuova finestra
+- Messaggio per le funzionalità non ancora implementate.
+- Anteprima proprietà css come per il colore.
 
 */

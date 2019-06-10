@@ -49,7 +49,6 @@ export class WafCodeService {
   }
 
   public GetCssCode(wafSpace?: boolean): string {
-
     let cssCode: string = "";
 
     for (let style of this.DataService.Styles) {

@@ -4,9 +4,6 @@ import { StylePanelSection, ElementsCode } from '../waf-services/waf-main.servic
 import { WafDataService } from '../waf-services/waf-data.service';
 import { WafFunctionService } from '../waf-services/waf-function.service';
 
-import { WafNodeClass } from '../waf-services/waf-node/waf-node-class';
-import { WafStyleClass } from '../waf-services/waf-style/waf-style-class';
-
 //
 
 export interface PanelOptions {
@@ -30,19 +27,14 @@ export class WafRightpanelComponent implements OnInit {
 
   get selectedElement() {
     if (this.DataService.SelectedNode)
-      return this.DataService.GetElementByCode(this.DataService.SelectedNode.codeElement);
+      return this.FunctionService.GetElementByCode(this.DataService.SelectedNode.codeElement);
     else
-      return this.DataService.GetElementByCode(ElementsCode.none);
+      return this.FunctionService.GetElementByCode(ElementsCode.none);
   }
 
   //
 
-  private _NodeClass: WafNodeClass;
-  private _StyleClass: WafStyleClass;
-
   constructor(private DataService: WafDataService, private FunctionService: WafFunctionService) {
-    this._NodeClass = new WafNodeClass(this.DataService, this.FunctionService);
-    this._StyleClass = new WafStyleClass(this.DataService, this.FunctionService);
   }
 
   ngOnInit() {

@@ -5,6 +5,7 @@ import { WafDataService } from '../waf-services/waf-data.service';
 import { WafFunctionService } from '../waf-services/waf-function.service';
 
 import { WafNodeClass } from '../waf-services/waf-node/waf-node-class';
+import { WafStyleClass } from '../waf-services/waf-style/waf-style-class';
 
 //
 
@@ -37,9 +38,11 @@ export class WafRightpanelComponent implements OnInit {
   //
 
   private _NodeClass: WafNodeClass;
+  private _StyleClass: WafStyleClass;
 
-  constructor(private DataService: WafDataService, private FunctionService: WafFunctionService,) {
+  constructor(private DataService: WafDataService, private FunctionService: WafFunctionService) {
     this._NodeClass = new WafNodeClass(this.DataService, this.FunctionService);
+    this._StyleClass = new WafStyleClass(this.DataService, this.FunctionService);
   }
 
   ngOnInit() {

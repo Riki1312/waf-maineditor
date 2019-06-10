@@ -89,6 +89,16 @@ export class WafCodeClass {
     return wafCode;
   }
 
+  public ImportFileWafCode(wafCode: string): void {
+    let wafData = JSON.parse(wafCode);
+
+    this.DataService.Nodes = wafData["wafdata_node"];
+    this.DataService.Styles = wafData["wafdata_style"];
+    this.DataService.StyleVariables = wafData["wafdata_styleVariable"];
+    this.DataService.CustomGolobalCode = wafData["wafdata_customGolobalCode"];
+  
+  }
+
   public FormatHtmlCode(htmlCode: string): string {
     return htmlCode
     .replace(/^\s+/g, '')

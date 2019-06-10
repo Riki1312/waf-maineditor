@@ -5,6 +5,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { WafSettingsEditorComponent } from './waf-settings-editor/waf-settings-editor.component';
 import { WafDownloadCodeComponent } from './waf-download-code/waf-download-code.component';
 import { WafDownloadFilewafComponent } from './waf-download-filewaf/waf-download-filewaf.component';
+import { WafImportFilewafComponent } from './waf-import-filewaf/waf-import-filewaf.component';
+
+import { WafDataService } from '../waf-services/waf-data.service';
+import { WafMainService } from '../waf-services/waf-main.service';
+
+import { WafCodeClass } from '../waf-services/waf-code/waf-code-class';
 
 //
 
@@ -19,7 +25,12 @@ export class WafLeftbarComponent implements OnInit {
 
   panelindex: number = -1;
 
-  constructor(public dialogEditor: MatDialog) { }
+  private _CodeClass: WafCodeClass;
+
+  constructor(private dialogEditor: MatDialog, private MainService: WafMainService, private DataService: WafDataService) {
+    this._CodeClass = new WafCodeClass(this.MainService, this.DataService);
+  }
+
   ngOnInit() {
   }
 
@@ -48,6 +59,14 @@ export class WafLeftbarComponent implements OnInit {
 
   DownloadWafFile() {
     this.dialogEditor.open(WafDownloadFilewafComponent);
+  }
+
+  ImportWafFile() {
+    let dialogEditorRef = this.dialogEditor.open(WafImportFilewafComponent);
+    dialogEditorRef.afterClosed().subscribe(result => {
+      if (result)
+        this._CodeClass.ImportFileWafCode(result);
+    });
   }
 
 }

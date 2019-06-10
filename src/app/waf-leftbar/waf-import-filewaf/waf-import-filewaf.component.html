@@ -1,0 +1,14 @@
+<div class="Main">
+
+  <div mat-dialog-content>
+    <p>File Waf (json)</p>
+    <mat-form-field class="Textarea">
+      <textarea matInput placeholder="Waf code" [(ngModel)]="fileWafCode" spellcheck="false"></textarea>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="fileWafCode" cdkFocusInitial>Confirm</button>
+  </div>
+
+</div>

@@ -1,0 +1,36 @@
+p {
+  font-family: var(--font-roboto);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+
+  color: var(--color-white0);
+}
+
+.Main {
+  width: 600px;
+}
+
+.Textarea {
+  width: 100%;
+}
+
+/*Scrollbar [*/
+textarea::-webkit-scrollbar-track
+{
+	background-color: rgba(68, 68, 68, 0.8);
+}
+textarea::-webkit-scrollbar
+{
+	width: 7px;
+  height: 7px;
+}
+textarea::-webkit-scrollbar-thumb
+{
+	border-radius: 4px;
+	background-color: var(--color-gray1);
+}
+textarea::-webkit-scrollbar-corner {
+  background: transparent;
+}
+/*Scrollbar ]*/

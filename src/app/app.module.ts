@@ -123,8 +123,7 @@ import { WafRightpanelSectionbaseComponent } from './waf-rightpanel/waf-rightpan
   providers: [
     WafMainService,
     WafDataService,
-    WafSettingsService,
-
+    WafSettingsService
   ],
   entryComponents: [
     WafSettingsEditorComponent,

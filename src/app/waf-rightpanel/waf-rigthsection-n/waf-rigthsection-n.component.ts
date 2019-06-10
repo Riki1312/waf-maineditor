@@ -64,7 +64,6 @@ export class WafRigthsectionNComponent implements OnInit {
     }
 
     this.customCssCode = this._CodeClass.FormatCssCode(this.customCssCode);
-
   }
 
 }

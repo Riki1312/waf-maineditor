@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { StyleVariable } from '../../../waf-services/waf-main.service';
 import { WafDataService } from '../../../waf-services/waf-data.service';
+import { WafFunctionService } from '../../../waf-services/waf-function.service';
+
+import { WafStyleClass } from '../../../waf-services/waf-style/waf-style-class';
 
 //
 
@@ -23,27 +26,31 @@ export class WafRightsectionMainBComponent implements OnInit {
     this.DataService.CustomGolobalCode = value;
   }
 
-  constructor(private DataService: WafDataService) { }
+  private _StyleClass: WafStyleClass;
+
+  constructor(private DataService: WafDataService, private FunctionService: WafFunctionService) {
+    this._StyleClass = new WafStyleClass(this.DataService, this.FunctionService);
+  }
 
   ngOnInit() {
   }
 
   AddVariable() {
-    this.DataService.AddStyleVariable("", "");
+    this._StyleClass.AddStyleVariable("", "");
   }
 
   DeleteVariable(styleVariable: StyleVariable) {
-    this.DataService.DeleteStyleVariable(styleVariable.variableName);
+    this._StyleClass.DeleteStyleVariable(styleVariable.variableName);
   }
 
   StyleVariableChange(data: "variableName" | "variableValue", styleVariable: StyleVariable, event: any) {
     let newValue: string = event.target.value;
 
     if (data === "variableName") {
-      this.DataService.EditStyleVariable(styleVariable.variableName, styleVariable.variableValue, newValue);
+      this._StyleClass.EditStyleVariable(styleVariable.variableName, styleVariable.variableValue, newValue);
     }
     else if (data === "variableValue") {
-      this.DataService.EditStyleVariable(styleVariable.variableName, newValue);
+      this._StyleClass.EditStyleVariable(styleVariable.variableName, newValue);
     }
   }
 

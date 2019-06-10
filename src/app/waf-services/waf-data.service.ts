@@ -104,7 +104,7 @@ export class WafDataService {
   public SelectStyleByName(className: string): void {
     this.SelectedStyle = this.StyleService.FindStyleByClass(className);
 
-    /this.RunEvents(WafEventsName.selectStyle);
+    //this.RunEvents(WafEventsName.selectStyle);
   }
 
   //Element

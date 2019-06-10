@@ -34,6 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { WafMainService } from './waf-services/waf-main.service';
 import { WafDataService } from './waf-services/waf-data.service';
 import { WafSettingsService } from './waf-services/waf-settings.service';
+import { WafFunctionService } from './waf-services/waf-function.service';
 
 //Component
 import { WafLeftbarComponent } from './waf-leftbar/waf-leftbar.component';
@@ -64,7 +65,6 @@ import { WafRightsectionMainComponent } from './waf-rightpanel/waf-rigthsection/
 import { WafRightsectionMainAComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main-a/waf-rightsection-main-a.component';
 import { WafRightsectionMainBComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main-b/waf-rightsection-main-b.component';
 import { WafRightpanelSectionbaseComponent } from './waf-rightpanel/waf-rightpanel-sectionbase/waf-rightpanel-sectionbase.component';
-import { WafFunctionService } from './waf-services/waf-function.service';
 
 //
 

@@ -1,24 +1,18 @@
 import { WafNode } from '../waf-main.service';
 import { WafDataService } from '../waf-data.service';
+import { WafFunctionService } from '../waf-function.service';
 
 //
 
 export class WafNodeClass {
 
-  constructor(private DataService: WafDataService) { }
+  constructor(private DataService: WafDataService, private FunctionService: WafFunctionService) { }
 
   //
 
-  public SelectNodeById(idNode: number): void {
-    this.DataService.SelectedNode = this.FindNodeById(idNode);
-
-    //
-    this.DataService.SelectedStyle = undefined;
-  }
-
   public AddRootNode(node: WafNode, autoSelect?: boolean): void {
     this.DataService.Nodes.push(node);
-    if (autoSelect) this.SelectNodeById(node.idNode);
+    if (autoSelect) this.FunctionService.SelectNodeById(node.idNode);
   }
 
   public AddNode(parentId: number, node: WafNode): boolean {

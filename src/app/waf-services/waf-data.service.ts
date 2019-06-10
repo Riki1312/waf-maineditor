@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 
 import { WafMainService, WafElement, WafNode, WafStyle, StyleVariable } from './waf-main.service';
 
-import { WafNodeClass } from './waf-node/waf-node-class';
-import { WafStyleClass } from './waf-style/waf-style-class';
-
 //
 
 export enum WafEventsName {
@@ -48,20 +45,12 @@ export class WafDataService {
 
   //
 
-  private _NodeClass: WafNodeClass;
-  private _StyleClass: WafStyleClass;
-
-  //
-
   constructor(private MainService: WafMainService) {
     this.Nodes = [];
     this.Styles = [];
 
     this.StyleVariables = [];
     this.CustomGolobalCode = "";
-
-    this._NodeClass = new WafNodeClass(this);
-    this._StyleClass = new WafStyleClass(this);
 
     this.Load();
   }

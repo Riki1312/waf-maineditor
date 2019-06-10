@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+import { WafMainService } from '../waf-services/waf-main.service';
 import { WafDataService } from '../waf-services/waf-data.service';
+
+import { WafCodeClass } from '../waf-services/waf-code/waf-code-class';
 
 //
 
@@ -12,13 +15,17 @@ import { WafDataService } from '../waf-services/waf-data.service';
 export class WafRightpanelBComponent implements OnInit {
 
   get htmlCode(): string {
-    return this.DataService.GetSelectedHtmlCode();
+    return this._CodeClass.GetSelectedHtmlCode();
   }
   get cssCode(): string {
-    return this.DataService.GetSelectedCssCode();
+    return this._CodeClass.GetSelectedCssCode();
   }
 
-  constructor(private DataService: WafDataService) { }
+  private _CodeClass: WafCodeClass;
+
+  constructor(private MainService: WafMainService, private DataService: WafDataService) {
+    this._CodeClass = new WafCodeClass(this.MainService, this.DataService);
+  }
 
   ngOnInit() {
   }

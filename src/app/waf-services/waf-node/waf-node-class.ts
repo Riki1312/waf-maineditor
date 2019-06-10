@@ -1,12 +1,9 @@
-import { Injectable } from '@angular/core';
-
 import { WafNode } from '../waf-main.service';
 import { WafDataService } from '../waf-data.service';
 
 //
 
-@Injectable()
-export class WafNodeService {
+export class WafNodeClass {
 
   constructor(private DataService: WafDataService) { }
 

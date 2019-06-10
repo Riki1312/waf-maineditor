@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 import { WafMainService, WafElement, WafNode, WafStyle, StyleVariable } from './waf-main.service';
 
-import { WafNodeService } from './waf-node/waf-node.service';
-import { WafStyleService } from './waf-style/waf-style.service';
+import { WafNodeClass } from './waf-node/waf-node-class';
+import { WafStyleClass } from './waf-style/waf-style-class';
 
 //
 
@@ -48,7 +48,7 @@ export class WafDataService {
 
   //
 
-  constructor(private MainService: WafMainService, private NodeService: WafNodeService, private StyleService: WafStyleService) {
+  constructor(private MainService: WafMainService, private NodeClass: WafNodeClass, private StyleClass: WafStyleClass) {
     this.Nodes = [];
     this.Styles = [];
 
@@ -95,14 +95,14 @@ export class WafDataService {
   }
 
   public SelectNodeById(idNode: number): void {
-    this.SelectedNode = this.NodeService.FindNodeById(idNode);
+    this.SelectedNode = this.NodeClass.FindNodeById(idNode);
     
     //this.RunEvents(WafEventsName.selectNode);
     this.SelectedStyle = undefined;
   }
 
   public SelectStyleByName(className: string): void {
-    this.SelectedStyle = this.StyleService.FindStyleByClass(className);
+    this.SelectedStyle = this.StyleClass.FindStyleByClass(className);
 
     //this.RunEvents(WafEventsName.selectStyle);
   }

@@ -1,12 +1,9 @@
-import { Injectable } from '@angular/core';
-
 import { WafStyle, StyleData, StyleVariable } from '../waf-main.service';
 import { WafDataService } from '../waf-data.service';
 
 //
 
-@Injectable()
-export class WafStyleService {
+export class WafStyleClass {
 
   constructor(private DataService: WafDataService) { }
 

@@ -66,6 +66,7 @@ import { WafRightsectionMainComponent } from './waf-rightpanel/waf-rigthsection/
 import { WafRightsectionMainAComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main-a/waf-rightsection-main-a.component';
 import { WafRightsectionMainBComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main-b/waf-rightsection-main-b.component';
 import { WafRightpanelSectionbaseComponent } from './waf-rightpanel/waf-rightpanel-sectionbase/waf-rightpanel-sectionbase.component';
+import { WafRightsectionMenustyleComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main/waf-rightsection-menustyle/waf-rightsection-menustyle.component';
 
 //
 
@@ -119,7 +120,8 @@ import { WafRightpanelSectionbaseComponent } from './waf-rightpanel/waf-rightpan
     WafRigthsectionMComponent,
     WafRigthsectionNComponent,
     WafRightsectionMainBComponent,
-    WafRightpanelSectionbaseComponent
+    WafRightpanelSectionbaseComponent,
+    WafRightsectionMenustyleComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [
@@ -131,7 +133,8 @@ import { WafRightpanelSectionbaseComponent } from './waf-rightpanel/waf-rightpan
   entryComponents: [
     WafSettingsEditorComponent,
     WafNodeOptionsComponent,
-    WafDownloadCodeComponent
+    WafDownloadCodeComponent,
+    WafRightsectionMenustyleComponent
   ]
 })
 export class AppModule { }

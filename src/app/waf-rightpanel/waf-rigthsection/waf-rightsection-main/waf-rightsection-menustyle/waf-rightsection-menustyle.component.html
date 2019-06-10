@@ -1,0 +1,23 @@
+<div class="Main">
+
+  <div mat-dialog-content>
+    <mat-expansion-panel expanded>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Class options
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="Container">
+        <mat-form-field class="InputText">
+          <input matInput placeholder="Class name" [(ngModel)]="newClassName" spellcheck="false">
+        </mat-form-field>
+      </div>
+    </mat-expansion-panel>
+  </div>
+  <div mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="newClassName" cdkFocusInitial>Confirm</button>
+  </div>
+
+</div>

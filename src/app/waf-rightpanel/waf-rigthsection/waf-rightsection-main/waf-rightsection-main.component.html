@@ -36,6 +36,6 @@
 </div>
 
 <mat-menu #classMenu="matMenu">
-  <button mat-menu-item>Rename</button>
-  <button mat-menu-item>Delete</button>
+  <button mat-menu-item (click)="OptionsStyle()">Rename</button>
+  <button mat-menu-item (click)="DeleteClass()">Delete</button>
 </mat-menu>

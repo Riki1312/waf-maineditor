@@ -1,9 +1,13 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
+import { MatDialog } from '@angular/material/dialog';
+
 import { WafDataService } from '../../../waf-services/waf-data.service';
 import { WafFunctionService } from '../../../waf-services/waf-function.service';
 
 import { WafStyleClass } from '../../../waf-services/waf-style/waf-style-class';
+
+import { WafRightsectionMenustyleComponent } from './waf-rightsection-menustyle/waf-rightsection-menustyle.component';
 
 //
 
@@ -62,7 +66,7 @@ export class WafRightsectionMainComponent implements OnInit {
 
   private _StyleCalss: WafStyleClass;
 
-  constructor(private DataService: WafDataService, private FunctionService: WafFunctionService) {
+  constructor(private dialogOptions: MatDialog, private DataService: WafDataService, private FunctionService: WafFunctionService) {
     this._StyleCalss = new WafStyleClass(this.DataService, this.FunctionService);
     
     this.filteredClasslist = this.classlistCtrl.valueChanges.pipe(
@@ -135,10 +139,45 @@ export class WafRightsectionMainComponent implements OnInit {
   }
 
   private DeleteClass(): void {
-    console.log("DeleteClass");
-
+    this.RemoveClassToNode(this.DataService.SelectedStyle.className);
     this._StyleCalss.DeleteStyle(this.DataService.SelectedStyle.className);
     this.DataService.SelectedStyle = undefined;
+
+    this.ReloadClassList();
+
+    console.log(this.DataService.Styles);
+  }
+
+  private OptionsStyle(): void {
+    let dialogOptionsRef = this.dialogOptions.open(WafRightsectionMenustyleComponent);
+    dialogOptionsRef.afterClosed().subscribe(result => {
+      console.log(result);
+
+      if (result) {
+        let cssRules = this.DataService.SelectedStyle.cssRules;
+
+        //Remove old
+        this.RemoveClassToNode(this.DataService.SelectedStyle.className);
+        this._StyleCalss.DeleteStyle(this.DataService.SelectedStyle.className);
+
+        //Add new
+        this._StyleCalss.AddStyle(result, cssRules);
+        this.AddClassToNode(result);
+
+        //Set selected
+        this.DataService.SelectedStyle.className = result;
+
+        //Reload class list
+        this.ReloadClassList();
+      }
+    });
+  }
+
+  private ReloadClassList(): void {
+    this.filteredClasslist = this.classlistCtrl.valueChanges.pipe(
+      startWith(null),
+      map((item: string | null) => item ? this._filter(item) : this.allClass.slice())
+    );
   }
 
 }

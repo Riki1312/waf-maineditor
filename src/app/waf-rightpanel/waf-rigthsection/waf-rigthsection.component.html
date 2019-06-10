@@ -1,3 +1,6 @@
-<app-waf-rightsection-main *ngIf="!simplifiedMode && NodeSelected()"></app-waf-rightsection-main>
+<app-waf-rightsection-main *ngIf="!simplifiedMode && nodeSelected"></app-waf-rightsection-main>
+
+<!-- Simplified mode -->
 <app-waf-rightsection-main-a *ngIf="simplifiedMode"></app-waf-rightsection-main-a>
-<app-waf-rightsection-main-b *ngIf="!simplifiedMode && !NodeSelected()"></app-waf-rightsection-main-b>
+
+<app-waf-rightsection-main-b *ngIf="!simplifiedMode && !nodeSelected"></app-waf-rightsection-main-b>

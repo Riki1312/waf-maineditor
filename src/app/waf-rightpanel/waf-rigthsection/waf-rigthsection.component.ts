@@ -16,15 +16,17 @@ export class WafRigthsectionComponent implements OnInit {
     return this.SettingsService.GetSettingByCode(SettingsCode.simplifiedMode);
   }
 
+  get nodeSelected(): boolean {
+    if (this.DataService.SelectedNode) return true;
+    else return false;
+  }
+
+  //
+
   constructor(private SettingsService: WafSettingsService, private DataService: WafDataService) {
   }
 
   ngOnInit() {
-  }
-
-  NodeSelected(): boolean {
-    if (this.DataService.SelectedNode) return true;
-    else return false;
   }
 
 }

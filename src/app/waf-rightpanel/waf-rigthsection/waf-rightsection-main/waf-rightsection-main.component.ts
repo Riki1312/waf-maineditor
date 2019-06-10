@@ -134,4 +134,11 @@ export class WafRightsectionMainComponent implements OnInit {
     }
   }
 
+  private DeleteClass(): void {
+    console.log("DeleteClass");
+
+    this._StyleCalss.DeleteStyle(this.DataService.SelectedStyle.className);
+    this.DataService.SelectedStyle = undefined;
+  }
+
 }

@@ -55,7 +55,7 @@ Cose:
 - Filtro nomi classi.
 - Generare codice di 2 tipi.
 - Download e upload json file waf.
-- Elimina rinomina classe.
+- ✔ Elimina rinomina classe.
 - Deploy guida
 - Anteprima sito in nuova finestra
 - Messaggio per le funzionalità non ancora implementate.

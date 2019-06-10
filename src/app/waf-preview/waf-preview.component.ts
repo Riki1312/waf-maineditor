@@ -27,7 +27,7 @@ export class WafPreviewComponent implements OnInit {
 
   //
 
-    private _CodeClass: WafCodeClass;
+  private _CodeClass: WafCodeClass;
 
   constructor(private domSanitizer: DomSanitizer, private MainService: WafMainService, private DataService: WafDataService,) {
     this._CodeClass = new WafCodeClass(this.MainService, this.DataService);

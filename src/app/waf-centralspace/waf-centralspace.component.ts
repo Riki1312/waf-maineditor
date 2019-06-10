@@ -69,8 +69,6 @@ export class WafCentralspaceComponent implements OnInit {
     this.FunctionService.SelectToolByCode(ElementsCode.none);
 
     console.log("CreateElement");
-    console.log("Events:");
-    console.log(this.DataService.Events);
   }
 
 }

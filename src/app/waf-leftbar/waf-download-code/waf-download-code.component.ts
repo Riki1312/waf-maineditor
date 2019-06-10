@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { WafMainService } from '../../waf-services/waf-main.service';
 import { WafDataService } from '../../waf-services/waf-data.service';
 
+import { WafCodeClass } from '../../waf-services/waf-code/waf-code-class';
+
 //
 
 @Component({
@@ -12,17 +14,21 @@ import { WafDataService } from '../../waf-services/waf-data.service';
 })
 export class WafDownloadCodeComponent implements OnInit {
 
-  constructor(private MainService: WafMainService, private DataService: WafDataService) { }
+  private _CodeClass: WafCodeClass;
+  
+  constructor(private MainService: WafMainService, private DataService: WafDataService) {
+    this._CodeClass = new WafCodeClass(this.MainService, this.DataService);
+  }
 
   ngOnInit() {
   }
 
   get wafCode_html() {
-    let htmlCode = `${ this.DataService.GetHtmlCode() }`;
+    let htmlCode = `${ this._CodeClass.GetHtmlCode() }`;
     return htmlCode;
   }
   get wafCode_css() {
-    let cssCode = `${ this.DataService.GetCssCode() }`;
+    let cssCode = `${ this._CodeClass.GetCssCode() }`;
     return cssCode;
   }
 

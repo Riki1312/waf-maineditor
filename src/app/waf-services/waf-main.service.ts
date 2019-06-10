@@ -191,6 +191,7 @@ export class WafMainService {
       className: this.WafBasicClassName[ElementsCode.frame],
       cssRules: [
         { cssProperty: "background-color", cssValue: "#fffa" },
+        { cssProperty: "position", cssValue: "relative" },
         { cssProperty: "width", cssValue: "500px" },
         { cssProperty: "height", cssValue: "500px" }
       ],

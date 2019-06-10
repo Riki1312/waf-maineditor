@@ -67,6 +67,7 @@ export class WafRigthsectionBComponent implements OnInit {
   //
 
   FramePropertiesGetter(): PStyle[] {
+
     return StyleProperty_data.map(x => {
       let style = this._StyleClass.FindStyleByClass(this.MainService.WafBasicClassName[ElementsCode.frame]);
 

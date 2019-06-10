@@ -94,8 +94,10 @@ export class WafCodeClass {
 
   public ImportFileWafCode(wafCode: string): void {
     let wafData = JSON.parse(wafCode);
+    let importedSecurityKey = wafData["wafsecurity_key"];
 
-    wafCode.replace(wafData["wafsecurity_key"], WafSecurityKey);
+    //Compute waf security key
+    wafCode = wafCode.replace(new RegExp(importedSecurityKey, "g"), WafSecurityKey);
     wafData = JSON.parse(wafCode);
 
     this.MainService.NodesId_data = wafData["wafinfo"]["nodesId_data"];

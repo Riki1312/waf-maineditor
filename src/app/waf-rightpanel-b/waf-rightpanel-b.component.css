@@ -38,3 +38,26 @@ p {
 .Container {
   padding-top: 20px;
 }
+
+.Code {
+  width: 200px;
+  overflow: auto;
+}
+
+.Code::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+.Code::-webkit-scrollbar
+{
+	width: 7px;
+  height: 7px;
+}
+.Code::-webkit-scrollbar-thumb
+{
+	border-radius: 4px;
+	background-color: rgba(68, 68, 68, 0.8);
+}
+.Code::-webkit-scrollbar-corner {
+  background: transparent;
+}

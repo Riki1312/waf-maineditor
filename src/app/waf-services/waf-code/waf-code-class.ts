@@ -123,7 +123,7 @@ export class WafCodeClass {
     .replace(/\n\s+/g, '')
     .replace(/\n/g, '')
     //Recreates correct formatting
-    .replace(/:/g, ': ')
+    //.replace(/:/g, ': ')
     .replace(/: root/g, ':root')
     .replace(/;/g, ';\n')
     .replace(/}/g, '}\n\n')

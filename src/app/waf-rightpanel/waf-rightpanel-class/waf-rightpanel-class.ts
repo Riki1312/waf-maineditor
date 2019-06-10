@@ -1,7 +1,9 @@
 import { MatSnackBar } from '@angular/material';
 
-import { WafMainService } from '../../waf-services/waf-main.service';
 import { WafDataService } from '../../waf-services/waf-data.service';
+import { WafFunctionService } from '../../waf-services/waf-function.service';
+
+import { WafStyleClass } from '../../waf-services/waf-style/waf-style-class';
 
 //
 
@@ -22,7 +24,11 @@ export enum PGroup {
 export class WafRightpanelClass {
 
   private _SnackBar: MatSnackBar;
+
   private _DataService: WafDataService;
+  private _FunctionService: WafFunctionService;
+  private _StyleCalss: WafStyleClass;
+
   private _Properties: PStyle[];
   private _PropertyChangeActive: boolean;
 
@@ -30,18 +36,21 @@ export class WafRightpanelClass {
     [PGroup.color]: ["background-color", "color", "border-color"]
   };
   
-  constructor(private snackBar: MatSnackBar, dataService: WafDataService, properties: PStyle[]) {
+  constructor(private snackBar: MatSnackBar, dataService: WafDataService, functionService: WafFunctionService, properties: PStyle[]) {
     this._SnackBar = snackBar;
-    this._DataService = dataService;
     this._Properties = properties;
     this._PropertyChangeActive = true;
+
+    this._DataService = dataService;
+    this._FunctionService = functionService;
+    this._StyleCalss = new WafStyleClass(this._DataService, this._FunctionService);
   }
 
   //
 
   public PropertyChange(cssProperty: string, newValue: string): void {
     if (this._PropertyChangeActive)
-      this._DataService.EditStyleRule(this._DataService.SelectedStyle.className, cssProperty, newValue, true);
+      this._StyleCalss.EditStyleRule(this._DataService.SelectedStyle.className, cssProperty, newValue, true);
     else
       this._PropertyChangeActive = true;
   }
@@ -51,7 +60,7 @@ export class WafRightpanelClass {
       this._Properties.forEach(x => {
         if (x.propertyCss === item.propertyCss) x.value = item.defaultValue;
       });
-      this._DataService.DeleteStyleRule(this._DataService.SelectedStyle.className, item.propertyCss);
+      this._StyleCalss.DeleteStyleRule(this._DataService.SelectedStyle.className, item.propertyCss);
       this._PropertyChangeActive = false;
 
       this.snackBar.open(`Style property removed`, "Ok", {

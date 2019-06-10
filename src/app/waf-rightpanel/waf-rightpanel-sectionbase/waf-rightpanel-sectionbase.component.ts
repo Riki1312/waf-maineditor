@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material';
 
 import { WafMainService, WafStyle } from '../../waf-services/waf-main.service';
 import { WafDataService } from '../../waf-services/waf-data.service';
+import { WafFunctionService } from '../../waf-services/waf-function.service';
 
 import { WafRightpanelClass, PStyle, PGroup } from '../waf-rightpanel-class/waf-rightpanel-class';
 
@@ -40,11 +41,11 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
     }
   }
 
-  constructor(private snackBar: MatSnackBar, private MainService: WafMainService, private DataService: WafDataService) {
+  constructor(private snackBar: MatSnackBar, private DataService: WafDataService, private FunctionService: WafFunctionService) {
   }
 
   ngOnInit() {
-    this.panelManager = new WafRightpanelClass(this.snackBar, this.DataService, this.properties);
+    this.panelManager = new WafRightpanelClass(this.snackBar, this.DataService, this.FunctionService, this.properties);
   }
 
   //

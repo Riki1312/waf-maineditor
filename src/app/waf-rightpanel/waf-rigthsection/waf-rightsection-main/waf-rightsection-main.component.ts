@@ -44,7 +44,10 @@ export class WafRightsectionMainComponent implements OnInit {
   }
   get allClass(): string[] {
     let result: string[] = [];
-    this.DataService.Styles.forEach(x => result.push(x.className));
+    this.DataService.Styles.forEach(x => {
+      if (!x.basicWafStyle)
+        result.push(x.className)
+    });
     return result;
   }
   get selectedClass(): string {

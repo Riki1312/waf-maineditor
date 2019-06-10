@@ -52,14 +52,13 @@ Cose:
 - ✔ Ridefinire completamente il sistema degli eventi.
 - ✔ Riprogettare il sistema dei servizi.
 - In pratica può esistere un solo frame perché condividono tutti la stessa class.
+- Generare codice di 2 tipi.
 - Anteprima sito in nuova finestra, più barra centro in alto.
 
-- Filtro nomi classi.
-- Generare codice di 2 tipi.
+- ✔Filtro nomi classi.
 - ✔ Download json.
 - ✔ Elimina rinomina classe.
 - Deploy guida
 - Anteprima proprietà css come per il colore.
 
 */
-

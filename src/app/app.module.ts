@@ -64,6 +64,9 @@ import { WafRigthsectionMComponent } from './waf-rightpanel/waf-rigthsection-m/w
 import { WafRigthsectionNComponent } from './waf-rightpanel/waf-rigthsection-n/waf-rigthsection-n.component';
 import { WafRightsectionMainBComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main-b/waf-rightsection-main-b.component';
 import { WafRightpanelSectionbaseComponent } from './waf-rightpanel/waf-rightpanel-sectionbase/waf-rightpanel-sectionbase.component';
+import { WafNodeService } from './waf-services/waf-node/waf-node.service';
+import { WafStyleService } from './waf-services/waf-node/waf-style.service';
+import { WafCodeService } from './waf-services/waf-code/waf-code.service';
 
 //
 
@@ -123,7 +126,10 @@ import { WafRightpanelSectionbaseComponent } from './waf-rightpanel/waf-rightpan
   providers: [
     WafMainService,
     WafDataService,
-    WafSettingsService
+    WafSettingsService,
+    WafNodeService,
+    WafStyleService,
+    WafCodeService
   ],
   entryComponents: [
     WafSettingsEditorComponent,

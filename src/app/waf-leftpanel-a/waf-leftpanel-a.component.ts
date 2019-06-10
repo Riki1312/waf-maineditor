@@ -249,6 +249,7 @@ export class WafLeftpanelAComponent implements OnInit {
     return findNodes(tnodes, id);
   }
 
+  //
   private CheckSelectedStyle(that: any, data?: any): void {
     if (
       (

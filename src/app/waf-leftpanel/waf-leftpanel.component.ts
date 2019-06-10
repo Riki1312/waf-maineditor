@@ -7,6 +7,7 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
 
 import { WafMainService, ElementsCode } from '../waf-services/waf-main.service';
 import { WafDataService } from '../waf-services/waf-data.service';
+import { WafFunctionService } from '../waf-services/waf-function.service';
 
 //
 
@@ -68,14 +69,14 @@ export class WafLeftpanelComponent {
   }
   set selectedNode(node: TNode) {
     if (node)
-      this.DataService.SelectToolByCode(node.codeElement);
+      this.FunctionService.SelectToolByCode(node.codeElement);
     else
-      this.DataService.SelectToolByCode(ElementsCode.none);
+      this.FunctionService.SelectToolByCode(ElementsCode.none);
   }
 
   //
 
-  constructor(private snackBar: MatSnackBar, private MainService: WafMainService, private DataService: WafDataService) {
+  constructor(private snackBar: MatSnackBar, private DataService: WafDataService, private FunctionService: WafFunctionService) {
     this.dataSource.data = ToolsTree_data;
   }
 

@@ -1,8 +1,10 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
+
 import { WafSettingsEditorComponent } from './waf-settings-editor/waf-settings-editor.component';
 import { WafDownloadCodeComponent } from './waf-download-code/waf-download-code.component';
+import { WafDownloadFilewafComponent } from './waf-download-filewaf/waf-download-filewaf.component';
 
 //
 
@@ -42,6 +44,10 @@ export class WafLeftbarComponent implements OnInit {
 
   DownloadSourceCode() {
     this.dialogEditor.open(WafDownloadCodeComponent);
+  }
+
+  DownloadWafFile() {
+    this.dialogEditor.open(WafDownloadFilewafComponent);
   }
 
 }

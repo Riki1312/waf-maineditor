@@ -73,6 +73,22 @@ export class WafCodeClass {
     return cssCode;
   }
 
+  public GetFileWafCode(): string {
+    let wafCode: string = "";
+
+    let wafData = {
+      "wafdata_node": this.DataService.Nodes,
+      "wafdata_style": this.DataService.Styles,
+      "wafdata_styleVariable": this.DataService.StyleVariables,
+      "wafdata_customGolobalCode": this.DataService.CustomGolobalCode,
+      "wafsettings": "",
+      "wafinfo": ""
+    }
+    wafCode = JSON.stringify(wafData);
+
+    return wafCode;
+  }
+
   public FormatHtmlCode(htmlCode: string): string {
     return htmlCode
     .replace(/^\s+/g, '')

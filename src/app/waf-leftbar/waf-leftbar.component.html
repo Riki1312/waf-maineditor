@@ -23,7 +23,7 @@
 </mat-menu>
 
 <mat-menu #fileMenu="matMenu">
-  <button mat-menu-item>Save</button>
+  <button mat-menu-item (click)="DownloadWafFile()">Save</button>
   <button mat-menu-item>New</button>
   <button mat-menu-item [matMenuTriggerFor]="importMenu">Import</button>
   <button mat-menu-item (click)="DownloadSourceCode()">Download</button>

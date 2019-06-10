@@ -40,6 +40,7 @@ Cose:
 - ✔ Anteprima codice classi secondo pannello destra.
 - Creazione automatica classe quando si creare un elemento (modificabile nelle impostazioni).
 - Elemento immagine.
+- Upload json file waf.
 - ✔ Problema: overflow sul body.
 - Elemento custom code (anche per media query e animazioni o interazioni con mouse).
 - Evidenziare l'elemento selezionato nel editor centrale.
@@ -50,15 +51,14 @@ Cose:
 - ✔ Rendere più generico ed espansibile il sistema che gestisce i waf-rightsection-x e riorganizzare i servizi.
 - ✔ Ridefinire completamente il sistema degli eventi.
 - ✔ Riprogettare il sistema dei servizi.
-- In pratica può esistere un solo frame perché condividono tutti la stessa class
+- In pratica può esistere un solo frame perché condividono tutti la stessa class.
+- Anteprima sito in nuova finestra, più barra centro in alto.
 
 - Filtro nomi classi.
 - Generare codice di 2 tipi.
-- Download e upload json file waf.
+- Download e json.
 - ✔ Elimina rinomina classe.
 - Deploy guida
-- Anteprima sito in nuova finestra
-- Messaggio per le funzionalità non ancora implementate.
 - Anteprima proprietà css come per il colore.
 
 */

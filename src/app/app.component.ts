@@ -52,6 +52,7 @@ Cose:
 - ✔ Visualizzare nel pannelo di style le opzioni se nessun elemento è selezionato.
 - ✔ Rendere più generico ed espansibile il sistema che gestisce i waf-rightsection-x e riorganizzare i servizi.
 - ✔ Ridefinire completamente il sistema degli eventi.
+- !!! Riprogettare il sistema dei servizi.
 - In pratica può esistere un solo frame perché condividono tutti la stessa class
 
 */

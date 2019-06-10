@@ -1,7 +1,9 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
-import { WafMainService, WafStyle } from '../../../waf-services/waf-main.service';
 import { WafDataService } from '../../../waf-services/waf-data.service';
+import { WafFunctionService } from '../../../waf-services/waf-function.service';
+
+import { WafStyleClass } from '../../../waf-services/waf-style/waf-style-class';
 
 //
 
@@ -48,7 +50,7 @@ export class WafRightsectionMainComponent implements OnInit {
       return undefined;
   }
   set selectedClass(value) {
-    this.DataService.SelectStyleByName(value);
+    this.FunctionService.SelectStyleByName(value);
   }
 
   //
@@ -58,11 +60,15 @@ export class WafRightsectionMainComponent implements OnInit {
 
   //
 
-  constructor(private MainService: WafMainService, private DataService: WafDataService) {
+  private _StyleCalss: WafStyleClass;
+
+  constructor(private DataService: WafDataService, private FunctionService: WafFunctionService) {
     this.filteredClasslist = this.classlistCtrl.valueChanges.pipe(
       startWith(null),
       map((item: string | null) => item ? this._filter(item) : this.allClass.slice())
     );
+
+    this._StyleCalss = new WafStyleClass(this.DataService, this.FunctionService);
   }
 
   ngOnInit() {
@@ -111,7 +117,7 @@ export class WafRightsectionMainComponent implements OnInit {
 
   private AddClassToNode(className: string): void {
     if (this.DataService.SelectedNode) {
-      this.DataService.AddStyle(className);
+      this._StyleCalss.AddStyle(className);
 
       if (!this.DataService.SelectedNode.data.className)
         this.DataService.SelectedNode.data.className = [];

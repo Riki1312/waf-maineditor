@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { WafMainService, StylePanelSection, ElementsCode } from '../waf-services/waf-main.service';
+import { StylePanelSection, ElementsCode } from '../waf-services/waf-main.service';
 import { WafDataService } from '../waf-services/waf-data.service';
+import { WafFunctionService } from '../waf-services/waf-function.service';
+
+import { WafNodeClass } from '../waf-services/waf-node/waf-node-class';
 
 //
 
@@ -31,11 +34,18 @@ export class WafRightpanelComponent implements OnInit {
       return this.DataService.GetElementByCode(ElementsCode.none);
   }
 
-  constructor(private MainService: WafMainService, private DataService: WafDataService) {
+  //
+
+  private _NodeClass: WafNodeClass;
+
+  constructor(private DataService: WafDataService, private FunctionService: WafFunctionService,) {
+    this._NodeClass = new WafNodeClass(this.DataService, this.FunctionService);
   }
 
   ngOnInit() {
   }
+
+  //
 
   ShowPanel(code: number, options?: PanelOptions) {
     let condition: boolean;

@@ -19,7 +19,7 @@
           <input matInput (focusout)="StyleVariableChange('variableValue', styleVariable, $event)" [value]="styleVariable.variableValue" spellcheck="false">
         </mat-form-field>
         <div class="Buttonclear">
-          <button mat-icon-button (click)="DeleteVariable(styleVariable)">
+          <button mat-icon-button (click)="DeleteVariable(styleVariable)" matTooltip="Delete variable">
             <mat-icon class="Smallicon">clear</mat-icon>
           </button>
         </div>
@@ -27,7 +27,7 @@
 
     </div>
     <div class="Buttonadd">
-      <button mat-icon-button (click)="AddVariable()">
+      <button mat-icon-button (click)="AddVariable()" matTooltip="Add variable">
         <mat-icon>add</mat-icon>
       </button>
     </div>

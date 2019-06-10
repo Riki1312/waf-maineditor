@@ -10,6 +10,8 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
+import { RouterModule, Routes } from '@angular/router';
+
 //
 
 import {
@@ -38,15 +40,25 @@ import { WafSettingsService } from './waf-services/waf-settings.service';
 import { WafFunctionService } from './waf-services/waf-function.service';
 
 //Component
+import { WafMainComponent } from './waf-main/waf-main.component';
+import { WafPreviewComponent } from './waf-preview/waf-preview.component';
+import { WafPagenotfoundComponent } from './waf-pagenotfound/waf-pagenotfound.component';
+//
 import { WafLeftbarComponent } from './waf-leftbar/waf-leftbar.component';
 import { WafDownloadCodeComponent } from './waf-leftbar/waf-download-code/waf-download-code.component';
 import { WafSettingsEditorComponent } from './waf-leftbar/waf-settings-editor/waf-settings-editor.component';
+import { WafDownloadFilewafComponent } from './waf-leftbar/waf-download-filewaf/waf-download-filewaf.component';
+import { WafImportFilewafComponent } from './waf-leftbar/waf-import-filewaf/waf-import-filewaf.component';
+//
 import { WafLeftpanelComponent } from './waf-leftpanel/waf-leftpanel.component';
-import { WafCentralspaceComponent } from './waf-centralspace/waf-centralspace.component';
-import { WafRightbarComponent } from './waf-rightbar/waf-rightbar.component';
-import { WafRightpanelComponent } from './waf-rightpanel/waf-rightpanel.component';
 import { WafLeftpanelAComponent } from './waf-leftpanel-a/waf-leftpanel-a.component';
 import { WafNodeOptionsComponent } from './waf-leftpanel-a/waf-node-options/waf-node-options.component';
+//
+import { WafCentralspaceComponent } from './waf-centralspace/waf-centralspace.component';
+//
+import { WafRightbarComponent } from './waf-rightbar/waf-rightbar.component';
+//
+import { WafRightpanelComponent } from './waf-rightpanel/waf-rightpanel.component';
 import { WafRightpanelAComponent } from './waf-rightpanel-a/waf-rightpanel-a.component';
 import { WafRightpanelBComponent } from './waf-rightpanel-b/waf-rightpanel-b.component';
 import { WafRigthsectionComponent } from './waf-rightpanel/waf-rigthsection/waf-rigthsection.component';
@@ -67,13 +79,21 @@ import { WafRightsectionMainAComponent } from './waf-rightpanel/waf-rigthsection
 import { WafRightsectionMainBComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main-b/waf-rightsection-main-b.component';
 import { WafRightpanelSectionbaseComponent } from './waf-rightpanel/waf-rightpanel-sectionbase/waf-rightpanel-sectionbase.component';
 import { WafRightsectionMenustyleComponent } from './waf-rightpanel/waf-rigthsection/waf-rightsection-main/waf-rightsection-menustyle/waf-rightsection-menustyle.component';
-import { WafDownloadFilewafComponent } from './waf-leftbar/waf-download-filewaf/waf-download-filewaf.component';
-import { WafImportFilewafComponent } from './waf-leftbar/waf-import-filewaf/waf-import-filewaf.component';
+
+//Routes
+
+const appRoutes: Routes = [
+  { path: 'main', component: WafMainComponent },
+  { path: 'preview', component: WafPreviewComponent },
+  { path: '', redirectTo: '/main', pathMatch: 'full' },
+  { path: '**', component: WafPagenotfoundComponent }
+];
 
 //
 
 @NgModule({
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
@@ -95,6 +115,7 @@ import { WafImportFilewafComponent } from './waf-leftbar/waf-import-filewaf/waf-
   ],
   declarations: [
     AppComponent,
+    WafMainComponent,
     WafLeftbarComponent,
     WafLeftpanelComponent,
     WafCentralspaceComponent,
@@ -125,7 +146,9 @@ import { WafImportFilewafComponent } from './waf-leftbar/waf-import-filewaf/waf-
     WafRightpanelSectionbaseComponent,
     WafRightsectionMenustyleComponent,
     WafDownloadFilewafComponent,
-    WafImportFilewafComponent
+    WafImportFilewafComponent,
+    WafPreviewComponent,
+    WafPagenotfoundComponent
   ],
   bootstrap: [ AppComponent ],
   providers: [

@@ -1,0 +1,26 @@
+<div class="Main">
+  
+  <!--<div class="TopBar">Window top bar</div>-->
+
+  <div class="LeftBar">
+    <app-waf-leftbar (PanelChange)="SetLeftpanel($event)"></app-waf-leftbar>
+  </div>
+
+  <div *ngIf="leftpanel != -1" class="LeftPanel">
+    <app-waf-leftpanel *ngIf="leftpanel == 0"></app-waf-leftpanel>
+    <app-waf-leftpanel-a *ngIf="leftpanel == 1"></app-waf-leftpanel-a>
+  </div>
+
+  <div class="CentralSpace"><app-waf-centralspace></app-waf-centralspace></div>
+
+  <div class="RightBar">
+    <app-waf-rightbar (PanelChange)="SetRightpanel($event)"></app-waf-rightbar>
+  </div>
+
+  <div class="RightPanel">
+    <app-waf-rightpanel *ngIf="rightpanel == 0"></app-waf-rightpanel>
+    <app-waf-rightpanel-a *ngIf="rightpanel == 1"></app-waf-rightpanel-a>
+    <app-waf-rightpanel-b *ngIf="rightpanel == 2"></app-waf-rightpanel-b>
+  </div>
+
+</div>

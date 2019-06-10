@@ -24,7 +24,8 @@ import {
   MatAutocompleteModule,
   MatListModule,
   MatChipsModule
-}from '@angular/material';
+}
+from '@angular/material';
 
 import { MatDialogModule } from '@angular/material/dialog';
 

@@ -48,12 +48,20 @@ export class WafDataService {
 
   //
 
-  constructor(private MainService: WafMainService, private NodeClass: WafNodeClass, private StyleClass: WafStyleClass) {
+  private _NodeClass: WafNodeClass;
+  private _StyleClass: WafStyleClass;
+
+  //
+
+  constructor(private MainService: WafMainService) {
     this.Nodes = [];
     this.Styles = [];
 
     this.StyleVariables = [];
     this.CustomGolobalCode = "";
+
+    this._NodeClass = new WafNodeClass(this);
+    this._StyleClass = new WafStyleClass(this);
 
     this.Load();
   }
@@ -95,14 +103,14 @@ export class WafDataService {
   }
 
   public SelectNodeById(idNode: number): void {
-    this.SelectedNode = this.NodeClass.FindNodeById(idNode);
+    this.SelectedNode = this._NodeClass.FindNodeById(idNode);
     
     //this.RunEvents(WafEventsName.selectNode);
     this.SelectedStyle = undefined;
   }
 
   public SelectStyleByName(className: string): void {
-    this.SelectedStyle = this.StyleClass.FindStyleByClass(className);
+    this.SelectedStyle = this._StyleClass.FindStyleByClass(className);
 
     //this.RunEvents(WafEventsName.selectStyle);
   }

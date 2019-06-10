@@ -1,4 +1,4 @@
-<div>
+<div class="Main">
 
   <mat-horizontal-stepper #stepper>
     <ng-template matStepperIcon="edit">
@@ -9,21 +9,21 @@
     </ng-template>
     <mat-step>
 
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <p>
-        Ok
-      </p>
+      <ng-template matStepLabel>Installa strumenti</ng-template>
+      <p>Per ospitare il sito, devi installare gli strumenti a riga di comando Firebase mediante npm (Node.js)</p>
+      <h4>Installa strumenti Firebase: $ npm install -g firebase-tools</h4>
+      <p>Se hai già installato gli strumenti a riga di comando Firebase, esegui di nuovo il comando di installazione per assicurarti di avere l'ultima versione</p>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext cdkFocusInitial>Next</button>
       </div>
 
     </mat-step>
     <mat-step>
 
-      <ng-template matStepLabel>Fill out your address</ng-template>
-      <p>
-        Ok
-      </p>
+      <ng-template matStepLabel>Crea il progetto</ng-template>
+      <p>Apri una finestra del terminale e accedi a o crea una directory per il tuo sito</p>
+      <h4>Accedi a Google: $ firebase login</h4>
+      <h4>Avvia il progetto: $ firebase init</h4>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
@@ -32,10 +32,9 @@
     </mat-step>
     <mat-step>
 
-      <ng-template matStepLabel>Done</ng-template>
-      <p>
-        You are now done.
-      </p>
+      <ng-template matStepLabel>Implementa il sito web</ng-template>
+      <p>Aggiungi i file statici alla directory di implementazione (quella predefinita è public)</p>
+      <h4>Implementa il sito web: $ firebase deploy</h4>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>

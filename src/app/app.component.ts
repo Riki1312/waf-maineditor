@@ -49,7 +49,7 @@ Cose:
 - ✔ Download json.
 - ✔ Elimina rinomina classe.
 - ✔ Deploy guida
-- ✔Anteprima proprietà css come per il colore.
+- ✔ Anteprima proprietà css come per il colore.
 - ✔ Anteprima sito in nuova finestra, più barra centro in alto.
 
 */

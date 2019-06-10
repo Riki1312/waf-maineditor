@@ -16,7 +16,8 @@ export interface PStyle {
 }
 
 export enum PGroup {
-  color = "color"
+  color = "color",
+  formatAlign = "format_align"
 }
 
 //
@@ -32,8 +33,9 @@ export class WafRightpanelClass {
   private _Properties: PStyle[];
   private _PropertyChangeActive: boolean;
 
-  private _PreviewData: { [PGroup.color]: string[] } = {
-    [PGroup.color]: ["background-color", "color", "border-color"]
+  private _PreviewData: any = {
+    [PGroup.color]: ["background-color", "color", "border-color"],
+    [PGroup.formatAlign]: ["text-align"]
   };
   
   constructor(private snackBar: MatSnackBar, dataService: WafDataService, functionService: WafFunctionService, properties: PStyle[]) {

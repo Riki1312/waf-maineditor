@@ -30,6 +30,12 @@
         <div *ngIf="IsProperty(item, propertyGroup.color)" matSuffix>
           <div [ngStyle]="{'background-color': item.value}" class="ColorIndicator"></div>
         </div>
+        <div *ngIf="IsProperty(item, propertyGroup.formatAlign)" matSuffix>
+          <mat-icon *ngIf="item.value === 'left'">format_align_left</mat-icon>
+          <mat-icon *ngIf="item.value === 'right'">format_align_right</mat-icon>
+          <mat-icon *ngIf="item.value === 'center'">format_align_center</mat-icon>
+          <mat-icon *ngIf="item.value === 'justify'">format_align_justify</mat-icon>
+        </div>
       </mat-form-field>
 
     </div>

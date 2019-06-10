@@ -117,7 +117,7 @@ const appRoutes: Routes = [
     AppComponent,
     WafMainComponent,
     WafPreviewComponent,
-      WafPagenotfoundComponent,
+    WafPagenotfoundComponent,
     WafLeftbarComponent,
     WafLeftpanelComponent,
     WafCentralspaceComponent,

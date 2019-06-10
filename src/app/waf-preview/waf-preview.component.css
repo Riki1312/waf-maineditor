@@ -1,0 +1,25 @@
+.Main {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+/*Scrollbar [*/
+.Main::-webkit-scrollbar-track
+{
+	background-color: var(--color-gray1);
+}
+.Main::-webkit-scrollbar
+{
+	width: 7px;
+  height: 7px;
+}
+.Main::-webkit-scrollbar-thumb
+{
+	border-radius: 4px;
+	background-color: rgba(68, 68, 68, 0.8);
+}
+.Main::-webkit-scrollbar-corner {
+  background: transparent;
+}
+/*Scrollbar ]*/

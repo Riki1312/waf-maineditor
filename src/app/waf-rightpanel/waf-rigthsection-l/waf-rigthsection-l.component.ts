@@ -43,9 +43,9 @@ const StyleProperty_data: PStyle[] = [
 })
 export class WafRigthsectionLComponent implements OnInit {
 
-  private panelTitle = "Layout";
-  private panelDescription = "Grid items";
-  private styleProperty = StyleProperty_data;
+  panelTitle = "Layout";
+  panelDescription = "Grid items";
+  styleProperty = StyleProperty_data;
 
   constructor() {
   }

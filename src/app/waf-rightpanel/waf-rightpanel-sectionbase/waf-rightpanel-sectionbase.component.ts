@@ -29,12 +29,12 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
 
   //
 
-  private panelManager: WafRightpanelClass;
-  private propertyGroup = PGroup;
+  panelManager: WafRightpanelClass;
+  propertyGroup = PGroup;
 
   //
 
-  private get properties(): PStyle[] {
+  get properties(): PStyle[] {
     if (!this.override_getProperties) {
       return this.PropertiesGetter();
     }
@@ -60,7 +60,7 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
 
   //
 
-  private PropertiesGetter(): PStyle[] {
+  PropertiesGetter(): PStyle[] {
     let result: PStyle[] = this.property_data.map(x => {
       let style: WafStyle = this.DataService.SelectedStyle;
 
@@ -75,11 +75,11 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
     return result;
   }
 
-  private IsProperty(item: PStyle, group: string): boolean {
+  IsProperty(item: PStyle, group: string): boolean {
     return this.panelManager.PropertyPreview(item.propertyCss, group);
   }
 
-  private PropertyChange(cssProperty: string, event: any): void {
+  PropertyChange(cssProperty: string, event: any): void {
     if (!this.override_propertyChange) {
       let newValue = event.target.value;
       this.panelManager.PropertyChange(cssProperty, newValue);
@@ -89,7 +89,7 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
     }
   }
 
-  private PropertyKeydown(item: PStyle, event: any): void {
+  PropertyKeydown(item: PStyle, event: any): void {
     if (!this.override_propertyKeydown) {
       this.panelManager.PropertyKeydown(item, event.key);
     }

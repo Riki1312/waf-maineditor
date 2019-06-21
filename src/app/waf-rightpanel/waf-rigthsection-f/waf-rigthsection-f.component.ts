@@ -72,8 +72,8 @@ const StyleProperty_data: PStyle[] = [
 })
 export class WafRigthsectionFComponent implements OnInit {
 
-  private panelTitle = "Spacing and Size";
-  private styleProperty = StyleProperty_data;
+  panelTitle = "Spacing and Size";
+  styleProperty = StyleProperty_data;
 
   constructor() {
   }

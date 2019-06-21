@@ -122,7 +122,7 @@ export class WafRightsectionMainComponent implements OnInit {
 
   //
 
-  private AddClassToNode(className: string): void {
+  AddClassToNode(className: string): void {
     if (this.DataService.SelectedNode) {
       this._StyleCalss.AddStyle(className);
 
@@ -133,7 +133,7 @@ export class WafRightsectionMainComponent implements OnInit {
     }
   }
 
-  private RemoveClassToNode(className: string): void {
+  RemoveClassToNode(className: string): void {
     const index = this.DataService.SelectedNode.data.className.indexOf(className);
 
     if (index >= 0) {
@@ -141,7 +141,7 @@ export class WafRightsectionMainComponent implements OnInit {
     }
   }
 
-  private DeleteClass(): void {
+  DeleteClass(): void {
     this.RemoveClassToNode(this.DataService.SelectedStyle.className);
     this._StyleCalss.DeleteStyle(this.DataService.SelectedStyle.className);
     this.DataService.SelectedStyle = undefined;
@@ -151,7 +151,7 @@ export class WafRightsectionMainComponent implements OnInit {
     console.log(this.DataService.Styles);
   }
 
-  private OptionsStyle(): void {
+  OptionsStyle(): void {
     let dialogOptionsRef = this.dialogOptions.open(WafRightsectionMenustyleComponent);
     dialogOptionsRef.afterClosed().subscribe(result => {
       console.log(result);
@@ -176,7 +176,7 @@ export class WafRightsectionMainComponent implements OnInit {
     });
   }
 
-  private ReloadClassList(): void {
+  ReloadClassList(): void {
     this.filteredClasslist = this.classlistCtrl.valueChanges.pipe(
       startWith(null),
       map((item: string | null) => item ? this._filter(item) : this.allClass.slice())

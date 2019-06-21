@@ -41,8 +41,8 @@ const StyleProperty_data: PStyle[] = [
 })
 export class WafRigthsectionMComponent implements OnInit {
 
-  private panelTitle = "Borders";
-  private styleProperty = StyleProperty_data;
+  panelTitle = "Borders";
+  styleProperty = StyleProperty_data;
 
   constructor() {
   }

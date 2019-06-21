@@ -52,8 +52,8 @@ const StyleProperty_data: PStyle[] = [
 })
 export class WafRigthsectionBComponent implements OnInit {
 
-  private panelTitle = "Frame";
-  private styleProperty = StyleProperty_data;
+  panelTitle = "Frame";
+  styleProperty = StyleProperty_data;
 
   private _StyleClass: WafStyleClass;
 

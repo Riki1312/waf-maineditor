@@ -70,8 +70,8 @@ const StyleProperty_data: PStyle[] = [
 })
 export class WafRigthsectionCComponent implements OnInit {
 
-  private panelTitle = "Typography";
-  private styleProperty = StyleProperty_data;
+  panelTitle = "Typography";
+  styleProperty = StyleProperty_data;
 
   constructor() {
   }

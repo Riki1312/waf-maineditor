@@ -18,8 +18,8 @@ const StyleProperty_data: PStyle[] = [
 })
 export class WafRigthsectionDComponent implements OnInit {
 
-  private panelTitle = "Heading";
-  private styleProperty = StyleProperty_data;
+  panelTitle = "Heading";
+  styleProperty = StyleProperty_data;
 
   constructor() {
   }

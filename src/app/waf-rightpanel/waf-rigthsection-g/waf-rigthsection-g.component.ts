@@ -52,9 +52,9 @@ const StyleProperty_data: PStyle[] = [
 })
 export class WafRigthsectionGComponent implements OnInit {
 
-  private panelTitle = "Layout";
-  private panelDescription = "Flex container";
-  private styleProperty = StyleProperty_data;
+  panelTitle = "Layout";
+  panelDescription = "Flex container";
+  styleProperty = StyleProperty_data;
 
   constructor() {
   }

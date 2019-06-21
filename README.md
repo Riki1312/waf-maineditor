@@ -1,4 +1,4 @@
-# WafStudio
+# WafStudio (beta)
 
 Edit with StackBlitz ⚡️ https://stackblitz.com/edit/waf-editor
 

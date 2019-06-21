@@ -1,6 +1,6 @@
 {
-  "name": "angular",
-  "version": "0.0.0",
+  "name": "WafStudio",
+  "version": "1.9.2",
   "private": true,
   "dependencies": {
     "@angular/animations": "^8.0.2",

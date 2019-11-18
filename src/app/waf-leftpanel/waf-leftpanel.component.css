@@ -1,15 +1,16 @@
 /*TNode*/
-.example-tree-invisible {
+.main-tree-invisible {
   display: none;
 }
 
-.example-tree ul,
-.example-tree li {
+.main-tree ul,
+.main-tree li {
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
 }
-/**/
+
+/*_*/
 
 mat-tree {
   background-color: transparent !important;
@@ -23,7 +24,7 @@ mat-icon {
 }
 
 .Main {
-  height: 100%;
+  height: 100% !important;
 
   background-color: var(--color-gray0);
   border-left: var(--border-barpanel);

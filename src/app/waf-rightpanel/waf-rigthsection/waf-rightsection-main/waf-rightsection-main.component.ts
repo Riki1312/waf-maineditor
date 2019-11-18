@@ -70,7 +70,7 @@ export class WafRightsectionMainComponent implements OnInit {
   private _StyleCalss: WafStyleClass;
 
   constructor(private dialogOptions: MatDialog, private DataService: WafDataService, private FunctionService: WafFunctionService) {
-    this._StyleCalss = new WafStyleClass(this.DataService, this.FunctionService);
+    this._StyleCalss = new WafStyleClass(this.DataService);
     
     this.filteredClasslist = this.classlistCtrl.valueChanges.pipe(
       startWith(null),

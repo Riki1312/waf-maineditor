@@ -53,7 +53,7 @@ export class WafRightpanelClass {
 
     this._DataService = dataService;
     this._FunctionService = functionService;
-    this._StyleCalss = new WafStyleClass(this._DataService, this._FunctionService);
+    this._StyleCalss = new WafStyleClass(this._DataService);
   }
 
   //

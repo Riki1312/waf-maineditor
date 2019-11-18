@@ -4,7 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 import { MatSnackBar } from '@angular/material';
 
-import { WafMainService, ElementsCode } from '../waf-services/waf-main.service';
+import { WafMainService, ElementsCode, WafNode } from '../waf-services/waf-main.service';
 import { WafDataService } from '../waf-services/waf-data.service';
 import { WafFunctionService } from '../waf-services/waf-function.service';
 
@@ -41,7 +41,7 @@ export class WafCentralspaceComponent implements OnInit {
     private DataService: WafDataService,
     private FunctionService: WafFunctionService
   ) {
-    this._NodeClass = new WafNodeClass(this.DataService, this.FunctionService);
+    this._NodeClass = new WafNodeClass(this.DataService);
     this._CodeClass = new WafCodeClass(this.MainService, this.DataService);
   }
 
@@ -52,8 +52,10 @@ export class WafCentralspaceComponent implements OnInit {
 
   CreateElement() {
     if (this.DataService.SelectedTool && this.DataService.SelectedTool.codeElement !== ElementsCode.none) {
-      this._NodeClass.AddRootNode(this.DataService.SelectedTool.generator(), true);
+      let node: WafNode = this.DataService.SelectedTool.generator();
 
+      this._NodeClass.AddRootNode(node);
+      this.FunctionService.SelectNodeById(node.idNode);
       this.snackBar.open(`${ this.DataService.SelectedTool.name } created`, "Ok", {
         duration: 2000,
         panelClass: ["snackBarStyle"]

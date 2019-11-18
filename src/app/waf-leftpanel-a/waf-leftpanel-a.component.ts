@@ -135,7 +135,7 @@ export class WafLeftpanelAComponent implements OnInit {
     private DataService: WafDataService,
     private FunctionService: WafFunctionService
   ) {
-    this._NodeClass = new WafNodeClass(this.DataService, this.FunctionService);
+    this._NodeClass = new WafNodeClass(this.DataService);
 
     this.dataSource.data = this.treeData;
   }

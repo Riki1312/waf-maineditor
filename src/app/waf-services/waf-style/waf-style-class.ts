@@ -1,12 +1,11 @@
 import { WafStyle, StyleData, StyleVariable } from '../waf-main.service';
 import { WafDataService } from '../waf-data.service';
-import { WafFunctionService } from '../waf-function.service';
 
 //
 
 export class WafStyleClass {
 
-  constructor(private DataService: WafDataService, private FunctionService: WafFunctionService) { }
+  constructor(private DataService: WafDataService) { }
 
   //
 

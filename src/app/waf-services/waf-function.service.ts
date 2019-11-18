@@ -17,8 +17,8 @@ export class WafFunctionService {
   //
   
   constructor(private MainService: WafMainService, private DataService: WafDataService) {
-    this._NodeClass = new WafNodeClass(this.DataService, this);
-    this._StyleClass = new WafStyleClass(this.DataService, this);
+    this._NodeClass = new WafNodeClass(this.DataService);
+    this._StyleClass = new WafStyleClass(this.DataService);
   }
 
   //Select

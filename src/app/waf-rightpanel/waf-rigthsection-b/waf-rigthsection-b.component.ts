@@ -58,7 +58,7 @@ export class WafRigthsectionBComponent implements OnInit {
   private _StyleClass: WafStyleClass;
 
   constructor(private MainService: WafMainService, private DataService: WafDataService, private FunctionService: WafFunctionService) {
-    this._StyleClass = new WafStyleClass(this.DataService, this.FunctionService);
+    this._StyleClass = new WafStyleClass(this.DataService);
   }
 
   ngOnInit() {

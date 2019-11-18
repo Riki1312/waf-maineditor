@@ -51,7 +51,7 @@ export class WafRightpanelSectionbaseComponent implements OnInit {
     private DataService: WafDataService,
     private FunctionService: WafFunctionService
   ) {
-    this._StyleClass = new WafStyleClass(this.DataService, this.FunctionService);
+    this._StyleClass = new WafStyleClass(this.DataService);
   }
 
   ngOnInit() {

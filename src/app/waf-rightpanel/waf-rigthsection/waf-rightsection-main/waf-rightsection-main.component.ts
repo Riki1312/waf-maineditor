@@ -62,8 +62,8 @@ export class WafRightsectionMainComponent implements OnInit {
 
   //
 
-  @ViewChild('classInput', { static: false }) classInput: ElementRef<HTMLInputElement>;
-  @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
+  @ViewChild('classInput') classInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
   //
 

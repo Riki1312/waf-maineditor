@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { DomSanitizer } from '@angular/platform-browser';
 
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { WafMainService, ElementsCode, WafNode } from '../waf-services/waf-main.service';
 import { WafDataService } from '../waf-services/waf-data.service';

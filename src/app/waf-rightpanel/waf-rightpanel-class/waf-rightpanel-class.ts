@@ -1,4 +1,4 @@
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { WafDataService } from '../../waf-services/waf-data.service';
 import { WafFunctionService } from '../../waf-services/waf-function.service';

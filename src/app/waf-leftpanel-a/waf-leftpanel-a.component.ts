@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 
 import { NestedTreeControl } from '@angular/cdk/tree';
-import { MatTreeNestedDataSource } from '@angular/material';
+import { MatTreeNestedDataSource } from '@angular/material/tree';
 
 import { WafNode, ElementsCode } from '../waf-services/waf-main.service';
 import { WafDataService } from '../waf-services/waf-data.service';

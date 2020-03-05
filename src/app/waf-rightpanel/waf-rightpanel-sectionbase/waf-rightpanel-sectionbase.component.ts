@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { WafMainService, WafStyle } from '../../waf-services/waf-main.service';
 import { WafDataService } from '../../waf-services/waf-data.service';

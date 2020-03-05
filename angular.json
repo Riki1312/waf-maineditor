@@ -122,6 +122,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "waf-studio"
+    }
+  },
+  "defaultProject": "waf-studio",
+  "cli": {
+    "analytics": "21ee833d-b6de-40ec-81dd-c1b5a892ae1c"
+  }
 }

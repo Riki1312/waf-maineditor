@@ -23,7 +23,7 @@
     "@angular/router": "9.0.5",
     "caniuse-lite": "^1.0.30001010",
     "core-js": "2.6.9",
-    "rxjs": "6.5.4",
+    "rxjs": "6.6.3",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },

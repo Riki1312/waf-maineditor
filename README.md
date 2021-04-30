@@ -1,6 +1,6 @@
 # WafStudio (beta)
 
-Edit with StackBlitz ⚡️ https://stackblitz.com/edit/waf-editor
+https://wafstudio-beta.web.app/
 
 ## Development server
 

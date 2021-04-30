@@ -21,20 +21,20 @@
     "@angular/platform-browser": "11.2.12",
     "@angular/platform-browser-dynamic": "11.2.12",
     "@angular/router": "11.2.12",
-    "caniuse-lite": "^1.0.30001010",
+    "caniuse-lite": "^1.0.30001219",
     "core-js": "2.6.9",
     "rxjs": "6.6.3",
-    "tslib": "^2.0.0",
+    "tslib": "^2.2.0",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1100.5",
+    "@angular-devkit/build-angular": "^0.1100.7",
     "@angular/cli": "^11.2.11",
     "@angular/compiler-cli": "^11.2.12",
     "@angular/language-service": "^11.2.12",
-    "@types/jasmine": "~3.6.0",
+    "@types/jasmine": "^3.6.10",
     "@types/jasminewd2": "^2.0.8",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.20.11",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
@@ -46,6 +46,6 @@
     "protractor": "~7.0.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.5"
+    "typescript": "^4.0.7"
   }
 }

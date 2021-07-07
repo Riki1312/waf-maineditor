@@ -1,14 +1,15 @@
+@use '~@angular/material' as mat;
 @import '~@angular/material/theming';
 
-@include mat-core();
+@include mat.core();
 
 //
 
-$my-theme-primary: mat-palette($mat-cyan, 700, 300, 900);
-$my-theme-accent: mat-palette($mat-blue-grey);
-$my-theme-warn: mat-palette($mat-orange, A200);
+$my-theme-primary: mat.define-palette(mat.$cyan-palette, 700, 300, 900);
+$my-theme-accent: mat.define-palette(mat.$blue-grey-palette);
+$my-theme-warn: mat.define-palette(mat.$orange-palette, A200);
 
-$waf-theme-dark: mat-dark-theme(
+$waf-theme-dark: mat.define-dark-theme(
   $my-theme-primary,
   $my-theme-accent,
   $my-theme-warn

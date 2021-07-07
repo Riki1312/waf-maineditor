@@ -1,10 +1,11 @@
+@use '~@angular/material' as mat;
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 @import 'theme.scss';
 @import 'waf/variables.scss';
 
 .theme-dark {
-  @include angular-material-theme($waf-theme-dark);
+  @include mat.all-component-themes($waf-theme-dark);
 }
 
 /**/
